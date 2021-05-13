@@ -87,6 +87,7 @@ INSTALLED_APPS = (
     "django.contrib.sites",
     "django.contrib.staticfiles",
     # Extra apps
+    "django_saml2_auth",
     "rest_framework",
     "drf_yasg",
     "rest_framework_mongoengine",
