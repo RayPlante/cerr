@@ -18,7 +18,14 @@ from django.urls import re_path
 
 from core_parser_app.tools.modules.discover import discover_modules
 
+import django_saml2_auth.views
+
 urlpatterns = [
+    re_path(r'^saml2_auth/', include('django_saml2_auth.urls')),
+    re_path(r'^accounts/login/$', django_saml2_auth.views.signin),
+    re_path(r'^admin/login/$', django_saml2_auth.views.signin),
+    re_path(r'^login/$', django_saml2_auth.views.signin),
+    re_path(r'^login', django_saml2_auth.views.signin),
     re_path(r"^admin/", admin.site.urls),
     re_path(r"^admin/defender/", include("defender.urls")),
     re_path(r"^", include("core_main_registry_app.urls")),
