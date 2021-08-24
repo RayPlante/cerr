@@ -87,7 +87,6 @@ INSTALLED_APPS = (
     "django.contrib.sites",
     "django.contrib.staticfiles",
     # Extra apps
-    "django_saml2_auth",
     "rest_framework",
     "drf_yasg",
     "rest_framework_mongoengine",
@@ -460,11 +459,22 @@ if ENABLE_SAML2_SSO_AUTH:
         os.getenv("SAML_CREATE_UNKNOWN_USER", "False").lower() == "true"
     )
     SAML_ATTRIBUTE_MAPPING = {
-        "uid": ("username",),
-        "mail": ("email",),
-        "cn": ("first_name",),
-        "sn": ("last_name",),
+        "windowsAccountName": ("username",),
+        "commonname": ("first_name",),
+        "surname": ("last_name",),
+        "emailaddress": ("email",),
     }
-
     # Configure Pysaml2
     SAML_CONFIG = load_saml_config_from_env(server_uri=SERVER_URI, base_dir=BASE_DIR)
+
+    SAML_CONFIG["service"]["sp"]["logout_responses_signed"] = False
+    SAML_CONFIG["service"]["sp"]["logout_requests_signed"] = True
+
+    SAML_CONFIG["service"]["sp"]["signing_algorithm"] = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
+    SAML_CONFIG["service"]["sp"]["digest_algorithm"] = "http://www.w3.org/2001/04/xmlenc#sha256"
+
+
+    SAML_CONFIG["metadata"] = {
+    "local": ["/srv/curator/federationmetadata.xml"]
+    }
+
