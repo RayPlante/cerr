@@ -18,32 +18,26 @@ from django.urls import re_path
 
 from core_parser_app.tools.modules.discover import discover_modules
 
-import django_saml2_auth.views
-
 urlpatterns = [
-    re_path(r'^saml2_auth/', include('django_saml2_auth.urls')),
-    re_path(r'^accounts/login/$', django_saml2_auth.views.signin),
-    re_path(r'^admin/login/$', django_saml2_auth.views.signin),
-    re_path(r'^login/$', django_saml2_auth.views.signin),
-    re_path(r'^login', django_saml2_auth.views.signin),
-    re_path(r"^admin/", admin.site.urls),
-    re_path(r"^admin/defender/", include("defender.urls")),
-    re_path(r"^", include("core_main_registry_app.urls")),
-    re_path(r"^home/", include("nmrr_home.urls")),
-    re_path(r"^", include("core_website_app.urls")),
-    re_path(r"^curate/", include("core_curate_registry_app.urls")),
-    re_path(r"^parser/", include("core_parser_app.urls")),
-    re_path(r"^explore/common/", include("core_explore_common_app.urls")),
-    re_path(r"^explore/keyword/", include("core_explore_keyword_registry_app.urls")),
-    re_path(r"^oaipmh_search/", include("core_explore_oaipmh_app.urls")),
-    re_path(r"^dashboard/", include("core_dashboard_registry_app.urls")),
-    re_path(r"^oai_pmh/", include("core_oaipmh_harvester_app.urls")),
-    re_path(r"^oai_pmh/server/", include("core_oaipmh_provider_app.urls")),
-    re_path(r"^", include("core_module_local_id_registry_app.urls")),
-    re_path(r"^", include("core_module_status_registry_app.urls")),
-    re_path(r"^", include("core_module_fancy_tree_registry_app.urls")),
-    re_path(r"^", include("core_module_text_area_app.urls")),
+    re_path(r'^admin/', admin.site.urls),
+    re_path(r'^admin/defender/', include('defender.urls')),
+    re_path(r'^', include("core_main_registry_app.urls")),
+    re_path(r'^home/', include("nmrr_home.urls")),
+    re_path(r'^', include("core_website_app.urls")),
+    re_path(r'^curate/', include("core_curate_registry_app.urls")),
+    re_path(r'^parser/', include("core_parser_app.urls")),
+    re_path(r'^explore/common/', include("core_explore_common_app.urls")),
+    re_path(r'^explore/keyword/', include("core_explore_keyword_registry_app.urls")),
+    re_path(r'^oaipmh_search/', include("core_explore_oaipmh_app.urls")),
+    re_path(r'^dashboard/', include("core_dashboard_registry_app.urls")),
+    re_path(r'^oai_pmh/', include("core_oaipmh_harvester_app.urls")),
+    re_path(r'^oai_pmh/server/', include("core_oaipmh_provider_app.urls")),
+    re_path(r'^', include('core_module_local_id_registry_app.urls')),
+    re_path(r'^', include('core_module_status_registry_app.urls')),
+    re_path(r'^', include('core_module_fancy_tree_registry_app.urls')),
+    re_path(r'^', include('core_module_text_area_app.urls')),
     re_path(r"^pid/", include("core_linked_records_app.urls")),
+    #re_path(r'^elasticsearch/', include("core_elasticsearch_app.urls")),
 ]
 
 # TODO: see if we can automate the discovery and run it from parser app
