@@ -19,6 +19,16 @@ from core_main_app.utils.logger.logger_utils import (
 )
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# RT_DIR = os.path.join(os.path.dirname(BASE_DIR), "rt-cerr")
+
+REGISTRY_XSD_FILENAME = "ce-res-md.xsd"
+CUSTOM_REGISTRY_FILE_PATH = os.path.join("json", "ce_registry.json")
+
+WEBSITE_SHORT_TITLE = "CERR"
+CUSTOM_DATA = "New Resource"   # used on data entry page to identify the form
+CUSTOM_NAME = os.environ["SERVER_NAME"] if "SERVER_NAME" in os.environ else "CERR"
+CUSTOM_TITLE = "Circular Economy Resource Registry"
+CUSTOM_SUBTITLE = "A NIST Initiative"
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = (
