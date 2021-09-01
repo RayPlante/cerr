@@ -184,3 +184,15 @@ OAI_ENABLE_HARVESTING = True
 ENABLE_SAML2_SSO_AUTH = os.getenv("ENABLE_SAML2_SSO_AUTH", "False").lower() == "true"
 """ boolean: enable SAML2 SSO authentication.
 """
+
+XSL_FOLDER_PATH = "xsl"
+""" str: Xsl folder path used for the initialisation.
+"""
+
+LIST_XSL_FILENAME = "ceregistry-list.xsl"
+"""" str : List xsl filename used for the initialisation.
+"""
+
+DETAIL_XSL_FILENAME = "ceregistry-detail.xsl"
+"""  str : Detail xsl filename used for the initialisation.
+"""
