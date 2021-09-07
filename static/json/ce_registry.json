@@ -52,7 +52,7 @@
     "role_choice": "Dataset",
     "role_type": "Dataset",
     "type": "resource",
-    "sort": 3,
+    "sort": 4,
     "refinements": ["unspecified Dataset", "Database"]
   },
   "WebSite": {
@@ -64,7 +64,7 @@
     "role_choice": "WebSite",
     "role_type": "Web Site: Informational",
     "type": "resource",
-    "sort": 8,
+    "sort": 5,
     "refinements": ["Informational", "InteractiveResource: Portal"]
   },
   "Tool": {
@@ -76,7 +76,7 @@
     "role_choice": "Tool",
     "role_type": "Tool",
     "type": "resource",
-    "sort": 9,
+    "sort": 6,
     "refinements": ["Desktop App", "Web App", "Software Library"]
   }
 }
