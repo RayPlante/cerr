@@ -108,7 +108,7 @@ INSTALLED_APPS = (
     "core_main_app",
     "core_main_registry_app",
     "core_website_app",
-    "core_user_registration_app"
+    "core_user_registration_app",
     "core_oaipmh_common_app",
     "core_oaipmh_harvester_app",
     "core_oaipmh_provider_app",
