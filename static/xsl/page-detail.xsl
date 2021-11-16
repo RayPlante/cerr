@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
-    xmlns:nr="http://schema.nist.gov/xml/ce-res-md/1.0wd1">
+    xmlns:nr="http://schema.nist.gov/xml/ce-res-md/1.0wd2">
     <xsl:output method="html" indent="yes" encoding="UTF-8" />
 
 	<xsl:template match="/">
@@ -30,7 +30,7 @@
 
 
 
-       	<h1 xmlns:nr="http://schema.nist.gov/xml/ce-res-md/1.0wd1" style="color: #000;font-size: 2.7em;margin-bottom: 10px;"><xsl:value-of select="//nr:Resource/nr:identity/nr:title"/></h1>
+       	<h1 style="color: #000;font-size: 2.7em;margin-bottom: 10px;"><xsl:value-of select="//nr:Resource/nr:identity/nr:title"/></h1>
        	<xsl:apply-templates select="nr:Resource/nr:providers"/>
 		<xsl:apply-templates select="nr:Resource/nr:role"/>
 		<xsl:apply-templates select="nr:Resource/nr:content"/>
