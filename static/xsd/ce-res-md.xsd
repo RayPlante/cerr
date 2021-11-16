@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://schema.nist.gov/xml/ce-res-md/1.0wd1" 
+<xs:schema targetNamespace="http://schema.nist.gov/xml/ce-res-md/1.0wd2" 
            xmlns="http://www.w3.org/2001/XMLSchema"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:rsm="http://schema.nist.gov/xml/ce-res-md/1.0wd1"
+           xmlns:rsm="http://schema.nist.gov/xml/ce-res-md/1.0wd2"
            xmlns:am="http://schema.nist.gov/xml/nmrr.schema.annot"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified" version="0.10-02-2017">
@@ -1782,7 +1782,7 @@
           </xs:annotation>
        </xs:element>
 
-       <xs:element name="primaryAudience" type="rsm:Audience" minOccurs="0">
+       <xs:element name="primaryAudience" type="rsm:Audience" minOccurs="0" maxOccurs="2">
           <xs:annotation>
             <xs:appinfo>
               <label>Primary Audience</label>
@@ -2381,12 +2381,26 @@
                        minOccurs="0" maxOccurs="unbounded">
              <xs:annotation>
                <xs:appinfo>
-                 <!-- <module>module-fancy-tree-registry</module> -->
+                 <module>module-fancy-tree-registry</module>
                  <label>Product Class</label>
                </xs:appinfo>
                <xs:documentation>
                  the category of product to be processed or recycled that 
                  this resource is concerned with.
+               </xs:documentation>
+             </xs:annotation>
+           </xs:element>
+
+           <xs:element name="lifecyclePhase" type="rsm:Lifecycle_phase"
+                       minOccurs="0" maxOccurs="unbounded">
+             <xs:annotation>
+               <xs:appinfo>
+                 <module>module-fancy-tree-registry</module>
+                 <label>Lifecycle Phase</label>
+               </xs:appinfo>
+               <xs:documentation>
+                 the reprocessing technique for reuse or recycling of concern
+                 to this resource.
                </xs:documentation>
              </xs:annotation>
            </xs:element>
@@ -2405,6 +2419,7 @@
              </xs:annotation>
            </xs:element>
 
+           <!--
            <xs:element name="synthesisProcessing"
                        type="rsm:Synthesis_and_processing"
                        minOccurs="0" maxOccurs="unbounded">
@@ -2419,20 +2434,7 @@
                </xs:documentation>
              </xs:annotation>
            </xs:element>
-
-           <xs:element name="circularPathway" type="rsm:Pathway_type"
-                       minOccurs="0" maxOccurs="unbounded">
-             <xs:annotation>
-               <xs:appinfo>
-                 <!-- <module>module-fancy-tree-registry</module> -->
-                 <label>Circular Pathway</label>
-               </xs:appinfo>
-               <xs:documentation>
-                 the reprocessing technique for reuse or recycling of concern
-                 to this resource.
-               </xs:documentation>
-             </xs:annotation>
-           </xs:element>
+           -->
 
          </xs:sequence>
        </xs:extension>
@@ -2460,32 +2462,243 @@
      </xs:restriction>
    </xs:simpleType>
 
-   <xs:simpleType name="Product_class">
+   <xs:complexType name="Product_class">
      <xs:annotation>
        <xs:documentation>
          a catagory of product to be processed or recycled
        </xs:documentation>
      </xs:annotation>
 
-     <xs:restriction base="xs:token">
-       <xs:enumeration value="batteries"/>
-       <xs:enumeration value="electronics"/>
-       <xs:enumeration value="organics"/>
-       <xs:enumeration value="packaging"/>
-       <xs:enumeration value="textiles"/>
-     </xs:restriction>
-   </xs:simpleType>
+     <xs:choice minOccurs="0">
+       <xs:element name="batteries" type="rsm:batteries_Product_class"/>
+       <xs:element name="electronics" type="rsm:electronics_Product_class"/>
+       <xs:element name="organics" type="rsm:organics_Product_class"/>
+       <xs:element name="solarpanels" type="rsm:solarpanels_Product_class"/>
+       <xs:element name="packaging" type="rsm:packaging_Product_class"/>
+       <xs:element name="buildingmaterials" type="rsm:buildingmaterials_Product_class"/>
+       <xs:element name="textiles" type="rsm:textiles_Product_class"/>
+     </xs:choice>
+   </xs:complexType>
 
-   <xs:simpleType name="Pathway_type">
+   <xs:simpleType name="batteries_Product_class">
      <xs:annotation>
        <xs:documentation>
-         a type of product reprocessing technique for reuse or recycling
+         Allowed values for batteries vocabulary terms describing product class
        </xs:documentation>
      </xs:annotation>
 
      <xs:restriction base="xs:token">
-       <xs:enumeration value="solvents"/>
-       <xs:enumeration value="mechanical"/>
+       <xs:enumeration value="batteries"/>
+     </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="electronics_Product_class">
+     <xs:annotation>
+       <xs:documentation>
+         Allowed values for electronics vocabulary terms describing product class
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="electronics"/>
+     </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="organics_Product_class">
+     <xs:annotation>
+       <xs:documentation>
+         Allowed values for organics vocabulary terms describing product class
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="organics"/>
+     </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="solarpanels_Product_class">
+     <xs:annotation>
+       <xs:documentation>
+         Allowed values for solar panels vocabulary terms describing product class
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="solar panels"/>
+     </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="packaging_Product_class">
+     <xs:annotation>
+       <xs:documentation>
+         Allowed values for packaging vocabulary terms describing product class
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="packaging"/>
+       <xs:enumeration value="packaging: glass"/>
+       <xs:enumeration value="packaging: plastic"/>
+       <xs:enumeration value="packaging: metals"/>
+       <xs:enumeration value="packaging: fiber"/>
+     </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="buildingmaterials_Product_class">
+     <xs:annotation>
+       <xs:documentation>
+         Allowed values for building materials vocabulary terms describing product class
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="building materials"/>
+       <xs:enumeration value="building materials: wood"/>
+       <xs:enumeration value="building materials: glass"/>
+       <xs:enumeration value="building materials: concrete"/>
+     </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="textiles_Product_class">
+     <xs:annotation>
+       <xs:documentation>
+         Allowed values for textiles vocabulary terms describing product class
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="textiles"/>
+     </xs:restriction>
+   </xs:simpleType>
+
+   <xs:complexType name="Lifecycle_phase">
+     <xs:annotation>
+       <xs:documentation>
+         Phases in the lifecycle of a material in the circular economy
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:choice minOccurs="0">
+       <xs:element name="materialsdesign" type="rsm:materialsdesign_Lifecycle_phase"/>
+       <xs:element name="processing" type="rsm:processing_Lifecycle_phase"/>
+       <xs:element name="productdesign" type="rsm:productdesign_Lifecycle_phase"/>
+       <xs:element name="useandreuse" type="rsm:useandreuse_Lifecycle_phase"/>
+       <xs:element name="repairandrefurbishment" type="rsm:repairandrefurbishment_Lifecycle_phase"/>
+       <xs:element name="collectionandsortation" type="rsm:collectionandsortation_Lifecycle_phase"/>
+       <xs:element name="recycling" type="rsm:recycling_Lifecycle_phase"/>
+       <xs:element name="marketdevelopment" type="rsm:marketdevelopment_Lifecycle_phase"/>
+       <xs:element name="endoflifemanagement" type="rsm:endoflifemanagement_Lifecycle_phase"/>
+     </xs:choice>
+   </xs:complexType>
+
+   <xs:simpleType name="materialsdesign_Lifecycle_phase">
+     <xs:annotation>
+       <xs:documentation>
+         Allowed values for materials design vocabulary terms describing Lifecycle Phase
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="materials design"/>
+     </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="processing_Lifecycle_phase">
+     <xs:annotation>
+       <xs:documentation>
+         Allowed values for processing vocabulary terms describing Lifecycle Phase
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="processing"/>
+     </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="productdesign_Lifecycle_phase">
+     <xs:annotation>
+       <xs:documentation>
+         Allowed values for product design vocabulary terms describing Lifecycle Phase
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="product design"/>
+     </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="useandreuse_Lifecycle_phase">
+     <xs:annotation>
+       <xs:documentation>
+         Allowed values for use and reuse vocabulary terms describing Lifecycle Phase
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="use and reuse"/>
+     </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="repairandrefurbishment_Lifecycle_phase">
+     <xs:annotation>
+       <xs:documentation>
+         Allowed values for repair and refurbishment vocabulary terms describing Lifecycle Phase
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="repair and refurbishment"/>
+     </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="collectionandsortation_Lifecycle_phase">
+     <xs:annotation>
+       <xs:documentation>
+         Allowed values for collection and sortation vocabulary terms describing Lifecycle Phase
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="collection and sortation"/>
+     </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="recycling_Lifecycle_phase">
+     <xs:annotation>
+       <xs:documentation>
+         Allowed values for recycling vocabulary terms describing Lifecycle Phase
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="recycling"/>
+       <xs:enumeration value="recycling: mechanical"/>
+       <xs:enumeration value="recycling: solvent processing and extraction"/>
+       <xs:enumeration value="recycling: mechanical"/>
+     </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="marketdevelopment_Lifecycle_phase">
+     <xs:annotation>
+       <xs:documentation>
+         Allowed values for market development vocabulary terms describing Lifecycle Phase
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="market development"/>
+     </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="endoflifemanagement_Lifecycle_phase">
+     <xs:annotation>
+       <xs:documentation>
+         Allowed values for end-of-life management vocabulary terms describing Lifecycle Phase
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="end-of-life management"/>
      </xs:restriction>
    </xs:simpleType>
 
@@ -2497,41 +2710,36 @@
      </xs:annotation>
 
      <xs:choice minOccurs="0">
-         <xs:element name="biomaterials" type="rsm:biomaterials_Material_types"/>
-         <xs:element name="ceramics" type="rsm:ceramics_Material_types"/>
+         <xs:element name="biomass" type="rsm:biomass_Material_types"/>
+         <xs:element name="glass" type="rsm:glass_Material_types"/>
          <xs:element name="metals_and_alloys" type="rsm:metals_and_alloys_Material_types"/>
-         <xs:element name="organic_compounds" type="rsm:organic_compounds_Material_types"/>
-         <xs:element name="polymers" type="rsm:polymers_Material_types"/>
+         <xs:element name="polymers_property_based" type="rsm:polymers_property_Material_types"/>
+         <xs:element name="polymers_chemistry_based" type="rsm:polymers_chemistry_Material_types"/>
+         <xs:element name="small_organic_compounds" type="rsm:small_organic_compounds_Material_types"/>
      </xs:choice>
    </xs:complexType>
 
-   <xs:simpleType name="biomaterials_Material_types">
+   <xs:simpleType name="biomass_Material_types">
      <xs:annotation>
        <xs:documentation>
-         Allowed values for biomaterials vocabulary terms describing Material types
+         Allowed values for biomass vocabulary terms describing Material types
        </xs:documentation>
      </xs:annotation>
 
      <xs:restriction base="xs:token">
-       <xs:enumeration value="biomaterials"/>
+       <xs:enumeration value="biomass"/>
      </xs:restriction>
    </xs:simpleType>
 
-   <xs:simpleType name="ceramics_Material_types">
+   <xs:simpleType name="glass_Material_types">
      <xs:annotation>
        <xs:documentation>
-         Allowed values for ceramics vocabulary terms describing Material types
+         Allowed values for glass vocabulary terms describing Material types
        </xs:documentation>
      </xs:annotation>
 
      <xs:restriction base="xs:token">
-       <xs:enumeration value="ceramics"/>
-       <xs:enumeration value="ceramics: carbides"/>
-       <xs:enumeration value="ceramics: cements"/>
-       <xs:enumeration value="ceramics: nitrides"/>
-       <xs:enumeration value="ceramics: oxides"/>
-       <xs:enumeration value="ceramics: perovskites"/>
-       <xs:enumeration value="ceramics: silicates"/>
+       <xs:enumeration value="glass"/>
      </xs:restriction>
    </xs:simpleType>
 
@@ -2544,65 +2752,60 @@
 
      <xs:restriction base="xs:token">
        <xs:enumeration value="metals and alloys"/>
-       <xs:enumeration value="metals and alloys: Al-containing"/>
-       <xs:enumeration value="metals and alloys: commercially pure metals"/>
-       <xs:enumeration value="metals and alloys: Cu-containing"/>
-       <xs:enumeration value="metals and alloys: Fe-containing"/>
-       <xs:enumeration value="metals and alloys: intermetallics"/>
-       <xs:enumeration value="metals and alloys: Mg-containing"/>
-       <xs:enumeration value="metals and alloys: Ni-containing"/>
-       <xs:enumeration value="metals and alloys: rare earths"/>
-       <xs:enumeration value="metals and alloys: refractories"/>
-       <xs:enumeration value="metals and alloys: steels"/>
-       <xs:enumeration value="metals and alloys: superalloys"/>
-       <xs:enumeration value="metals and alloys: Ti-containing"/>
+       <xs:enumeration value="metals and alloys: rare earth elements"/>  <!-- critical materials: -->
+       <xs:enumeration value="metals and alloys: ferrous"/>
+       <xs:enumeration value="metals and alloys: non-ferrous"/>
      </xs:restriction>
    </xs:simpleType>
 
-   <xs:simpleType name="organic_compounds_Material_types">
+   <xs:simpleType name="polymers_property_Material_types">
      <xs:annotation>
        <xs:documentation>
-         Allowed values for organic compounds vocabulary terms describing Material types
-       </xs:documentation>
-     </xs:annotation>
-
-     <xs:restriction base="xs:token">
-       <xs:enumeration value="organic compounds"/>
-       <xs:enumeration value="organic compounds: alcohols"/>
-       <xs:enumeration value="organic compounds: aldehydes"/>
-       <xs:enumeration value="organic compounds: alkanes"/>
-       <xs:enumeration value="organic compounds: alkenes"/>
-       <xs:enumeration value="organic compounds: alkynes"/>
-       <xs:enumeration value="organic compounds: amines"/>
-       <xs:enumeration value="organic compounds: carboxylic acids"/>
-       <xs:enumeration value="organic compounds: cyclic compounds"/>
-       <xs:enumeration value="organic compounds: cycloalkanes"/>
-       <xs:enumeration value="organic compounds: esters"/>
-       <xs:enumeration value="organic compounds: ketones"/>
-       <xs:enumeration value="organic compounds: nitriles"/>
-     </xs:restriction>
-   </xs:simpleType>
-
-   <xs:simpleType name="polymers_Material_types">
-     <xs:annotation>
-       <xs:documentation>
-         Allowed values for polymers vocabulary terms describing Material types
+         Allowed values for property-based polymer vocabulary terms describing Material types
        </xs:documentation>
      </xs:annotation>
 
      <xs:restriction base="xs:token">
        <xs:enumeration value="polymers"/>
-       <xs:enumeration value="polymers: copolymers"/>
-       <xs:enumeration value="polymers: elastomers"/>
-       <xs:enumeration value="polymers: homopolymers"/>
-       <xs:enumeration value="polymers: liquid crystals"/>
-       <xs:enumeration value="polymers: polymer blends"/>
-       <xs:enumeration value="polymers: rubbers"/>
-       <xs:enumeration value="polymers: thermoplastics"/>
-       <xs:enumeration value="polymers: thermosets"/>
+       <xs:enumeration value="polymers: property-based"/>
+       <xs:enumeration value="polymers: property-based: elastomers"/>
+       <xs:enumeration value="polymers: property-based: liquid crystals"/>
+       <xs:enumeration value="polymers: property-based: thermoplastics"/>
+       <xs:enumeration value="polymers: property-based: thermosets"/>
      </xs:restriction>
    </xs:simpleType>
 
+   <xs:simpleType name="polymers_chemistry_Material_types">
+     <xs:annotation>
+       <xs:documentation>
+         Allowed values for chemistry-based polymer vocabulary terms describing Material types
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="polymers: chemistry-based"/>
+       <xs:enumeration value="polymers: chemistry-based: polyolefins"/>
+       <xs:enumeration value="polymers: chemistry-based: polyesters"/>
+       <xs:enumeration value="polymers: chemistry-based: polyamides"/>
+       <xs:enumeration value="polymers: chemistry-based: polystyrenes"/>
+       <xs:enumeration value="polymers: chemistry-based: polycarbonates"/>
+       <xs:enumeration value="polymers: chemistry-based: specialty polymers"/>
+     </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="small_organic_compounds_Material_types">
+     <xs:annotation>
+       <xs:documentation>
+         Allowed values for small organic compounds vocabulary terms describing Material types
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="small organic compounds"/>
+     </xs:restriction>
+   </xs:simpleType>
+
+   <!-- 
    <xs:complexType name="Synthesis_and_processing">
      <xs:annotation>
        <xs:documentation>
@@ -2841,7 +3044,8 @@
        <xs:enumeration value="solidification: single crystal solidification"/>
        <xs:enumeration value="solidification: zone refining"/>
      </xs:restriction>
-   </xs:simpleType>
+     </xs:simpleType>
+     -->
 
 <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   -  end mse_vocab.xsd inlined
@@ -3718,18 +3922,24 @@
            </xs:documentation>
          </xs:annotation>
        </xs:enumeration>
-       <xs:enumeration value="public outreachers">
-         <xs:annotation>
-           <xs:documentation>
-             intended for broad public consumption for purposes of news 
-             and awareness
-           </xs:documentation>
-         </xs:annotation>
-       </xs:enumeration>
        <xs:enumeration value="policy makers">
          <xs:annotation>
            <xs:documentation>
              intended for policy makers and governmental agencies
+           </xs:documentation>
+         </xs:annotation>
+       </xs:enumeration>
+       <xs:enumeration value="general public">
+         <xs:annotation>
+           <xs:documentation>
+             intended for broad public consumption for purposes of news and awareness
+           </xs:documentation>
+         </xs:annotation>
+       </xs:enumeration>
+       <xs:enumeration value="communication specialists">
+         <xs:annotation>
+           <xs:documentation>
+             intended for people producing material for broad public awareness and informal education
            </xs:documentation>
          </xs:annotation>
        </xs:enumeration>
