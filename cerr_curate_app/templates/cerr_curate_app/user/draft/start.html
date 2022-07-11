@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Create a New Record</title>
+  <script src="{% static 'cerr_curate_app/js/jquery.slim.min.js' %}" ></script>
+  <link href="{% static 'cerr_curate_app/css/main.css' %}" rel="stylesheet">
+  <link href="{% static 'cerr_curate_app/user/base/css/forms.css' %}" rel="stylesheet">
+</head>
+
+<body id="content">
+<h1>Create or Upload a New Record</h1>
+
+<form enctype="multipart/form-data"  method="post">
+{% csrf_token %}
+
+  {{ startform }}
+  <div style="margin-top: 2ex">
+  <input type="submit" value="Edit new record"/>
+  </div>
+</form>
+
+
+
+</body> </html>

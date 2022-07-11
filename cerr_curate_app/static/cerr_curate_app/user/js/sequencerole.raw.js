@@ -1,0 +1,1 @@
+var sequenceFormUrl = "{% url 'ajax_get_role' %}";

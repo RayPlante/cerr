@@ -1,0 +1,165 @@
+{% load crispy_forms_tags %}
+
+
+<script>
+    var onjQueryReady = function (method) {
+        if (window.jQuery) {
+            method();
+        }
+        else {
+            setTimeout(function () { onjQueryReady(method) }, 50);
+        }
+    };
+    /**
+     * Get script in param thanks to its url.
+     * Use a cache to avoid getting several time the same script.
+     * @param url
+     * @param options
+     */
+    cachedScript = function (url, options) {
+        // Allow user to set any option except for dataType, cache, and url
+        options = $.extend(options || {}, {
+            dataType: "script",
+            cache: true,
+            url: url
+        });
+
+        // Use $.ajax() since it is more flexible than $.getScript
+        // Return the jqXHR object so we can chain callbacks
+        return $.ajax(options);
+    };
+
+
+    click = function() {
+    console.log("CLIIIIIIICK")
+    }
+
+
+</script>
+<head>
+     {% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static '/cerr_curate_app/user/forms/css/editform.css' %}">
+
+</head>
+<div class="forms-content">
+<div class="body-text">
+    <div class="boldLabel">
+    {{form.title|as_crispy_field }}
+    {{form.publisher|as_crispy_field }}
+    {{form.description|as_crispy_field }}
+    </div>
+
+    {{ errors }}
+    <div class="form-check">
+        {{ form.start_meth.0 }}
+    </div>
+    <div class="top1">
+        {{form.urlform}}
+    </div>
+        <div class="form-check">
+            {{ form.start_meth.1 }}
+        </div>
+
+        <div>
+            {{form.audienceform }}
+        </div>
+        <div  class="boldLabel">
+
+            {{form.productform }}
+        </div>
+        <div  class="boldLabel">
+            <div class="form-check">
+                {{ form.start_meth.2 }}
+            </div>
+            <div class="top1">
+                {{form.material }}
+            </div>
+
+            <div class="top1">
+                {{form.lifecycle }}
+            </div>
+
+        </div>
+
+        <div class="top1">
+            {{ form.keywordsform }}
+        </div>
+
+    <div class="top1 boldLabel">
+        {{form.roles}}
+    </div>
+
+<!--    <div>-->
+<!--        {{form.synthesisform}}-->
+<!--    </div>-->
+</div>
+
+
+    <div id="canvas-left">
+        <div class="fixed">
+
+    <div class="second">
+            <button class="btn btn-success btn-sm" type="submit" onclick="click()"><span>Save</span> <i class="fas fa-save"></i> </button>
+
+
+            <button class="btn btn-warning btn-sm" type="button"><span>Undo</span><i class="fas fa-undo"></i></button>
+
+                <button class="btn btn-danger btn-sm" type="reset"><span>Clear</span><i class="fas fa-times"></i></button>
+
+    </div>
+
+    <div class="third">
+        <div>
+            <details>
+                <summary>Title</summary>
+                <p>Detailed content goes here …</p>
+
+            </details>
+        </div>
+        <div>
+            <details>
+                <summary>Publisher</summary>
+                <p>Detailed content goes here …</p>
+
+            </details>
+        </div>
+        <div>
+            <details>
+                <summary>Description</summary>
+                <p>Detailed content goes here …</p>
+
+            </details>
+        </div>
+        <div>
+            <details>
+                <summary>Homepage URL</summary>
+                <p>Detailed content goes here …</p>
+
+            </details>
+        </div>
+        <div>
+            <details>
+                <summary>Product Class</summary>
+                <p>Detailed content goes here …</p>
+
+            </details>
+        </div>
+        <div>
+            <details>
+                <summary>Material Type</summary>
+                <p>Detailed content goes here …</p>
+
+            </details>
+        </div>
+        <div>
+            <details>
+                <summary>Keywords</summary>
+                <p>Detailed content goes here …</p>
+
+            </details>
+        </div>
+    </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,27 @@
+  <script type="text/javascript">
+  function createrec_disable_create(ev) {
+      // var fs = $("#id_create fieldset")
+      // console.log("flipping disable on "+fs.get(0).localName+" to "+(ev.target.value != "create"));
+      $("#id_create fieldset").get(0).disabled = ev.target.value != "create";
+      $("#id_xmlfile").get(0).disabled = ev.target.value == "create";
+  }
+  </script>
+
+  {{ errors }}
+  <div class="form-check">
+    {{ form.start_meth.0 }}
+  </div>
+  <div style="margin-left: 1.5rem">
+  {{ form.create }}
+  </div>
+
+  <div style="margin-top: 1em;">
+  <div class="form-check">
+    {{ form.start_meth.1 }}
+  </div>
+  <div style="margin-left: 1.5rem; margin-top: .125rem;">
+  {{ form.xmlfile.errors }}
+  {{ form.xmlfile }}
+  </div>
+  </div>
+

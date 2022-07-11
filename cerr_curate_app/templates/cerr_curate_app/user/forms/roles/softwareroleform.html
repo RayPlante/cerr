@@ -1,0 +1,14 @@
+{% load crispy_forms_tags %}
+<div id="software_form">
+{% if form.show_aggregate_errors %}
+{% if form.errors %}<div style="color: red;"><i>Please correct the errors indicated below</i></div>{% endif %}
+{{ errors }}
+{% endif %}
+
+{{ form.code_language|as_crispy_field }}
+{{ form.os_name|as_crispy_field }}
+{{ form.os_version |as_crispy_field}}
+{{ form.license_name |as_crispy_field}}
+{{ form.highlighted_feature |as_crispy_field}}
+
+</div>

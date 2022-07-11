@@ -1,0 +1,79 @@
+.forms-content {
+    display: flex;
+    justify-content: space-between;
+    margin-left:1.5em;
+}
+
+.body-text{
+    margin-right:1.5em;
+    width:65%;
+}
+
+.body-text > div {
+    margin-top: 1.5em;
+}
+
+.top1{
+ margin-top: 1.5em;}
+
+.fixed {
+    position: fixed;
+    width: 29%;
+}
+
+#canvas-left {
+    display: flex;
+    order: 0;
+    flex: 0 0 30%;
+}
+
+.third {
+    position: sticky;
+    font-size: 20px !important;
+    background-color: lightgray;
+    border-radius:2em;
+    padding:1em;
+    padding-left: 2em;
+    margin-top:1em;
+    overflow-y: scroll;
+    max-height:25em;
+}
+
+.third div {
+    margin-top : 1em;
+    font-size:1em;
+}
+
+.second {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top:-4em;
+}
+
+.second button {
+    margin-right: 0.5em;
+    font-size: medium;
+    width: 6em;
+    height: 2.5em;
+    margin-bottom: 1em;
+}
+
+.second span {
+    margin-right: 0.5em;
+}
+
+.boldLabel label{
+    font-weight: bold
+}
+
+#role_form{
+border: 1px black dotted;
+padding: 1em;
+margin-top:1em;
+}
+
+#role_form button{
+margin-left: 2em;
+}

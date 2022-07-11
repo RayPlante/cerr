@@ -1,0 +1,24 @@
+{% with id=widget.attrs.id %}
+<div{% if id %} id="{{ id }}"{% endif %}{% if widget.attrs.class %} class="{{ widget.attrs.class }}"{% endif %}>
+<script type="text/javascript">
+var restype_chosen = null;
+funtion open_subtypes(ev) {
+}
+</script>
+<span>
+{% for group, options, index in widget.optgroups %}
+<div style="width: 20ch; float: left; padding-right: 6px;">
+{% for option in options %}
+{% if option.subindex == 0 %}
+<div>{% include option.template_name with widget=option %}</div>
+<div style="display: block; padding-top: 4px; border-top: 1px solid grey;">
+{% else %}
+<div style="margin-left: 2.5ch;">{% include option.template_name with widget=option %}</div>
+{% endif %}
+{% endfor %}
+</div>
+</div>
+{% endfor %}
+</span>
+</div>
+{% endwith %}

@@ -1,0 +1,53 @@
+#dynamic-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: -2em;
+    }
+
+    #dynamic-list li {
+    color: black;
+    width: auto;
+    margin-right: 2em;
+    background-color: #F4F6F6;
+    border-radius: 10px;
+    padding: 0.5em;
+    font-size: medium;
+    margin-bottom:0.5em;
+
+    list-style-type: none;
+    }
+
+    #dynamic-list li:hover {
+    background-color:#99A3A4;
+    color: white;
+    cursor: pointer;
+    }
+
+    .rmBtn {
+    margin-left: 1em;
+    background-color: none;
+    color: red;
+    }
+
+    #circleFa {
+    font-size: 25px;
+    margin-left: -18px;
+    position: relative;
+    top: 3px;
+    }
+
+    .keywords p {
+    margin-right: 1em;}
+
+    #keywordBox{
+    border: 1px black dotted;
+    padding: 1em;
+    }
+
+    #keyword_form {
+    }
+
+    .btn-keyword {
+    margin-left: 0.5em;
+    }

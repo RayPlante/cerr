@@ -1,0 +1,78 @@
+<script>
+    // Handle a maximum of 'limit' checkboxes selected
+
+    var limit = 2;
+    $(document).ready(function(){
+
+        $("input[type=checkbox]").click(function(){
+            areChecked=$("#primaryAudience input:checked")
+            var all = $("#primaryAudience input")
+            nb_checked= $("#primaryAudience input:checked").length;
+
+            if (nb_checked<limit) {
+                for (var el in all){
+                    if(all[el].parentElement){
+                        all[el].parentElement.classList.remove("grey");
+                    }
+                }
+             }
+            if (nb_checked == limit) {
+                 for (var el in all){
+                    if(!all[el].checked) {
+                        if(all[el].parentElement){
+                            all[el].parentElement.classList.add("grey");
+                       }
+                   }
+                }
+            }
+            if (nb_checked>limit) {
+                console.log('nop too many')
+                this.checked=false;
+            }
+        });
+    });
+</script>
+
+
+<head>
+    <style>
+        .title {
+        font-weight: bold;
+        display: inline-block;
+        }
+
+        .titleRow{
+        margin-top: 1.5em;
+        }
+
+        .grey {
+        color: grey;
+        }
+
+        .single-checkbox{
+        margin: 0 0.5em
+        }
+
+        .contentRow{
+        margin-top:-0.5em
+        }
+
+
+    </style>
+
+    <div id="primaryAudience">
+        <div class="titleRow">
+            <p class="title"> Primary Audience </p>
+            <span>(maximum 2)</span>
+        </div>
+
+        <div class="contentRow">
+            {% for choice in choices %}
+                <div class="form-check-inline">
+                    <input type="checkbox" class="single-checkbox" name="{{choice}}" value ="{{choice}}">
+                    <label for="{{choice}}">{{choice}}</label><br>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</head>

@@ -1,0 +1,36 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<head>
+  <title>CERR Editing: {{ recname }}</title>
+    {% block core_js %}
+    <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/jquery.fancytree@2.27/dist/jquery.fancytree-all-deps.min.js"></script>
+    <script src="{% static 'cerr_curate_app/user/js/keyword.js' %}"></script>
+    <script src="{% static 'cerr_curate_app/user/js/sequencerole.js' %}"></script>
+    <script src="{% static 'cerr_curate_app/user/js/sequencerole.raw.js' %}"></script>
+
+    {% endblock %}
+    {% block core_css %}
+        <link rel="stylesheet" href="{% static 'cerr_curate_app/libs/bootstrap/4.5.2/css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'cerr_curate_app/libs/fancytree/skin-bootstrap/ui.fancytree.css' %}" />
+        <link rel="stylesheet" href="{% static 'cerr_curate_app/libs/font-awesome/5.13.0/css/all.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'cerr_curate_app/common/css/main.css' %}" />
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/jquery.fancytree@2.27/dist/skin-win8/ui.fancytree.min.css">
+
+    {% endblock %}
+
+
+</head>
+<body id="content" style="margin-top:2em; margin-bottom:2em;">
+<h1 style="width:65%">Edit {{ restype }} record: {{ recname }}</h1>
+
+<form action="{% url 'edit' draft_id %}" method="post">
+{% csrf_token %}
+<input type="hidden" name="name" value="{{recname}}"/>
+  {{ editform }}
+
+</form>
+
+</body>

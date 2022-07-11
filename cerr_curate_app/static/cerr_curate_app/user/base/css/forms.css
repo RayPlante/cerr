@@ -1,0 +1,10 @@
+.errorlist {
+    color: red;
+    font-style: italic;
+    font-size: .875rem;
+}
+
+.form-label {
+    margin-bottom: .125rem;
+}
+

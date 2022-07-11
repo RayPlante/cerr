@@ -1,0 +1,40 @@
+<div id="id_create">
+{% if form.show_aggregate_errors %}
+{% if form.errors %}<div style="color: red;"><i>Please correct the errors indicated below</i></div>{% endif %}
+{{ errors }}
+{% endif %}
+<fieldset>
+  <div class="mb-3">
+    <label class="form-label" for="create-name">Short mnemonic name:</label> <br/>
+    {{ form.name_errors }}
+    <input type="text" class="" id="create-name" size="30" minlength="1"
+           {% if form.name.value != None %}value="{{ form.name.value|stringformat:'s' }}"{% endif %}
+           name="{{ form.name.html_name }}" />
+    <div id="nameHelp" class="form-text">
+      This is a short name you can use to recognize this record; it is not shared publicly.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="create-homepage">Resource's Home Page URL (optional):</label> <br/>
+    {{ form.homepage_errors }}
+    <input type="text" class="" id="create-homepage" size="80"
+           {% if form.homepage.value != None %}value="{{ form.homepage.value|stringformat:'s' }}"{% endif %}
+           name="{{ form.homepage.html_name }}"/> &nbsp; &nbsp;
+    <span class="form-check">
+      <input type="checkbox" class="form-check-input" id="create-scrape" name="{{ form.scrape.html_name }}"
+             {% if form.scrape.value %}checked{% endif %}>
+      <label class="form-check-label" for="create-scrape">Scrape this URL for metadata (recommended)</label>
+    </span>
+  </div>
+  <div>
+    <p><b>Type of resource</b> <br />
+       Choose one type from the choices below that <it>best</it> describes the resource.  (Don't worry:
+       you'll be able to change it or add to it later.) <br />
+       {{ form.restype_errors }}
+    </p>
+    {{ form.restype }}
+  </div>
+
+</fieldset>
+</div>
