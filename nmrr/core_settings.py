@@ -18,33 +18,6 @@ WEBSITE_ADMIN_COLOR = "blue"
 
 DATA_SOURCES_EXPLORE_APPS = ["core_explore_oaipmh_app"]
 
-DEBUG = True
-
-SAML2_AUTH = {
-    # Metadata is required, choose either remote url or local file path
-    'METADATA_AUTO_CONF_URL': 'https://sts2.nist.gov/federationmetadata/2007-06/federationmetadata.xml',
-    'METADATA_LOCAL_FILE_PATH': '/srv/curator/federationmetadata.xml',
-
-    # Optional settings below
-    'DEFAULT_NEXT_URL': '/',  # Custom target redirect URL after the user get logged in. Default to /admin if not set. This setting will be overwritten if you have parameter ?next= specificed in the login URL.
-    'CREATE_USER': False, # Create a new Django user when a new user logs in. Defaults to True.
-    'ATTRIBUTES_MAP': {  # Change Email/UserName/FirstName/LastName to corresponding SAML2 userprofile attributes.
-        'email': 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress',
-        'username': 'http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname',
-        'first_name': 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname',
-        'last_name': 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname',
-    },
-    'ASSERTION_URL': 'https://test-ce.nist.gov', # Custom URL to validate incoming SAML requests against
-    'ENTITY_ID': 'https://test-ce.nist.gov/saml2_auth/acs/', # Populates the Issuer element in authn request
-    'NAME_ID_FORMAT': 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient', # Sets the Format property of authn NameIDPolicy element
-    'USE_JWT': False,
-    'SAML_CLIENT_SETTINGS': False,
-    'SIGNOUT_SLO': {
-        'CERT':  '/srv/curator/certs/test-ce.nist.gov-self.crt',
-        'KEY':   '/srv/curator/certs/test-ce.nist.gov-self.key'
-    }
-}
-
 # Lists in data not stored if number of elements is over the limit (e.g. 100)
 SEARCHABLE_DATA_OCCURRENCES_LIMIT = None
 """ integer: Avoid indexing large lists 
@@ -58,7 +31,7 @@ EXPLORE_ADD_DEFAULT_LOCAL_DATA_SOURCE_TO_QUERY = True
 """ boolean: Do we add the local data source to new queries by default
 """
 
-SSL_CERTIFICATES_DIR = False
+SSL_CERTIFICATES_DIR = True
 """ Either a boolean, in which case it controls whether requests verify the server's TLS certificate, 
 or a string, in which case it must be a path to a CA bundle to use.
 """
@@ -111,27 +84,33 @@ DISPLAY_RULES_OF_BEHAVIOR_FOOTER = True
 """ boolean: display the rules of behavior link in the footer
 """
 
-ID_PROVIDER_SYSTEMS = {
-    "local": {
-        "class": "core_linked_records_app.utils.providers.local.LocalIdProvider",
-        "args": [],
-    },
-    # "handle": {
-    #     "class": "core_linked_records_app.utils.providers.handle_net.HandleNetSystem",
-    #     "args": [
-    #         "https://handle-server.example.org:8000",
-    #         "300%3APREFIX/USER",
-    #         "password",
-    #     ],
-    # },
-}
-""" dict: provider systems available for registering PIDs.
+ID_PROVIDER_SYSTEM_NAME = "local"
+""" str: internal name of the provider system.
 """
 
-ID_PROVIDER_PREFIXES = ["cdcs"]
-""" list<string>: accepted prefixes if manually specifying PIDs (first item is the
+ID_PROVIDER_SYSTEM_CONFIG = {
+    "class": "core_linked_records_app.utils.providers.local.LocalIdProvider",
+    "args": [],
+}
+""" dict: provider system configuration for resolving PIDs.
+"""
+
+ID_PROVIDER_PREFIXES = (
+    os.environ["ID_PROVIDER_PREFIXES"].split(",")
+    if "ID_PROVIDER_PREFIXES" in os.environ
+    else ["cdcs"]
+)
+""" list<str>: accepted providers if manually specifying PIDs (first item is the
 default prefix)
 """
+
+ID_PROVIDER_PREFIX_DEFAULT = os.getenv(
+    "ID_PROVIDER_PREFIX_DEFAULT", ID_PROVIDER_PREFIXES[0]
+)
+
+ID_PROVIDER_PREFIX_BLOB = os.getenv(
+    "ID_PROVIDER_PREFIX_BLOB", ID_PROVIDER_PREFIXES[0]
+)
 
 PID_XPATH = "Resource.@localid"
 """ string: location of the PID in the document, specified as dot notation
@@ -185,14 +164,6 @@ ENABLE_SAML2_SSO_AUTH = os.getenv("ENABLE_SAML2_SSO_AUTH", "False").lower() == "
 """ boolean: enable SAML2 SSO authentication.
 """
 
-XSL_FOLDER_PATH = "xsl"
-""" str: Xsl folder path used for the initialisation.
-"""
-
-LIST_XSL_FILENAME = "ceregistry-list.xsl"
-"""" str : List xsl filename used for the initialisation.
-"""
-
-DETAIL_XSL_FILENAME = "ceregistry-detail.xsl"
-"""  str : Detail xsl filename used for the initialisation.
+ENABLE_HANDLE_PID = os.getenv("ENABLE_HANDLE_PID", "False").lower() == "true"
+""" boolean: enable handle server PID support.
 """

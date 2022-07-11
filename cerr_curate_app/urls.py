@@ -23,7 +23,7 @@ from .views.user import draft
 from .views.user import ajax as user_ajax
 
 urlpatterns = [
-    re_path("draft/edit/ajax_get_role", user_ajax.role_form, name="ajax_get_role"),
+    re_path(r"^add-role", user_ajax.role_form, name="ajax_get_role"),
     re_path(r"^$", draft.start, name="core_curate_index"),
     re_path(r"^start_curate/edit/(?P<draft_id>\w+)$", draft.EditView.as_view(), name="edit"),
 

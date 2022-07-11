@@ -19,16 +19,6 @@ from core_main_app.utils.logger.logger_utils import (
 )
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# RT_DIR = os.path.join(os.path.dirname(BASE_DIR), "rt-cerr")
-
-REGISTRY_XSD_FILENAME = "ce-res-md.xsd"
-CUSTOM_REGISTRY_FILE_PATH = os.path.join("json", "ce_registry.json")
-
-WEBSITE_SHORT_TITLE = "CERR"
-CUSTOM_DATA = "New Resource"   # used on data entry page to identify the form
-CUSTOM_NAME = os.environ["SERVER_NAME"] if "SERVER_NAME" in os.environ else "CERR"
-CUSTOM_TITLE = "Circular Economy Resource Registry"
-CUSTOM_SUBTITLE = "A NIST Initiative"
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = (
@@ -59,6 +49,8 @@ DATABASES = {
     }
 }
 
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
 MONGO_HOST = os.environ["MONGO_HOST"] if "MONGO_HOST" in os.environ else ""
 MONGO_PORT = os.environ["MONGO_PORT"] if "MONGO_PORT" in os.environ else "27017"
 MONGO_DB = os.environ["MONGO_DB"] if "MONGO_DB" in os.environ else ""
@@ -67,7 +59,7 @@ MONGO_PASS = os.environ["MONGO_PASS"] if "MONGO_PASS" in os.environ else ""
 MONGODB_URI = (
     f"mongodb://{MONGO_USER}:{MONGO_PASS}@{MONGO_HOST}:{MONGO_PORT}/{MONGO_DB}"
 )
-connect(MONGO_DB, host=MONGODB_URI)
+connect(host=MONGODB_URI, connect=False)
 
 
 BROKER_TRANSPORT_OPTIONS = {
@@ -85,6 +77,7 @@ else:
     REDIS_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}"
 BROKER_URL = REDIS_URL
 CELERY_RESULT_BACKEND = REDIS_URL
+CELERYBEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 
 # Application definition
 
@@ -97,6 +90,7 @@ INSTALLED_APPS = (
     "django.contrib.sites",
     "django.contrib.staticfiles",
     # Extra apps
+    "crispy_forms",
     "rest_framework",
     "drf_yasg",
     "rest_framework_mongoengine",
@@ -104,11 +98,13 @@ INSTALLED_APPS = (
     "tz_detect",
     "defender",
     "captcha",
+    "django_celery_beat",
+    "cerr_curate_app",
     # Core apps
     "core_main_app",
     "core_main_registry_app",
-    "core_website_app",
     "core_user_registration_app",
+    "core_website_app",
     "core_oaipmh_common_app",
     "core_oaipmh_harvester_app",
     "core_oaipmh_provider_app",
@@ -478,14 +474,36 @@ if ENABLE_SAML2_SSO_AUTH:
     SAML_CONFIG = load_saml_config_from_env(server_uri=SERVER_URI, base_dir=BASE_DIR)
     SAML_ACS_FAILURE_RESPONSE_FUNCTION = "core_main_app.views.user.views.saml2_failure"
 
-    SAML_CONFIG["service"]["sp"]["logout_responses_signed"] = False
-    SAML_CONFIG["service"]["sp"]["logout_requests_signed"] = True
+# configure handle server PIDs according to environment settings
+if ENABLE_HANDLE_PID:
+    HDL_USER = (
+        f"300%3A{ID_PROVIDER_PREFIX_DEFAULT}/"
+        f'{os.getenv("HANDLE_NET_USER", "ADMIN")}'
+    )
 
-    SAML_CONFIG["service"]["sp"]["signing_algorithm"] = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
-    SAML_CONFIG["service"]["sp"]["digest_algorithm"] = "http://www.w3.org/2001/04/xmlenc#sha256"
-
-
-    SAML_CONFIG["metadata"] = {
-    "local": ["/srv/curator/federationmetadata.xml"]
+    ID_PROVIDER_SYSTEM_NAME = "handle.net"
+    ID_PROVIDER_SYSTEM_CONFIG = {
+        "class": "core_linked_records_app.utils.providers.handle_net.HandleNetSystem",
+        "args": [
+            os.getenv("HANDLE_NET_LOOKUP_URL", "https://hdl.handle.net"),
+            os.getenv("HANDLE_NET_REGISTRATION_URL", "https://handle-net.domain"),
+            HDL_USER,
+            os.getenv("HANDLE_NET_SECRET_KEY", "admin"),
+        ],
     }
 
+    HANDLE_NET_RECORD_INDEX = os.getenv("HANDLE_NET_RECORD_INDEX", 1)
+    HANDLE_NET_ADMIN_DATA = {
+        "index": int(os.getenv("HANDLE_NET_ADMIN_INDEX", 100)),
+        "type": os.getenv("HANDLE_NET_ADMIN_TYPE", "HS_ADMIN"),
+        "data": {
+            "format": os.getenv("HANDLE_NET_ADMIN_DATA_FORMAT", "admin"),
+            "value": {
+                "handle": f"0.NA/{ID_PROVIDER_PREFIX_DEFAULT}",
+                "index": int(os.getenv("HANDLE_NET_ADMIN_DATA_INDEX", 200)),
+                "permissions": os.getenv(
+                    "HANDLE_NET_ADMIN_DATA_PERMISSIONS", "011111110011"
+                ),
+            },
+        },
+    }
