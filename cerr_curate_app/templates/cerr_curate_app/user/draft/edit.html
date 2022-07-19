@@ -24,7 +24,7 @@
 <body id="content" style="margin-top:2em; margin-bottom:2em;">
 <h1 style="width:65%">Edit {{ restype }} record: {{ recname }}</h1>
 
-<form action="{% url 'edit' draft_id %}" method="post">
+<form action="{% url 'start_curate:edit' draft_id %}" method="post">
 {% csrf_token %}
 <input type="hidden" name="name" value="{{recname}}"/>
   {{ editform }}

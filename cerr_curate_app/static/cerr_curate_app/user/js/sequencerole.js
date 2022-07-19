@@ -2,8 +2,8 @@ var addRole = function(event) {
 
     var role =  $("#id_role_list").val()
         $.ajax({
-                url: 'ajax_get_role',
-                type: "GET",
+                url: "../ajax/ajax_get_role",
+                type: "get",
                 dataType:"json",
                 data: { "role": role,
                 },
@@ -22,3 +22,5 @@ var removeRole = function() {
     var id = event.target.closest("#role_form")
     id.remove()
 }
+
+

@@ -5,10 +5,10 @@ import os
 SERVER_URI = os.environ["SERVER_URI"] if "SERVER_URI" in os.environ else None
 
 # Website customization
-WEBSITE_SHORT_TITLE = "CE"
-CUSTOM_DATA = "Circular Economy Data"
+WEBSITE_SHORT_TITLE = "NMRR"
+CUSTOM_DATA = "Materials Data"
 CUSTOM_NAME = os.environ["SERVER_NAME"] if "SERVER_NAME" in os.environ else "NMRR"
-CUSTOM_TITLE = "Test Site Circular Economy Registry"
+CUSTOM_TITLE = "Materials Resource Registry"
 CUSTOM_SUBTITLE = "Part of the Materials Genome Initiative"
 CURATE_MENU_NAME = "Publish resource"
 EXPLORE_MENU_NAME = "Search for resources"

@@ -31,7 +31,7 @@ def start(request):
                 name = draft["name"]
                 del draft["name"]
                 draft_obj = draft_api.save_new_draft(draft, name, request)
-                return HttpResponseRedirect(reverse("edit", args=(draft_obj.id,)))
+                return HttpResponseRedirect(reverse("start_curate:edit", args=(str(draft_obj.id),)))
             except DetectedFailure as ex:
                 return handleFailure(ex)
             except draft_api.AccessControlError as ex:

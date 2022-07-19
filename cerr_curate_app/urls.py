@@ -13,18 +13,18 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.urls import re_path, reverse_lazy
+from django.urls import include, path
 from django.conf.urls import include
-
 
 from django.contrib import admin
 
 from .views.user import draft
 from .views.user import ajax as user_ajax
+app_name = "start_curate"
 
 urlpatterns = [
-    re_path(r"^add-role", user_ajax.role_form, name="ajax_get_role"),
-    re_path(r"^$", draft.start, name="core_curate_index"),
-    re_path(r"^start_curate/edit/(?P<draft_id>\w+)$", draft.EditView.as_view(), name="edit"),
+    path("start_curate/ajax/ajax_get_role/", user_ajax.role_form, name="ajax_get_role"),
+    path("start_curate/edit/<str:draft_id>", draft.EditView.as_view(), name="edit"),
+    path("", draft.start, name="start"),
 
 ]
