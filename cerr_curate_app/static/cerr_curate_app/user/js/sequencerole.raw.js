@@ -1,1 +1,1 @@
-var sequenceFormUrl = "{% url 'start_curate:ajax_get_role' %}";
+var sequenceFormUrl = "{% url 'ajax_get_role' %}";

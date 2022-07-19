@@ -5,9 +5,9 @@
     $(document).ready(function(){
 
         $("input[type=checkbox]").click(function(){
-            areChecked=$("#primaryAudience input:checked")
-            var all = $("#primaryAudience input")
-            nb_checked= $("#primaryAudience input:checked").length;
+            areChecked=$("#div_id_audience input:checked")
+            var all = $("#div_id_audience input")
+            nb_checked= $("#div_id_audience input:checked").length;
 
             if (nb_checked<limit) {
                 for (var el in all){
@@ -34,7 +34,6 @@
 </script>
 
 
-<head>
     <style>
         .title {
         font-weight: bold;
@@ -60,7 +59,7 @@
 
     </style>
 
-    <div id="primaryAudience">
+    <div id="div_id_audience">
         <div class="titleRow">
             <p class="title"> Primary Audience </p>
             <span>(maximum 2)</span>
@@ -68,11 +67,11 @@
 
         <div class="contentRow">
             {% for choice in choices %}
-                <div class="form-check-inline">
-                    <input type="checkbox" class="single-checkbox" name="{{choice}}" value ="{{choice}}">
-                    <label for="{{choice}}">{{choice}}</label><br>
+                <div class="form-check-inline{% if max_selected and not choice.selected %} grey{% endif %}">
+                    <input type="checkbox" class="single-checkbox" name="{{input_name}}"
+                           value="{{choice.value}}" {{choice.checked}}>
+                    <label for="{{choice.value}}">{{choice.label}}</label><br>
                 </div>
             {% endfor %}
         </div>
     </div>
-</head>

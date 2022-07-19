@@ -49,8 +49,3 @@ def get_role_form(request):
     except (AccessControlError, DoesNotExist) as exc:
         return HttpResponseBadRequest(({"message": str(exc)}))
 
-
-def save_role_form(request):
-
-    """Post value"""
-    pass

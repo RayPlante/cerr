@@ -1,6 +1,7 @@
 from django import forms as forms
 
 from .base import MultiForm, CerrErrorList
+from django.forms.utils import ErrorDict
 
 TMPL8S = "cerr_curate_app/user/forms/roles/"
 
@@ -20,13 +21,13 @@ class roleForm(MultiForm):
 
 class softwareRoleForm(roleForm):
     template_name = TMPL8S + "softwareRoleForm.html"
-    code_language = forms.CharField(label="Code Language Used")
-    os_name = forms.CharField(label="OS Name", required=True)
-    os_version = forms.CharField(label="OS Version", required=True)
-    license_name = forms.CharField(
+    software_code_language = forms.CharField(label="Code Language Used")
+    software_os_name = forms.CharField(label="OS Name", required=True)
+    software_os_version = forms.CharField(label="OS Version", required=True)
+    software_license_name = forms.CharField(
         label="Name of license applied to the software", required=True
     )
-    highlighted_feature = forms.CharField(label="Highlighted feature", required=True)
+    software_highlighted_feature = forms.CharField(label="Highlighted feature", required=True)
 
     def __init(self, data, **kwargs):
         super(softwareRoleForm, self).__init(data, **kwargs)
@@ -38,7 +39,7 @@ class semanticAssetRoleForm(roleForm):
     """
 
     template_name = TMPL8S + "defaultroleform.html"
-    label = forms.CharField(label="SemanticAsset")
+    semanticasset_label = forms.CharField(label="SemanticAsset")
 
     def __init(self, data, label, **kwargs):
         super(semanticAssetRoleForm, self).__init(data, label, **kwargs)
@@ -50,7 +51,7 @@ class databaseRoleForm(roleForm):
     """
 
     template_name = TMPL8S + "defaultroleform.html"
-    label = forms.CharField(label="Database")
+    database_label = forms.CharField(label="Database")
 
     def __init(self, data, label, **kwargs):
         super(databaseRoleForm, self).__init(data, label, **kwargs)
@@ -58,12 +59,16 @@ class databaseRoleForm(roleForm):
 
 class serviceApiForm(roleForm):
     template_name = TMPL8S + "serviceApiForm.html"
-    tool_choices = [("1", "Service: API"), ("2", "Tool")]
-    tool = forms.CharField(label="Tool", widget=forms.Select(choices=tool_choices))
-    base_url = forms.URLField(required=False)
-    api_url = forms.URLField(required=False)
-    specification_url = forms.URLField(label="Specification URL", required=False)
-    compliance_id = forms.CharField(
+    service_tool_choices = [("1", "Service: API"), ("2", "Tool")]
+    service_tool = forms.CharField(
+        label="Tool", widget=forms.Select(choices=service_tool_choices)
+    )
+    service_base_url = forms.URLField(required=False)
+    service_api_url = forms.URLField(required=False)
+    service_specification_url = forms.URLField(
+        label="Specification URL", required=False
+    )
+    service_compliance_id = forms.CharField(
         label="Name of license applied to the software", required=True
     )
 
@@ -97,6 +102,8 @@ class sequenceForm(roleForm):
         **kwargs
     ):
         self.is_top = is_top
+        self.initial = None
+
         # forms = {"forms": forms}
         if data is not None:
             for role in data:
@@ -107,11 +114,60 @@ class sequenceForm(roleForm):
         #     self.show_aggregate_errors = self.is_top
         if "error_class" not in kwargs:
             kwargs["error_class"] = CerrErrorList
+        if "initial" in kwargs:
+            self.initial = kwargs["initial"]
         super(sequenceForm, self).__init__(data, files, **kwargs)
+
+    def full_clean(self):
+        super(sequenceForm, self).full_clean()
+
+    def get_context(self, **kwargs):
+        context = super(sequenceForm, self).get_context(**kwargs)
+        if self.initial:
+            context["sequence"] = self.initial["sequenceform"]
+        return context
 
     def render(self):
         "loop through the forms and render individually each one"
         for form in self.forms_list():
             form.render()
 
-    pass
+    def _clean_form(self):
+        """"""
+        service_values = {
+            "service_tool": [],
+            "service_tool_url": [],
+            "service_base_url": [],
+            "service_api_url": [],
+            "service_specification_url": [],
+            "service_compliance_id": [],
+        }
+        database_values = {"database_label": []}
+        semanticasset_values = {"semanticasset_label": []}
+        software_values = {
+            "software_code_language": [],
+            "software_os_name": [],
+            "software_os_version": [],
+            "software_license_name": [],
+            "software_highlighted_feature": [],
+        }
+
+        data = self.data
+        if data is not None:
+            for item in data:
+                if isinstance(item, str):
+                    if item.startswith(("service")):
+                        service_values[item].append(data[item])
+                    if item.startswith(("database")):
+                        database_values[item].append(data[item])
+                    if item.startswith(("semanticasset")):
+                        semanticasset_values[item].append(data[item])
+                    if item.startswith(("software")):
+                        software_values[item].append(data[item])
+        self.cleaned_data.update(
+            service=service_values,
+            database=database_values,
+            semanticasset=semanticasset_values,
+            software=software_values,
+        )
+        super(sequenceForm, self)._clean_form()

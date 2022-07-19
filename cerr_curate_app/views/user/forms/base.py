@@ -10,6 +10,7 @@ from django.core.exceptions import NON_FIELD_ERRORS, ValidationError
 from django.forms.utils import ErrorList
 from django.forms.renderers import get_default_renderer
 from django.utils.safestring import mark_safe, SafeString
+from django.utils.translation import gettext as _
 
 TMPL8S = "cerr_curate_app/user/base/"
 _template_name_fields_first = TMPL8S + "multiform_fields_first.html"
@@ -170,7 +171,7 @@ class MultiForm(ComposableForm):
 
         super(MultiForm, self).__init__(data, files, is_top, show_errors, **kwargs)
         for fname, form in self.forms.items():
-            form.prefix = fname
+            form.prefix = "%s-%s" % (form.prefix, fname) if form.prefix else fname
             if data is not None or files is not None:
                 form.is_bound = data is not None or files is not None
                 form.data = MultiValueDict() if data is None else data

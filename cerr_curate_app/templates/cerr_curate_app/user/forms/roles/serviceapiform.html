@@ -5,9 +5,9 @@
 {% if form.errors %}<div style="color: red;"><i>Please correct the errors indicated below</i></div>{% endif %}
 {{ errors }}
 {% endif %}
-{{form.tool|as_crispy_field}}
-{{form.base_url|as_crispy_field}}
-{{form.api_url|as_crispy_field}}
-{{form.specification_url|as_crispy_field}}
-{{form.compliance_id|as_crispy_field}}
+{{form.service_tool|as_crispy_field}}
+{{form.service_base_url|as_crispy_field}}
+{{form.service_api_url|as_crispy_field}}
+{{form.service_specification_url|as_crispy_field}}
+{{form.service_compliance_id|as_crispy_field}}
 </div>

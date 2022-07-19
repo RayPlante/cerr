@@ -30,7 +30,7 @@ class CreateForm(ComposableForm):
     template_name = TMPL8S + "createform.html"
     name = forms.CharField(required=True)
     homepage = forms.URLField(required=False)
-    scrape = forms.BooleanField(initial=True)
+    scrape = forms.BooleanField(initial=True, required=False)
     restype = ResourceTypeChoiceField()
 
     def __init__(self, data=None, files=None, is_top=True, show_errors=None, **kwargs):

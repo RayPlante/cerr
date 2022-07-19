@@ -1,0 +1,15 @@
+{% load crispy_forms_tags %}
+<div id="homepage_form">
+{% if form.show_aggregate_errors %}
+{% if form.errors %}<div style="color: red;"><i>Please correct the errors indicated below</i></div>{% endif %}
+{{ errors }}
+{% endif %}
+    <div class="url">
+        <label class="form-label" for="create-homepage">Resource's Home Page URL*:</label> <br/>
+    {{ form.url_errors }}
+    <input type="text" class="urlinput form-control" id="edit-homepage" size="80"
+           {% if form.url.value != None %}value="{{ form.url.value|stringformat:'s' }}"{% endif %}
+           name="{{ form.url.html_name }}"/> &nbsp; &nbsp;<br />
+        <button type ="button">Auto-Fill</button> Press this to autofill the form <br />
+    </div>
+</div>

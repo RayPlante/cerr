@@ -1,33 +1,28 @@
 <html>
 
-<head>
-    {% load static %}
+    <head>
+        {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/cerr_curate_app/user/forms/css/keywordsform.css' %}">
+    </head>
 
-<link rel="stylesheet" type="text/css" href="{% static '/cerr_curate_app/user/forms/css/keywordsform.css' %}">
-</head>
-<body>
+    <body>
+        <div id="keyword_form">
+            {% if form.show_aggregate_errors %}
+            {% if form.errors %}
+            <div style="color: red;"><i>Please correct the errors indicated below</i></div>
+            {% endif %}
+            {{ errors }}
+            {% endif %}
+            <div class="keywords titleRow" id="keywords-list">
+                <p class="title">Keywords</p>
 
-<div id="keyword_form">
-    {% if form.show_aggregate_errors %}
-    {% if form.errors %}
-    <div style="color: red;"><i>Please correct the errors indicated below</i></div>
-    {% endif %}
-    {{ errors }}
-    {% endif %}
-    <div class="keywords titleRow" id="keywords-list">
-        <p class="title">Keywords</p>
-<div id="keywordBox">
-    <ul id="dynamic-list"></ul>
-    <input type="text" id="candidate" placeholder="Enter keyword here..."/>
-        <button type="button" class="btn btn-primary btn-keyword" onclick="addItem()">Add</button>
-
-
-</div>
-
-
-
-
-    </div>
-</div>
-</body>
+                <div id="keywordBox">
+                    <ul id="dynamic-list"></ul>
+                    <input type="hidden" name="keywords-keywords" id="id_keywords" value="{{prevKeywords}}">
+                    <input type="text" id="candidate" placeholder="Enter keyword here..."/>
+                    <button type="button" class="btn btn-primary btn-keyword" onclick="addItem()">Add</button>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

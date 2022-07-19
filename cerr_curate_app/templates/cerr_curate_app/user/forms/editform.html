@@ -1,6 +1,6 @@
 {% load crispy_forms_tags %}
 
-
+<html>
 <script>
     var onjQueryReady = function (method) {
         if (window.jQuery) {
@@ -29,70 +29,43 @@
         return $.ajax(options);
     };
 
-
-    click = function() {
-    console.log("CLIIIIIIICK")
-    }
-
-
 </script>
-<head>
-     {% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static '/cerr_curate_app/user/forms/css/editform.css' %}">
-
-</head>
 <div class="forms-content">
 <div class="body-text">
     <div class="boldLabel">
     {{form.title|as_crispy_field }}
     {{form.publisher|as_crispy_field }}
+    {{form.pubyear}}
     {{form.description|as_crispy_field }}
     </div>
 
     {{ errors }}
-    <div class="form-check">
-        {{ form.start_meth.0 }}
+    <div class="top1 boldLabel" id="div_id_url">
+        {{form.homepage}}
     </div>
-    <div class="top1">
-        {{form.urlform}}
-    </div>
-        <div class="form-check">
-            {{ form.start_meth.1 }}
-        </div>
-
         <div>
-            {{form.audienceform }}
+            {{form.audience}}
         </div>
-        <div  class="boldLabel">
+        <div  class="boldLabel" id="div_id_product">
 
-            {{form.productform }}
+            {{form.productclass}}
         </div>
-        <div  class="boldLabel">
-            <div class="form-check">
-                {{ form.start_meth.2 }}
+            <div class="top1 boldLabel" id="div_id_material">
+                {{form.materialtype }}
             </div>
-            <div class="top1">
-                {{form.material }}
-            </div>
-
-            <div class="top1">
-                {{form.lifecycle }}
+            <div class="top1 boldLabel" id="div_id_lifecycle">
+                {{form.lifecyclephase }}
             </div>
 
+        <div class="top1" id="div_id_keywords">
+            {{ form.keywords }}
         </div>
 
-        <div class="top1">
-            {{ form.keywordsform }}
-        </div>
-
-    <div class="top1 boldLabel">
-        {{form.roles}}
+    <div class="top1 boldLabel" id="div_id_role">
+        {{form.sequence}}
     </div>
 
-<!--    <div>-->
-<!--        {{form.synthesisform}}-->
-<!--    </div>-->
 </div>
 
 
@@ -100,7 +73,7 @@
         <div class="fixed">
 
     <div class="second">
-            <button class="btn btn-success btn-sm" type="submit" onclick="click()"><span>Save</span> <i class="fas fa-save"></i> </button>
+            <button class="btn btn-success btn-sm" type="submit" onclick=saveRole()><span>Save</span> <i class="fas fa-save"></i> </button>
 
 
             <button class="btn btn-warning btn-sm" type="button"><span>Undo</span><i class="fas fa-undo"></i></button>
@@ -110,56 +83,86 @@
     </div>
 
     <div class="third">
+        <div class="helper">
+            <p>Helpers</p>
+
+        </div>
         <div>
-            <details>
+            <details id="title_details">
                 <summary>Title</summary>
-                <p>Detailed content goes here …</p>
+                <p>A name for the access method or the thing accessed via the
+             accessURL</p>
 
             </details>
         </div>
         <div>
-            <details>
+            <details id="publisher_details">
                 <summary>Publisher</summary>
-                <p>Detailed content goes here …</p>
+                <p>Entity (e.g. person or organisation) responsible for making the
+               resource available</p>
 
             </details>
         </div>
         <div>
-            <details>
+            <details id="description_details">
                 <summary>Description</summary>
-                <p>Detailed content goes here …</p>
+                <p>An account of the nature of the resource</p>
 
             </details>
         </div>
         <div>
-            <details>
+            <details id="url_details">
                 <summary>Homepage URL</summary>
-                <p>Detailed content goes here …</p>
+                <p>The URL that through which user can access the resource via
+               this method</p>
 
             </details>
         </div>
         <div>
-            <details>
+            <details id="audience_details">
+                <summary>Primary Audience</summary>
+                <p>The primary audience this resource is intended for</p>
+
+            </details>
+        </div>
+        <div>
+            <details id="product_details">
                 <summary>Product Class</summary>
-                <p>Detailed content goes here …</p>
+                <p>a category of product to be processed or recycled</p>
 
             </details>
         </div>
         <div>
-            <details>
+            <details id="material_details">
                 <summary>Material Type</summary>
-                <p>Detailed content goes here …</p>
+                <p>a property that captures Material types vocabulary</p>
 
             </details>
         </div>
         <div>
-            <details>
+            <details id="lifecycle_details">
+                <summary>Lifecycle Phase</summary>
+                <p>Phase in the lifecycle of a material in the circular economy</p>
+
+            </details>
+        </div>
+        <div>
+            <details id="keywords_details">
                 <summary>Keywords</summary>
-                <p>Detailed content goes here …</p>
+                <p>a topic, object type, or other descriptive keywords
+                about the resource</p>
+
+            </details>
+        </div>
+        <div>
+            <details id="role_details">
+                <summary>Role</summary>
+                <p>A label indicating the role this date plays in the lifecycle
+                of a resource</p>
 
             </details>
         </div>
     </div>
     </div>
 </div>
-</div>
+</div></html>
