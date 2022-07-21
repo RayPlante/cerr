@@ -12,7 +12,7 @@ from django.urls import reverse
 from django.views.generic import View
 from cerr_curate_app.components.material import api as material_api
 from .forms import StartForm, EditForm
-from ...components.draft import api as draft_api
+from ...components.curate_data_structure import api as draft_api
 from cerr_curate_app.views.user import ajax as user_ajax
 
 TMPL8S = "cerr_curate_app/user/draft/"
@@ -62,7 +62,7 @@ class EditView(View):
             try:
                 draft_obj = draft_api.get_by_id(draft_id, request.user)
 
-                draft_doc = draft_api.unrender_xml(draft_obj.form_data)
+                draft_doc = draft_api.unrender_xml(draft_obj.form_string)
             except draft_api.AccessControlError as ex:
                 return handleFailure(Http401(message=str(ex)))
             restype = _get_restype(draft_doc, Resource.schemauri)
@@ -96,7 +96,7 @@ class EditView(View):
 
         try:
             draft_obj = draft_api.get_by_id(draft_id, request.user)
-            draft_doc = draft_api.unrender_xml(draft_obj.form_data)
+            draft_doc = draft_api.unrender_xml(draft_obj.form_string)
             restype = _get_restype(draft_doc, Resource.schemauri)
             recname = draft_obj.name
         except draft_api.AccessControlError as ex:

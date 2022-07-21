@@ -2,8 +2,8 @@ import logging
 import xml.etree.ElementTree as ET
 from collections import OrderedDict
 
-from cerr_curate_app.components.draft import api as draft_api
-from cerr_curate_app.components.draft.models import Draft
+from cerr_curate_app.components.curate_data_structure import api as draft_api
+from cerr_curate_app.components.curate_data_structure.models import CurateDataStructure
 from core_main_app.access_control.api import can_read_id, can_write, AccessControlError
 from core_main_app.access_control.decorators import access_control
 from core_main_app.components.template import api as template_api
@@ -22,12 +22,20 @@ def get_all_by_user_id(user_id):
     Args:
         user:
     Returns:
-        Draft:
+        CurateDataStructure:
     """
-    return Draft.get_all_by_user_id(user_id)
+    return CurateDataStructure.get_all_by_user_id(user_id)
 
+def get_all():
+    """Returns all drafts with the given user
 
-@access_control(can_read_id)
+    Args:
+        user:
+    Returns:
+        CurateDataStructure:
+    """
+    return CurateDataStructure.get_all()
+
 def get_by_id(draft_id, user):
     """
     Returns the Draft data object with the given ID
@@ -36,25 +44,24 @@ def get_by_id(draft_id, user):
                           creation of the draft.
 
     :return: the requested Draft object
-    :rtype:  Draft
+    :rtype:  CurateDataStructure
     """
-    return Draft.get_by_id(draft_id)
+    return CurateDataStructure.get_by_id(draft_id)
 
 
-@access_control(can_write)
 def upsert(draft, user, id=None):
     """
     Save a draft data object.  If id attribute is set or the id is provided, the object will
     replace the previously-saved draft having that ID.
 
-    :param Draft draft:  the draft object to save
+    :param CurateDataStructure draft:  the draft object to save
     :param User user:    the user making the request; used to authorize the
                          creation of the draft.
     :param str id:       the ID of the previously saved draft to replace; if None,
                          a new draft object is created with a new ID.
 
     :return: the saved draft object; if id attribute will be set if the draft is new.
-    :rtype:  Draft
+    :rtype:  CurateDataStructure
     """
     if id:
         # We link the data with the draft then save it
@@ -81,11 +88,11 @@ def save_new_draft(draftdoc, name, request):
     template = template_api.get(str(version_manager[0].current), request)
 
     # create the Draft object and save
-    draft = Draft(
-        user_id=str(request.user.id),
+    draft = CurateDataStructure(
+        user=str(request.user.id),
         template=template,
         name=name,
-        form_data=form_string,
+        form_string=form_string,
     )
     upsert(draft, request.user)
     return draft
@@ -108,7 +115,7 @@ def save_updated_draft(draftdoc, id, request):
         return None
 
     # update the draft
-    draft.form_data = form_string
+    draft.form_string = form_string
     upsert(draft, request.user)
     return draft
 

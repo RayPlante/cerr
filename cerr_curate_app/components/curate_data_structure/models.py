@@ -14,17 +14,17 @@ from cerr_curate_app.components.cerrdata.models import CerrData
 logger = logging.getLogger(__name__)
 
 
-class Draft(Document):
+class CurateDataStructure(Document):
     """Stores data being entered and not yet curated"""
 
-    user_id = fields.StringField()
+    user = fields.StringField()
 
     # schema associated with the draft document
     template = fields.ReferenceField(Template)
     # name of the document
-    name = fields.StringField(unique_with=["user_id", "template"])
+    name = fields.StringField(unique_with=["user", "template"])
     # Whole XML data of the document
-    form_data = fields.StringField(blank=True)
+    form_string = fields.StringField(blank=True)
     # Reference to the saved CerrData
     data = fields.ReferenceField(CerrData, blank=True, reverse_delete_rule=CASCADE)
 
@@ -37,7 +37,16 @@ class Draft(Document):
         Returns:
 
         """
-        return Draft.objects(user=str(user_id)).all()
+        return CurateDataStructure.objects(user=str(user_id)).all()
+
+    @staticmethod
+    def get_all():
+        """Return all drafts by user
+
+        Returns:
+
+        """
+        return CurateDataStructure.objects.all()
 
     @staticmethod
     def get_by_id(draft_id):
@@ -51,7 +60,7 @@ class Draft(Document):
 
         """
         try:
-            return Draft.objects.get(pk=str(draft_id))
+            return CurateDataStructure.objects.get(pk=str(draft_id))
         except mongoengine_errors.DoesNotExist as e:
             raise exceptions.DoesNotExist(str(e))
         except Exception as ex:
