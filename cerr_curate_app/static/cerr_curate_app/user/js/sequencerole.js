@@ -1,10 +1,23 @@
-var addRole = function(event) {
 
-console.log(event)
+// If modifying a record: load the rorles saved in the database and display them
+$(document).ready(function(){
+    var ul = $("#id_sequence-role_list").val()
+    var prevInputs = document.getElementById("id_keywords");
+    if (prevInputs){
+        if (prevInputs.value) {
+            val = prevInputs.value.split(',')
+            for (v in val) {
+                displayItem(val[v],ul)
+            }
+        }
+    }
+})
+
+var addRole = function(event) {
 
     var role =  $("#id_sequence-role_list").val()
         $.ajax({
-                url: "../ajax/ajax_get_role",
+                url: "ajax/ajax_get_role",
                 type: "get",
                 dataType:"json",
                 data: { "role": role,

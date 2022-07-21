@@ -23,7 +23,7 @@ from .views.user import ajax as user_ajax
 app_name = "start_curate"
 
 urlpatterns = [
-    path("start_curate/ajax/ajax_get_role/", user_ajax.role_form, name="ajax_get_role"),
+    path("enter-data/ajax/ajax_get_role/", user_ajax.role_form, name="ajax_get_role"),
     path("enter-data/<str:draft_id>", draft.EditView.as_view(), name="edit"),
     path("", draft.start, name="start"),
 
