@@ -17,7 +17,7 @@ var addRole = function(event) {
 
     var role =  $("#id_sequence-role_list").val()
         $.ajax({
-                url: "ajax/ajax_get_role",
+                url: "ajax/ajax_get_role/",
                 type: "get",
                 dataType:"json",
                 data: { "role": role,
