@@ -155,7 +155,7 @@ class EditForm(MultiForm):
         is_top=True,
         show_errors=None,
         initial=None,
-        **kwargs
+        **kwargs,
     ):
 
         self.resourcetype = resource_type
@@ -207,7 +207,7 @@ class EditForm(MultiForm):
             },
             initial=initial,
             field_order="recname title publisher pubyear description".split(),
-            **kwargs
+            **kwargs,
         )
         self.fields["title"] = self.restitle
         self.fields["publisher"] = self.publisher

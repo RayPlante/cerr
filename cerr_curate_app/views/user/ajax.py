@@ -48,4 +48,3 @@ def get_role_form(request):
 
     except (AccessControlError, DoesNotExist) as exc:
         return HttpResponseBadRequest(({"message": str(exc)}))
-

@@ -1,18 +1,65 @@
 
 // If modifying a record: load the rorles saved in the database and display them
 $(document).ready(function(){
-    var ul = $("#id_sequence-role_list").val()
-    var prevInputs = document.getElementById("id_keywords");
+    var rolebutton = document.getElementsByClassName(' rolebutton btn btn-primary')
+    var prevInputs = JSON.parse(document.getElementById("id_roles").value)
     if (prevInputs){
-        if (prevInputs.value) {
-            val = prevInputs.value.split(',')
-            for (v in val) {
-                displayItem(val[v],ul)
+        if (Object.keys(prevInputs.database[0]).length!=0) {
+            addRoleStartup('Database',prevInputs) ;
             }
+        if (Object.keys(prevInputs.software[0]).length!=0) {
+            addRoleStartup('Software',prevInputs) ;
+        }
+        if (Object.keys(prevInputs.semanticasset[0]).length!=0) {
+            addRoleStartup('SemanticAsset',prevInputs) ;
+            }
+        if (Object.keys(prevInputs.service[0]).length!=0) {
+            addRoleStartup('ServiceApi',prevInputs) ;
         }
     }
-})
+    }
+)
+var createDatabase = function() {
+    var rolebutton = document.getElementsByClassName(' rolebutton btn btn-primary')
 
+
+}
+var addRoleStartup = function(role, prevInputs) {
+
+        $.ajax({
+                url: "ajax/ajax_get_role/",
+                type: "get",
+                dataType:"json",
+                data: { "role": role,
+                },
+            success: function(data){
+              //  addToInputRole(role)
+                $(".rolebutton").after(data);
+                if (role=='Database'){
+                    document.getElementById('id_database_label').value =  prevInputs.database[0].database_label
+                    }
+                if (role=='SemanticAsset'){
+                    document.getElementById('id_semanticasset_label').value = prevInputs.semanticasset[0].semanticasset_label
+                }
+                if (role=='Software'){
+                       for (const [key, value] of Object.entries(prevInputs.software[0])) {
+                        document.getElementById('id_'+`${key}`).value = `${value}`
+                }
+
+                }
+                if (role=='ServiceApi'){
+                       for (const [key, value] of Object.entries(prevInputs.service[0])) {
+                        document.getElementById('id_'+`${key}`).value = `${value}`
+                }
+
+                }
+
+            },
+            error: function(data){
+                console.log(data)
+            }
+        })
+}
 var addRole = function(event) {
 
     var role =  $("#id_sequence-role_list").val()
@@ -23,7 +70,7 @@ var addRole = function(event) {
                 data: { "role": role,
                 },
             success: function(data){
-                addToInputRole(role)
+              //  addToInputRole(role)
                 $(".rolebutton").after(data);
 
             },

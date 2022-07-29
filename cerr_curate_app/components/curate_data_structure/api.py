@@ -26,6 +26,7 @@ def get_all_by_user_id(user_id):
     """
     return CurateDataStructure.get_all_by_user_id(user_id)
 
+
 def get_all():
     """Returns all drafts with the given user
 
@@ -35,6 +36,7 @@ def get_all():
         CurateDataStructure:
     """
     return CurateDataStructure.get_all()
+
 
 def get_by_id(draft_id, user):
     """

@@ -2,6 +2,7 @@ from django import forms as forms
 
 from .base import MultiForm, CerrErrorList
 from django.forms.utils import ErrorDict
+import json
 
 TMPL8S = "cerr_curate_app/user/forms/roles/"
 
@@ -11,7 +12,7 @@ class roleForm(MultiForm):
     def createForm(chosen_label, data):
         if chosen_label == "Software":
             return softwareRoleForm(data)
-        if chosen_label == "Service API":
+        if chosen_label == "ServiceApi":
             return serviceApiForm(data)
         if chosen_label == "Semantic Asset":
             return semanticAssetRoleForm(data)
@@ -27,7 +28,9 @@ class softwareRoleForm(roleForm):
     software_license_name = forms.CharField(
         label="Name of license applied to the software", required=True
     )
-    software_highlighted_feature = forms.CharField(label="Highlighted feature", required=True)
+    software_highlighted_feature = forms.CharField(
+        label="Highlighted feature", required=True
+    )
 
     def __init(self, data, **kwargs):
         super(softwareRoleForm, self).__init(data, **kwargs)
@@ -80,7 +83,7 @@ class sequenceForm(roleForm):
     # template_name = TMPL8S + "sequenceroleform"  # Create a button
     template_name = "cerr_curate_app/user/forms/roles/sequenceroleform.html"
     label_choices = [
-        ("Service API", "ServiceApi"),
+        ("ServiceApi", "ServiceApi"),
         ("Software", "Software"),
         ("Semantic Asset", "SemanticAsset"),
         ("Database", "Database"),
@@ -99,7 +102,7 @@ class sequenceForm(roleForm):
         files=None,
         is_top=True,
         show_errors=None,
-        **kwargs
+        **kwargs,
     ):
         self.is_top = is_top
         self.initial = None
@@ -124,7 +127,8 @@ class sequenceForm(roleForm):
     def get_context(self, **kwargs):
         context = super(sequenceForm, self).get_context(**kwargs)
         if self.initial:
-            context["sequence"] = self.initial["sequenceform"]
+            sequence_context = json.dumps(self.initial)
+            context["sequence"] = sequence_context
         return context
 
     def render(self):

@@ -33,7 +33,9 @@ def start(request):
                 name = draft["name"]
                 del draft["name"]
                 draft_obj = draft_api.save_new_draft(draft, name, request)
-                return HttpResponseRedirect(reverse("start_curate:edit", args=(str(draft_obj.id),)))
+                return HttpResponseRedirect(
+                    reverse("start_curate:edit", args=(str(draft_obj.id),))
+                )
             except DetectedFailure as ex:
                 return handleFailure(ex)
             except draft_api.AccessControlError as ex:
@@ -88,7 +90,7 @@ class EditView(View):
             try:
                 draft = edit_to_draftdoc(form.cleaned_data)
                 draft_obj = draft_api.save_updated_draft(draft, draft_id, request)
-                return HttpResponseRedirect('/')
+                return HttpResponseRedirect("/")
             except DetectedFailure as ex:
                 return handleFailure(ex)
             except draft_api.AccessControlError as ex:
@@ -203,6 +205,7 @@ def draftdoc_to_edit(draft_doc, draft_id):
     content = draft.get(pfx + "content", {})
     ident = draft.get(pfx + "identity", {})
     providers = draft.get(pfx + "providers", {})
+    role = draft.get(pfx + "ResourceRole", {})
     if content:
         data["homepage"] = content.get(pfx + "landingPage", "")
         data["description"] = content.get(pfx + "description", "")
@@ -215,7 +218,23 @@ def draftdoc_to_edit(draft_doc, draft_id):
     if providers:
         data["publisher"] = providers.get(pfx + "publisher", "")
         data["pubyear"] = providers.get(pfx + "publicationYear", "")
+    resource_role = draft.get(pfx + "ResourceRole", {})
+    data["sequence"] = {}
+    for cat in "database semanticasset service software".split():
+        role = {}
+        data["sequence"][cat] = []
+        if resource_role.get(pfx + cat):
+            top = resource_role.get(pfx + cat, {})
 
+            for key in top.keys():
+                key = key.split(pfx)[1]
+                print(key)
+                terms = top.get(pfx + key, {})
+                print(pfx + key)
+                role[key] = []
+                if terms:
+                    role[key] = terms
+        data["sequence"][cat].append(role)
     applic = draft.get(pfx + "applicability", {})
     for cat in "productClass materialType lifecyclePhase".split():
         if applic.get(pfx + cat):
@@ -419,7 +438,7 @@ _schema = [
     ("Organization", ["type"]),
     ("LiteratureResource", ["type"]),
     (
-        "ServiceAPI",
+        "ServiceApi",
         ["type", "baseURL", "documentationURL", "specificationURL", "complianceID"],
     ),
     ("Software", ["type"]),
