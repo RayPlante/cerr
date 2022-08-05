@@ -7,20 +7,13 @@
 
  function addFunctions(fieldName){
      var title = document.getElementById("div_id_"+fieldName);
-     title.setAttribute('onmouseover',"openDetails('"+fieldName+"_details')")
-     title.setAttribute('onmouseleave',"closeDetails('"+fieldName+"_details')")
+     title.setAttribute('onclick',"openDetails('"+fieldName+"_details')")
  }
 
  function openDetails(id) {
      var detailsOpen = document.getElementById(id);
      detailsOpen.setAttribute('open',"True")
-     detailsOpen.focus();
-
- }
-
- function closeDetails(id) {
-    var detailsOpen = document.getElementById(id);
-    setTimeout(function(){
+     setTimeout(function(){
         detailsOpen.removeAttribute('open')
-    }, 1000);
+    }, 3000);
  }
