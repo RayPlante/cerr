@@ -5,7 +5,6 @@ from collections import OrderedDict
 from collections.abc import Mapping
 import json, re
 
-from django.shortcuts import render
 from django.http import HttpResponse, Http404, HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
@@ -14,6 +13,7 @@ from cerr_curate_app.components.material import api as material_api
 from .forms import StartForm, EditForm
 from ...components.curate_data_structure import api as draft_api
 from cerr_curate_app.views.user import ajax as user_ajax
+from core_main_app.utils.rendering import render
 
 TMPL8S = "cerr_curate_app/user/draft/"
 
@@ -23,6 +23,7 @@ def start(request):
     Present or handle the starting form for creating a record
     """
     if request.method == "POST":
+        context = {}
         form = StartForm(request.POST, request.FILES)
         if form.is_valid():
             try:
@@ -42,8 +43,16 @@ def start(request):
                 return handleFailure(Http401(message=str(ex)))
     else:
         form = StartForm()
+        context = {
+                   "startform": form,
+                 }
 
-    return render(request, TMPL8S + "start.html", {"startform": form})
+    # return render(request, TMPL8S + "start.html", {"startform": form})
+    return render(
+            request,
+            TMPL8S + "start.html",
+            context=context,
+        )
 
 
 class EditView(View):
@@ -72,15 +81,16 @@ class EditView(View):
         else:
             form = EditForm()
 
-        return render(
-            request,
-            TMPL8S + "edit.html",
-            {
+        context = {
                 "editform": form,
                 "draft_id": draft_id,
                 "recname": draft_obj.name,
                 "restype": restype,
-            },
+            }
+        return render(
+            request,
+            TMPL8S + "edit.html",
+            context=context
         )
 
     def post(self, request, **kwargs):
