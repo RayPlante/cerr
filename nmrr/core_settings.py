@@ -6,10 +6,10 @@ SERVER_URI = os.environ["SERVER_URI"] if "SERVER_URI" in os.environ else None
 
 # Website customization
 WEBSITE_SHORT_TITLE = "NMRR"
-CUSTOM_DATA = "Materials Data"
-CUSTOM_NAME = os.environ["SERVER_NAME"] if "SERVER_NAME" in os.environ else "NMRR"
-CUSTOM_TITLE = "Materials Resource Registry"
-CUSTOM_SUBTITLE = "Part of the Materials Genome Initiative"
+CUSTOM_DATA = "Circular Economy Data"
+CUSTOM_NAME = os.environ["SERVER_NAME"] if "SERVER_NAME" in os.environ else "CERR"
+CUSTOM_TITLE = "Circular Economy Registry"
+CUSTOM_SUBTITLE = "Part of the Circular Economy Initiative"
 CURATE_MENU_NAME = "Publish resource"
 EXPLORE_MENU_NAME = "Search for resources"
 WORKSPACE_DISPLAY_NAME = "workspace"
