@@ -5,3 +5,17 @@
 li {
   list-style-type: square;
 }
+
+/*overwrite fancytree checkbox styling*/
+
+span.fancytree-checkbox{
+ background-image: none !important;
+ margin-top:0.8em !important;
+}
+
+span.fancytree-expander{
+ background-image: none !important;
+ margin-top:0.8em !important;
+}
+
+/* END overwrite fancytree checkbox styling*/
