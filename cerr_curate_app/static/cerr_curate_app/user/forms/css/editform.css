@@ -89,3 +89,7 @@ font-weight: bold;
 
 .helper p {
 margin-bottom:0em;}
+
+details p {
+margin-bottom: 0.5em !important;
+}
