@@ -62,6 +62,10 @@
     visibility: hidden;
     height: 0em;
 }
+
+body {
+    background: #f7f7f7 url(../img/bg01.png) !important
+}
 /* End Bootstrap overide */
 
 /* Fontawesome overide */
