@@ -15,7 +15,7 @@
 
   {% endblock %}
   {% block core_css %}
-  <link rel="stylesheet" href="{% static 'cerr_curate_app/libs/bootstrap/4.5.2/css/bootstrap.min.css' %}" />
+<!--  <link rel="stylesheet" href="{% static 'cerr_curate_app/libs/bootstrap/4.5.2/css/bootstrap.min.css' %}" />-->
   <link rel="stylesheet" href="{% static 'cerr_curate_app/libs/fancytree/skin-bootstrap/ui.fancytree.css' %}" />
   <link rel="stylesheet" href="{% static 'cerr_curate_app/libs/font-awesome/5.13.0/css/all.min.css' %}" />
   <link rel="stylesheet" href="{% static 'cerr_curate_app/common/css/main.css' %}" />
@@ -24,12 +24,12 @@
   {% endblock %}
 </head>
 
-<body id="content" style="margin-top:2em; margin-bottom:2em;">
-<h1 style="width:65%">Edit {{ restype }} record: {{ recname }}</h1>
+<body>
+<h1 style="width:65%; font-size: 2em; margin-bottom:0em;">Edit {{ data.restype }} record: {{ data.recname }}</h1>
 
 <form action="{% url 'start_curate:edit' data.draft_id %}" method="post">
 {% csrf_token %}
-<input type="hidden" name="name" value="{{recname}}"/>
+<input type="hidden" name="name" value="{{data.recname}}"/>
   {{ data.editform }}
 
 </form>
