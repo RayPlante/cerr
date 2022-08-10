@@ -11,7 +11,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "nmrr.settings")
 
 from django.conf import settings  # noqa
 
-app = Celery("nmrr")
+app = Celery("cerr")
 
 # Using a string here means the worker will not have to
 # pickle the object when using Windows.

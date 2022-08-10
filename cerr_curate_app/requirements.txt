@@ -21,3 +21,5 @@ django-mptt
 django-crispy-forms
 core-main-app
 xml_to_dict
+python-dotenv
+crossrefapi

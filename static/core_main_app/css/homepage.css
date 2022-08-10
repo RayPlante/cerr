@@ -3,8 +3,36 @@
     text-align: justify;
 }
 
+
+#content {
+    background: linear-gradient(rgba(255,255,255,.9), rgba(255,255,255,.9)), url('../../img/cerr-background.jpg') center  no-repeat;
+    background-size: contain;
+}
+
+p {
+    color: black;
+}
+
 #intro #mgi-diagram {
     width: 15em;
+}
+
+#intro p a {
+	color: #9eac87;
+	font-weight: bold;
+	font-style: italic;
+}
+
+#intro div button {
+    background-color: #9eac87 !important;
+    width: 15em;
+    border: solid 2px black;
+    margin-left: 33%;
+    margin-top: 2em;
+}
+
+#intro div button a {
+    color: white;
 }
 
 #browse-btn {
