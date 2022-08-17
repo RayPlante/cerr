@@ -24,11 +24,16 @@ p {
 }
 
 #intro div button {
-    background-color: #9eac87 !important;
+    background-color: #9eac87;
     width: 15em;
     border: solid 2px black;
     margin-left: 33%;
-    margin-top: 2em;
+    margin-bottom: 2.5em;
+
+}
+
+#intro div button:hover {
+    background-color: #6a7953;
 }
 
 #intro div button a {
@@ -47,10 +52,10 @@ p {
 
 .tile .icon {
     margin: 0.4em 0.2em 0.25em 0.25em;
-    width: 2em;
-    font-size: 2em;
     float: left;
     text-align: center;
+
+    font-size: 1em;
 }
 
 .tile {
@@ -58,19 +63,35 @@ p {
     width: 100%;
 }
 
+.icon i {
+    border-radius: 15px;
+    border: 6px solid #9ead87;
+    padding: 0.5em;
+    font-size: 2em;
+}
+
+.icon i:hover {
+    border-color: #6a7953;
+    cursor: pointer;
+}
+
+.search-bar-wrapper ul {
+    -webkit-box-shadow: None !important;
+}
 .tile .text h3 {
     margin-bottom: 0.1em;
 }
 
 .tile .text {
+    text-align: center;
     margin-top: 1.25em;
     font-size: 0.85em;
-    text-align: justify;
 }
 
 /**
  *
  **/
+
 #available-options {
     margin-bottom: 0;
 }

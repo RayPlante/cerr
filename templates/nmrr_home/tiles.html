@@ -2,20 +2,24 @@
 <script src="{% static 'js/tiles.js' %}"></script>
 
 {% if tiles|length > 0 %}
-    <h2 id="available-options">Resources Type</h2>
+<div style="display: flex">
     {% for tile in tiles %}
     <div class="tile">
-        <div class="icon">
-            <i class="fas {{ tile.logo }}" {% if tile.color %}style="color: {{ tile.color }};"{% endif %}></i>
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <div class="icon" onclick="submitRefinement({{ tile.categories }}, '{{refinement_form_id}}');">
+            <i class="fas {{ tile.logo }}"
+                {% if tile.color %}
+                    style="color: {{ tile.color }};"
+               {% endif %}>
+            </i>
         </div>
         <div class="text">
-            <h3><a href="javascript:void(0)" onclick="submitRefinement({{ tile.categories }}, '{{refinement_form_id}}');">{{tile.title }}</a></h3>
-            <p>
-                {{ tile.text }}
-            </p>
+            <h3>{{tile.title }}</h3>
         </div>
+            </div>
     </div>
     {% endfor %}
+    </div>
 
     <form action="{% url 'core_explore_keyword_app_search' %}" method="POST" id="form" style="display: none">
         {% csrf_token %}

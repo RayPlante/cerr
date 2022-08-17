@@ -1,11 +1,11 @@
 /* Bootstrap overide */
 .btn.btn-primary {
-    background-color: #007ac1 !important;
+    background-color: #9ead87 !important;
     border-color: #565656;
 }
 
 .btn.btn-primary:hover {
-    background-color: #005f96 !important;
+    background-color: #6a7953 !important;
 }
 
 .btn.btn-secondary {
@@ -19,8 +19,8 @@
 }
 
 .modal-footer {
-  justify-content: space-between !important;
-  padding: .75rem 0 .75rem 0;
+    justify-content: space-between !important;
+    padding: .75rem 0 .75rem 0;
 }
 
 .save-registry-button-container:parent {
@@ -69,8 +69,48 @@ body {
 }
 /* End Bootstrap overide */
 
+
 /* Fontawesome overide */
 .fas span {
     font-family: 'Source Sans Pro', sans-serif !important;
 }
-/* End fontawesome overide */
+/* end Fontawesome overide */
+
+
+/* Search page overide --> hide icons */
+#data_sources_selector{
+    margin-top: -4em
+}
+#results{
+    margin-top: -4em
+}
+
+#icons_banner{
+    display: none
+}
+
+#filters_refinements {
+    margin-top: -4em;
+    margin-bottom: 4em;
+}
+/* End search page overide */
+
+
+/* Role form spacing */
+
+#div_id_role div select {
+    margin-top: 1em;
+}
+
+#div_id_role p {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+/* End role overide */
+
+
+/* audience form spacing */
+#div_id_audience div p {
+    margin-bottom: 0.5em;
+}
+/* End audience overide */

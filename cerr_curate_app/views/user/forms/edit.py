@@ -53,16 +53,17 @@ class AudienceForm(ComposableForm):
     # Override get_context to add choices to context
     def get_context(self, **kwargs):
         context = super(AudienceForm, self).get_context(**kwargs)
-        context["choices"] = [
-            {
-                "value": c[0],
-                "label": c[1],
-                "checked": "checked" if c[0] in self.initial["categories"] else "",
-            }
-            for c in self.choices
-        ]
-        context["input_name"] = self["categories"].html_name
-        context["max_selected"] = len(self.initial["categories"]) > 1
+        if self.initial:
+            context["choices"] = [
+                {
+                    "value": c[0],
+                    "label": c[1],
+                    "checked": "checked" if c[0] in self.initial["categories"] else "",
+                }
+                for c in self.choices
+            ]
+            context["input_name"] = self["categories"].html_name
+            context["max_selected"] = len(self.initial["categories"]) > 1
 
         return context
 
@@ -143,7 +144,7 @@ class EditForm(MultiForm):
     """
 
     template_name = TMPL8S + "editform.html"
-    description = forms.CharField(widget=forms.Textarea, label="Description")
+    description = forms.CharField(widget=forms.Textarea, label="Description:")
     pubyear = forms.CharField(widget=forms.HiddenInput, required=False)
     # recname = forms.CharField(widget=forms.HiddenInput)
 
@@ -162,10 +163,10 @@ class EditForm(MultiForm):
         initial = self._unclean_data(initial)
 
         self.restitle = forms.CharField(
-            label="Title of " + self.resourcetype, required=True
+            label="Title of " + self.resourcetype + ":", required=True
         )
         self.publisher = forms.CharField(
-            label="Publisher of " + self.resourcetype, required=True
+            label="Publisher of " + self.resourcetype + ":", required=True
         )
         self.homepage = HomePageForm(
             data, files, is_top=False, initial=initial.get("homepage")

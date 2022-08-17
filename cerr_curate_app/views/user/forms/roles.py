@@ -89,7 +89,7 @@ class sequenceForm(roleForm):
         ("Database", "Database"),
     ]
     role_list = forms.CharField(
-        label="Chose a role", widget=forms.Select(choices=label_choices)
+        label="Roles", widget=forms.Select(choices=label_choices)
     )
     form_list = []
 

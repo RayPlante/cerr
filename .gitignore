@@ -244,3 +244,8 @@ venv/
 # Celery files
 celerybeat-schedule.*
 
+
+# From cerr_curate_app
+cerr_curate_app/migrations/
+workspace/
+

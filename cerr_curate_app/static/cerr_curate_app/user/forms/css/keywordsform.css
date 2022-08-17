@@ -37,7 +37,9 @@
     }
 
     .keywords p {
-    margin-right: 1em;}
+    margin-right: 1em;
+    margin-bottom: 0.2em;
+    }
 
     #keywordBox{
     border: 1px black dotted;
