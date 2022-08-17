@@ -14,7 +14,7 @@ class roleForm(MultiForm):
             return softwareRoleForm(data)
         if chosen_label == "ServiceApi":
             return serviceApiForm(data)
-        if chosen_label == "Semantic Asset":
+        if chosen_label == "SemanticAsset":
             return semanticAssetRoleForm(data)
         if chosen_label == "Database":
             return databaseRoleForm(data)
