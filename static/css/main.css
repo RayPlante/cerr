@@ -1826,12 +1826,12 @@
 		-webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
-		color: #37c0fb;
+		color: #9ead87;
 		text-decoration: none;
 	}
 
 		a:hover {
-			color: #37c0fb;
+			color: #6a7953;
 			border-bottom-color: transparent;
                         text-decoration:unset;
 		}
@@ -2252,7 +2252,7 @@
 		input[type="reset"]:hover,
 		input[type="button"]:hover,
 		.button:hover {
-			background-color: #9eac87;
+			background-color: #6a7953;
 			color: #fff !important;
 		}
 
@@ -2359,7 +2359,9 @@
 				#header header h1 {
 				    color: white;
 					font-size: 2.25em;
-					margin-bottom: 0.5em;
+					padding: 0em;
+					margin-bottom: 1em;
+					margin-top: 0.5em;
 				}
 
 				#header header p {

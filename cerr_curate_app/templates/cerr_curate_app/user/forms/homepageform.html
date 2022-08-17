@@ -5,7 +5,7 @@
 {{ errors }}
 {% endif %}
     <div class="url">
-        <label class="form-label" for="create-homepage">Resource's Home Page URL*:</label> <br/>
+        <label class="form-label" for="create-homepage">Resource's Home Page URL:*</label> <br/>
     {{ form.url_errors }}
     <input type="text" class="urlinput form-control" id="edit-homepage" size="80"
            {% if form.url.value != None %}value="{{ form.url.value|stringformat:'s' }}"{% endif %}
