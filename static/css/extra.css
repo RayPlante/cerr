@@ -114,3 +114,13 @@ body {
     margin-bottom: 0.5em;
 }
 /* End audience overide */
+
+
+/* Homepage search bar overide */
+#search_bar ul {
+    border: 4px solid #9cab85!important;
+    background-color: #f4e4d2;
+    background-color: white;
+    overflow: hidden;
+}
+/* End Homepage search bar overide */
