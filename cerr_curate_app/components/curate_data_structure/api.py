@@ -100,6 +100,16 @@ def save_new_draft(draftdoc, name, request):
     return draft
 
 
+@access_control(can_write)
+def publish_draft(draft_id, user):
+    """
+    Convert a draft with the given id into a published record
+    :param str draft_id:   the identifier for retrieving the draft
+    :param User user:      the user making the request; used to authorize publication
+    """
+    draft = get_by_id(draft_id, user)
+
+
 def save_updated_draft(draftdoc, id, request):
     """
     save a new draft XML document with the given name

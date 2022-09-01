@@ -14,6 +14,7 @@ from .forms import StartForm, EditForm
 from ...components.curate_data_structure import api as draft_api
 from cerr_curate_app.views.user import ajax as user_ajax
 from core_main_app.utils.rendering import render
+from cerr_curate_app.components.cerrdata import api as data_api
 
 TMPL8S = "cerr_curate_app/user/draft/"
 
@@ -98,6 +99,9 @@ class EditView(View):
         form = EditForm(request.POST)
         if form.is_valid():
             try:
+                ###TODO : REMOVE HERE
+                # Save as data, validate and publish
+    #            data_api.save_as_cerr_data(request)
                 draft = edit_to_draftdoc(form.cleaned_data)
                 draft_obj = draft_api.save_updated_draft(draft, draft_id, request)
                 return HttpResponseRedirect("/")
@@ -215,7 +219,7 @@ def draftdoc_to_edit(draft_doc, draft_id):
     content = draft.get(pfx + "content", {})
     ident = draft.get(pfx + "identity", {})
     providers = draft.get(pfx + "providers", {})
-    role = draft.get(pfx + "ResourceRole", {})
+    role = draft.get(pfx + "role", {})
     if content:
         data["homepage"] = content.get(pfx + "landingPage", "")
         data["description"] = content.get(pfx + "description", "")
@@ -228,7 +232,18 @@ def draftdoc_to_edit(draft_doc, draft_id):
     if providers:
         data["publisher"] = providers.get(pfx + "publisher", "")
         data["pubyear"] = providers.get(pfx + "publicationYear", "")
-    resource_role = draft.get(pfx + "ResourceRole", {})
+    applic = draft.get(pfx + "applicability", {})
+    for cat in "productClass materialType lifecyclePhase".split():
+        if applic.get(pfx + cat):
+            top = applic.get(pfx + cat, {})
+            data[cat] = []
+            for key in applic.get(pfx + cat, {}):
+                terms = top.get(key)
+                if terms:
+                    if isinstance(terms, str):
+                        terms = [terms]
+                    data[cat].extend(terms)
+    resource_role = draft.get(pfx + "role", {})
     data["sequence"] = {}
     for cat in "database semanticasset service software".split():
         role = {}
@@ -245,17 +260,6 @@ def draftdoc_to_edit(draft_doc, draft_id):
                 if terms:
                     role[key] = terms
         data["sequence"][cat].append(role)
-    applic = draft.get(pfx + "applicability", {})
-    for cat in "productClass materialType lifecyclePhase".split():
-        if applic.get(pfx + cat):
-            top = applic.get(pfx + cat, {})
-            data[cat] = []
-            for key in applic.get(pfx + cat, {}):
-                terms = top.get(key)
-                if terms:
-                    if isinstance(terms, str):
-                        terms = [terms]
-                    data[cat].extend(terms)
 
     data["draft_id"] = draft_id
     data["restype"] = _get_restype(draft_doc, pfx)
@@ -309,18 +313,18 @@ def edit_to_draftdoc(data):
             )
     if data.get("sequence").get("database").get("database_label"):
         draft.add(
-            "Resource/ResourceRole/database", data.get("sequence").get("database")
+            "Resource/role/database", data.get("sequence").get("database")
         )
     if data.get("sequence").get("semanticasset").get("semanticasset_label"):
         draft.add(
-            "Resource/ResourceRole/semanticasset",
+            "Resource/role/semanticasset",
             data.get("sequence").get("semanticasset"),
         )
     if data.get("sequence").get("service").get("service_compliance_id"):
-        draft.add("Resource/ResourceRole/service", data.get("sequence").get("service"))
+        draft.add("Resource/role/service", data.get("sequence").get("service"))
     if data.get("sequence").get("software").get("software_os_name"):
         draft.add(
-            "Resource/ResourceRole/software", data.get("sequence").get("software")
+            "Resource/role/software", data.get("sequence").get("software")
         )
 
     if data.get("lifecyclePhase"):
@@ -437,11 +441,12 @@ _schema = [
                     "primaryAudience",
                 ],
             ),
-            ("role", []),
             (
                 "applicabilty",
                 ["productClass", "lifecyclePhase", "materialType"],
             ),
+            ("role", []),
+
             ("@atts", ["localid", "status"]),
         ],
     ),
@@ -587,6 +592,7 @@ class Resource(Node):
         self.add("Resource/@xmlns", self.schemauri)
         self.add("Resource/@xmlns:" + self.nspfx, self.schemauri)
         self.add("Resource/@xmlns:xsi", self.xsiuri)
+        self.add("Resource/@status",'active')
 
     def add_role(self, roletype):
         """
