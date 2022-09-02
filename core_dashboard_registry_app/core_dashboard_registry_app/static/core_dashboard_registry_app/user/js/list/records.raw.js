@@ -1,1 +1,0 @@
-var switchStatusRecordUrl = "{% url 'core_dashboard_switch_status_record' %}";
