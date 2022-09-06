@@ -9,12 +9,17 @@ until PGPASSWORD=$POSTGRES_PASS psql -h "$POSTGRES_HOST" -p "$POSTGRES_PORT" -U 
 done
 
 # echo "********* Makemigrations cerr_curate_app auth... *********"
-# /srv/curator/manage.py makemigrations cerr_curate_app
+# # /srv/curator/manage.py makemigrations cerr_curate_app
 # /srv/curator/manage.py makemigrations /usr/local/lib/python3.7/site-packages/cerr_curate_app
 echo "********* Migrate auth... *********"
 /srv/curator/manage.py migrate auth
 echo "********* Migrate apps... *********"
 /srv/curator/manage.py migrate
+echo "********* MIGRATE cerr_curate_app  *********"
+/srv/curator/manage.py migrate /usr/local/lib/python3.7/site-packages/cerr_curate_app
+echo "********* Makemigrations cerr_curate_app ... *********"
+# /srv/curator/manage.py makemigrations cerr_curate_app
+/srv/curator/manage.py makemigrations /usr/local/lib/python3.7/site-packages/cerr_curate_app
 echo "********* Collect static files... *********"
 /srv/curator/manage.py collectstatic --noinput
 echo "********* Compile messages... *********"
