@@ -1,0 +1,126 @@
+/* Bootstrap overide */
+.btn.btn-primary {
+    background-color: #9ead87 !important;
+    border-color: #565656;
+}
+
+.btn.btn-primary:hover {
+    background-color: #6a7953 !important;
+}
+
+.btn.btn-secondary {
+    background-color: #f9f9f9 !important;
+    border-color: #d4d4d4 !important;
+    color: #313131 !important;
+}
+
+.btn.btn-secondary:hover {
+    background-color: #e2e2e2 !important;
+}
+
+.modal-footer {
+    justify-content: space-between !important;
+    padding: .75rem 0 .75rem 0;
+}
+
+.save-registry-button-container:parent {
+    justify-content: center !important;
+}
+
+#content {
+    width: calc(100% - 3em);
+    background-color: #fff;
+    margin: 1px 1.5em 0 1.5em;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    font-family: serif;
+}
+
+.textarea_lock_h {
+    resize: vertical
+}
+
+.alert-danger a {
+    color: #a94442;
+}
+
+.tools-dropdown {
+    float: right;
+    padding-left: 35px;
+}
+
+.page-item.active .page-link {
+    background-color: #007ac1 !important;
+    border-color: #565656;
+}
+
+.errorlist {
+    color: red;
+    margin-bottom: .1em;
+}
+
+#data-title { /* Remove data title from data page */
+    visibility: hidden;
+    height: 0em;
+}
+
+body {
+    background: #f7f7f7 url(../img/bg01.png) !important
+}
+/* End Bootstrap overide */
+
+
+/* Fontawesome overide */
+.fas span {
+    font-family: 'Source Sans Pro', sans-serif !important;
+}
+/* end Fontawesome overide */
+
+
+/* Search page overide --> hide icons */
+#data_sources_selector{
+    margin-top: -4em
+}
+#results{
+    margin-top: -4em
+}
+
+#icons_banner{
+    display: none
+}
+
+#filters_refinements {
+    margin-top: -4em;
+    margin-bottom: 4em;
+}
+/* End search page overide */
+
+
+/* Role form spacing */
+
+#div_id_role div select {
+    margin-top: 1em;
+}
+
+#div_id_role p {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+/* End role overide */
+
+
+/* audience form spacing */
+#div_id_audience div p {
+    margin-bottom: 0.5em;
+}
+/* End audience overide */
+
+
+/* Homepage search bar overide */
+#search_bar ul {
+    border: 4px solid #9cab85!important;
+    background-color: #f4e4d2;
+    background-color: white;
+    overflow: hidden;
+}
+/* End Homepage search bar overide */

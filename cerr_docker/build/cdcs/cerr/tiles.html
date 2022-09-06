@@ -1,0 +1,37 @@
+{% load static %}
+<script src="{% static 'js/tiles.js' %}"></script>
+
+{% if tiles|length > 0 %}
+<div style="display: flex">
+    {% for tile in tiles %}
+    <div class="tile">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <div class="icon" onclick="submitRefinement({{ tile.categories }}, '{{refinement_form_id}}');">
+            <i class="fas {{ tile.logo }}"
+                {% if tile.color %}
+                    style="color: {{ tile.color }};"
+               {% endif %}>
+            </i>
+        </div>
+        <div class="text">
+            <h3>{{tile.title }}</h3>
+        </div>
+            </div>
+    </div>
+    {% endfor %}
+    </div>
+
+    <form action="{% url 'core_explore_keyword_app_search' %}" method="POST" id="form" style="display: none">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-9">
+                 <div class="col-sm-10">
+                    <input id="id_query_id" name="query_id" type="text" value="{{query_id}}">
+                    <input id="id_user_id" name="user_id" type="text" value="{{user_id}}">
+                    <input name="order_by_field" id="id_order_by_field" value="{{order_by_field}}">
+                    <!-- Refinements input will be created dynamically. See js/tiles.js -->
+                </div>
+            </div>
+        </div>
+    </form>
+{% endif %}
