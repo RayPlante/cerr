@@ -91,6 +91,7 @@ INSTALLED_APPS = (
     "defender",
     "captcha",
     "django_celery_beat",
+    "crispy_forms",
     # Core apps
     "core_main_app",
     "core_main_registry_app",
@@ -101,6 +102,7 @@ INSTALLED_APPS = (
     "core_oaipmh_provider_app",
     "core_curate_registry_app",
     "core_curate_app",
+    "cerr_curate_app",
     "core_parser_app",
     "core_parser_app.tools.modules",  # FIXME: make modules an app
     "core_parser_app.tools.parser",  # FIXME: make parser an app
