@@ -98,13 +98,19 @@ Once you have these changes made, save the `.env` file and run:
 
 ```bash
 docker-compose up -d
+docker exec -u root nmrr_cdcs chmod -R o+w /usr/local/lib/python3.7/site-packages/cerr_curate_app/
+docker-compose restart
+docker exec -u root nmrr_cdcs chmod -R o-w /usr/local/lib/python3.7/site-packages/cerr_curate_app/
 ```
 
 This command will pull any docker images needed and bring them up according
-to the specification in the `docker-compose.yml` file. Once they are all up,
-you _should_ be able to access the application by visiting your local IP in
+to the specification in the `docker-compose.yml` file. 
+It is needed here to update the permissions of cerr_curate_app to apply the migrations to the database (when restarting the container).
+The permissions are then set back to normal.
+Once they are all up, you _should_ be able to access the application by visiting your local IP in
 your browser, at something like http://192.168.1.5 (or whatever your IP
-address is). If the application appears to be up, you'll need to create an
+address is).
+If the application appears to be up, you'll need to create an
 admin user to do anything useful, using the
 `./cerr_docker/deploy/docker_createsuperuser.sh` script, which can be run from
 the terminal by providing a username (`admin` in the example here`) and a
