@@ -33,12 +33,11 @@ WORKDIR $DOCKYARD_SRVPROJ
 RUN pip install -r requirements.txt
 
 RUN echo "\ncore-module-blob-host-app==1.21.*" >> requirements.core.txt
-RUN echo "\ngit+https://gitlab.nist.gov/gitlab/snb24/ce-registry.git@pip-package" >> requirements.core.txt
+RUN echo "\ngit+https://gitlab.nist.gov/gitlab/circulareconomy/ce-registry.git@pip-package" >> requirements.core.txt
 
 RUN pip install -r requirements.core.txt
 
 # Copy settings file
-# COPY ./settings/$BRANCH/$PROJECT_NAME.settings.py $DOCKYARD_SRVPROJ/$PROJECT_NAME/settings.py
 COPY ./cerr/cerr.settings.py $DOCKYARD_SRVPROJ/$PROJECT_NAME/settings.py
 COPY ./cerr/cerr.core_settings.py $DOCKYARD_SRVPROJ/$PROJECT_NAME/core_settings.py
 
@@ -48,16 +47,13 @@ COPY ./cerr/federationmetadata.xml ${DOCKYARD_SRVPROJ}/federationmetadata.xml
 # workaround for SAML error in 2.16:
 COPY ./cerr/attr-map.py ${DOCKYARD_SRVPROJ}/attr-maps/attr-map.py
 COPY ./cerr/CERR_schema.xsd ${DOCKYARD_SRVPROJ}/static/xsd/CERR_schema.xsd
-# COPY ./ghgr/list.xsl ${DOCKYARD_SRVPROJ}/static/xsl/registry-list.xsl
-# COPY ./ghgr/detail.xsl ${DOCKYARD_SRVPROJ}/static/xsl/registry-detail.xsl
-#COPY ./ghgr/update_xslt.py ${DOCKYARD_SRVPROJ}/update_xslt.py
+# COPY ./cerr/list.xsl ${DOCKYARD_SRVPROJ}/static/xsl/registry-list.xsl
+# COPY ./cerr/detail.xsl ${DOCKYARD_SRVPROJ}/static/xsl/registry-detail.xsl
+#COPY ./cerr/update_xslt.py ${DOCKYARD_SRVPROJ}/update_xslt.py
 COPY ./cerr/cerr-config.json ${DOCKYARD_SRVPROJ}/static/json/cerr-config.json
 
 
 ######### CERR CUSTOMIZATIONS ##########
-
-#COPY ./ghgr/core_explore_keyword_app.user.index.html $DOCKYARD_SRVPROJ/templates/core_explore_keyword_app/user/index.html
-#COPY $DOCKYARD_SRVPROJ/ghgr/templates/theme/index/html $DOCKYARD_SRVPROJ/templates/core_explore_keyword_app/user/index.html
 
 COPY ./cerr/btn_custom.css ${DOCKYARD_SRVPROJ}/static/css/btn_custom.css
 COPY ./cerr/extra.css ${DOCKYARD_SRVPROJ}/static/css/extra.css
@@ -74,31 +70,13 @@ COPY ./cerr/views.py $DOCKYARD_SRVPROJ/${PROJECT_NAME}_home/views.py
 
 COPY ./cerr/cerr-background.jpg ${DOCKYARD_SRVPROJ}/static/img/cerr-background.jpg
 COPY ./cerr/circular.png ${DOCKYARD_SRVPROJ}/static/img/circular.png
-# COPY ./ghgr/nist_logo.png ${DOCKYARD_SRVPROJ}/static/img/nist_logo.png
-# COPY ./ghgr/help.html $DOCKYARD_SRVPROJ/templates/core_website_app/user/help.html
 COPY ./cerr/context_processor.py $DOCKYARD_SRVPROJ/${PROJECT_NAME}_home/context_processor.py
-# COPY ./ghgr/terms-of-use.html $DOCKYARD_SRVPROJ/templates/core_website_app/user/terms-of-use.html
-# COPY ./ghgr/rules_of_behavior.html $DOCKYARD_SRVPROJ/templates/core_website_app/user/rules_of_behavior.html
-# COPY ./ghgr/selection.css /usr/local/lib/python3.7/site-packages/core_main_registry_app/static/core_main_registry_app/user/css/resource_banner/selection.css
-# COPY ./ghgr/filters.css /usr/local/lib/python3.7/site-packages/core_explore_keyword_registry_app/static/core_explore_keyword_registry_app/user/css/search/filters.css
 
 COPY ./cerr/core_dashboard_registry_app_views.py /usr/local/lib/python3.7/site-packages/core_dashboard_registry_app/core_dashboard_registry_app/views/common/views.py
 
 # enable core_module_blob_host_app urls and associated REST endpoints by copying
 # our customized nmrr_urls into the container:
 COPY ./cerr/nmrr_urls.py ${PROJECT_NAME}/urls.py
-
-# COPY ./ghgr/favicon.ico ${DOCKYARD_SRVPROJ}/static/img/favicon.ico
-# RUN sed -i 's|img/favicon.png|img/favicon.ico|g' ${DOCKYARD_SRVPROJ}/templates/theme.html
-
-#COPY --chown=root:staff ./nestr/curate_menu_add_icon.py /usr/local/lib/python3.7/site-packages/core_curate_app/menus.py
-#RUN chmod 644 /usr/local/lib/python3.7/site-packages/core_curate_app/menus.py
-
-#COPY --chown=root:staff ./nestr/explore_menu_add_icon.py /usr/local/lib/python3.7/site-packages/core_explore_keyword_app/menus.py
-#RUN chmod 644 /usr/local/lib/python3.7/site-packages/core_explore_keyword_app/menus.py
-
-#COPY --chown=root:staff ./nestr/dashboard_menu_add_icon.py /usr/local/lib/python3.7/site-packages/core_dashboard_registry_app/menus.py
-#RUN chmod 644 /usr/local/lib/python3.7/site-packages/core_dashboard_registry_app/menus.py
 
 # disable autocomplete on login page:
 RUN sed -i 's|label="Password", required=True, widget=forms.PasswordInput|label="Password", required=True, widget=forms.PasswordInput(attrs={"autocomplete": "off"})|g' /usr/local/lib/python3.7/site-packages/core_main_app/views/user/forms.py
@@ -114,12 +92,6 @@ RUN sed -i 's|Materials Resource Registry|Circular Economy Resource Registry|g' 
 
 #Remove open record on click=
 RUN sed -i 's|$(".view-record-btn").on(|//$(".view-record-btn").on(|g' /usr/local/lib/python3.7/site-packages/core_dashboard_common_app/static/core_dashboard_common_app/common/js/list/view_record.js
-
-#Curate with cerr app
-# RUN sed -i 's|import core_curate_app.components.curate_data_structure.api as curate_data_structure_api|import core_curate_app.components.curate_data_structure.api as curate_data_structure_api\nfrom cerr_curate_app.components.curate_data_structure import api as curate_api|g' $DOCKYARD_SRVPROJ/templates/theme/footer/default.html
-
-# remove sorting from child leaves of refinements
-# RUN sed -i 's|for key, value in sorted(leaves.items()):|for key, value in leaves.items():|g' /usr/local/lib/python3.7/site-packages/core_main_registry_app/utils/refinement/refinement.py
 
 
 # override pagination limit to very high value on record list page (useful
