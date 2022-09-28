@@ -13,11 +13,6 @@ echo "********* Migrate auth... *********"
 echo "********* Migrate apps... *********"
 /srv/curator/manage.py migrate
 
-echo "********* Makemigrations cerr_curate_app ... *********"
-/srv/curator/manage.py makemigrations cerr_curate_app
-echo "********* MIGRATE cerr_curate_app  *********"
-/srv/curator/manage.py migrate cerr_curate_app
-
 echo "********* Collect static files... *********"
 /srv/curator/manage.py collectstatic --noinput
 echo "********* Compile messages... *********"
