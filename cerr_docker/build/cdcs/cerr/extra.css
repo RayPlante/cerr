@@ -31,8 +31,7 @@
     width: calc(100% - 3em);
     background-color: #fff;
     margin: 1px 1.5em 0 1.5em;
-    border-bottom-right-radius: 30px;
-    border-bottom-left-radius: 30px;
+    border-radius: 30px;
     font-family: serif;
 }
 
@@ -125,10 +124,13 @@ body {
 
 /* Homepage search bar overide */
 #search_bar ul {
-    border: 4px solid #9cab85 !important;
-    background-color: #f4e4d2;
+    border: 2px solid #9cab85 !important;
     background-color: white;
     overflow: hidden;
+}
+
+#search_bar ul:hover {
+    border: 2px solid #6a7953 !important;
 }
 
 /* End Homepage search bar overide */

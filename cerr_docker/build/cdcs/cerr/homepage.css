@@ -5,7 +5,7 @@
 
 
 #content {
-    background: linear-gradient(rgba(255,255,255,.9), rgba(255,255,255,.9)), url('../../img/cerr-background.jpg') center  no-repeat;
+    background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, .9)), url('../../img/cerr-background.jpg') center no-repeat;
     background-size: contain;
 }
 
@@ -18,9 +18,13 @@ p {
 }
 
 #intro p a {
-	color: #9eac87;
-	font-weight: bold;
-	font-style: italic;
+    color: #9eac87;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#intro p a:hover {
+    color: #50672e;
 }
 
 #intro div button {
@@ -78,6 +82,7 @@ p {
 .search-bar-wrapper ul {
     -webkit-box-shadow: None !important;
 }
+
 .tile .text h3 {
     margin-bottom: 0.1em;
 }
