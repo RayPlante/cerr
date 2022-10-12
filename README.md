@@ -65,8 +65,8 @@ Consult the `README.md` file in the `deploy/` folder for more details, but at
 the very least, you'll need to change the following three lines:
 
 ```bash
-HOSTNAME=192.168.1.5
-SERVER_URI=http://192.168.1.5
+HOSTNAME="<YOUR_IP_ADDRESS>"
+SERVER_URI=http://"<YOUR_IP_ADDRESS>"
 ALLOWED_HOSTS=*
 ```
 
@@ -98,18 +98,12 @@ Once you have these changes made, save the `.env` file and run:
 
 ```bash
 docker-compose up -d
-docker exec -u root nmrr_cdcs chmod -R o+w /usr/local/lib/python3.7/site-packages/cerr_curate_app/
-docker-compose restart
-docker exec -u root nmrr_cdcs chmod -R o-w /usr/local/lib/python3.7/site-packages/cerr_curate_app/
 ```
 
 This command will pull any docker images needed and bring them up according
-to the specification in the `docker-compose.yml` file. 
-It is needed here to update the permissions of cerr_curate_app to apply the migrations to the database (when restarting the container).
-The permissions are then set back to normal.
+to the specification in the `docker-compose.yml` file.
 Once they are all up, you _should_ be able to access the application by visiting your local IP in
-your browser, at something like http://192.168.1.5 (or whatever your IP
-address is).
+your browser, at something like http://"<YOUR_IP_ADDRESS> "
 If the application appears to be up, you'll need to create an
 admin user to do anything useful, using the
 `./cerr_docker/deploy/docker_createsuperuser.sh` script, which can be run from
@@ -179,18 +173,18 @@ like the following:
 # build the cerr image like described before...
 $ docker-compose build
 Successfully built 53104b86f2d8
-Successfully tagged cerr:2.16.0-4
+Successfully tagged ce:2.21.0
 
 # add a tag to the image that will put it in the right place on Docker Hub:
 # make sure to change the version number (after the ":" character) to match
 # whatever has been built by the last command
 # note: the prefix must be "nistodi/cdcs..." since that's expected by the
 # deployment configuration
-$ docker tag cerr:2.16.0-4 nistodi/cdcs_ce:2.16.0-4
+$ docker tag ce:2.21.0 nistodi/cdcs_ce:2.21.0
 
 # push the newly tagged image up to docker hub:
 # (you may have to run `docker login` first)
-$ docker push nistodi/cdcs_ce:2.16.0-4
+$ docker push nistodi/cdcs_ce:2.21.0
 ```
 
 The image is now ready to be used on Docker Hub for deployment.
