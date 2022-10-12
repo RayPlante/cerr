@@ -78,6 +78,18 @@ COPY ./cerr/core_dashboard_registry_app_views.py /usr/local/lib/python3.7/site-p
 # our customized nmrr_urls into the container:
 COPY ./cerr/nmrr_urls.py ${PROJECT_NAME}/urls.py
 
+## add icons to the menu bar 
+COPY --chown=root:staff ./cerr/curate_menu_add_icon.py /usr/local/lib/python3.7/site-packages/core_curate_app/menus.py
+RUN chmod 644 /usr/local/lib/python3.7/site-packages/core_curate_app/menus.py
+
+COPY --chown=root:staff ./cerr/explore_menu_add_icon.py /usr/local/lib/python3.7/site-packages/core_explore_keyword_app/menus.py
+RUN chmod 644 /usr/local/lib/python3.7/site-packages/core_explore_keyword_app/menus.py
+
+COPY --chown=root:staff ./cerr/dashboard_menu_add_icon.py /usr/local/lib/python3.7/site-packages/core_dashboard_registry_app/menus.py
+RUN chmod 644 /usr/local/lib/python3.7/site-packages/core_dashboard_registry_app/menus.py
+
+
+
 # disable autocomplete on login page:
 RUN sed -i 's|label="Password", required=True, widget=forms.PasswordInput|label="Password", required=True, widget=forms.PasswordInput(attrs={"autocomplete": "off"})|g' /usr/local/lib/python3.7/site-packages/core_main_app/views/user/forms.py
 
