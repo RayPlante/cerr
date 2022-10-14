@@ -51,6 +51,11 @@ services:
     image: ${IMAGE_NAME}:${IMAGE_VERSION}
     container_name: ${PROJECT_NAME}_cdcs
     restart: always
+    logging:
+      driver: "json-file"
+      options:
+          max-size: "10m"
+          max-file: "5"
     depends_on:
       - cerr_mongo
       - cerr_redis
