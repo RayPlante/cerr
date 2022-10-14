@@ -16,7 +16,7 @@ WORKSPACE_DISPLAY_NAME = "workspace"
 WEBSITE_ADMIN_COLOR = "blue"
 # black, black-light, blue, blue-light, green, green-light, purple, purple-light, red, red-light, yellow, yellow-light
 
-DATA_SOURCES_EXPLORE_APPS = ["core_explore_oaipmh_app"]
+DATA_SOURCES_EXPLORE_APPS = []
 
 # Lists in data not stored if number of elements is over the limit (e.g. 100)
 SEARCHABLE_DATA_OCCURRENCES_LIMIT = None
@@ -31,7 +31,7 @@ EXPLORE_ADD_DEFAULT_LOCAL_DATA_SOURCE_TO_QUERY = True
 """ boolean: Do we add the local data source to new queries by default
 """
 
-SSL_CERTIFICATES_DIR = True
+SSL_CERTIFICATES_DIR = False
 """ Either a boolean, in which case it controls whether requests verify the server's TLS certificate, 
 or a string, in which case it must be a path to a CA bundle to use.
 """
@@ -130,7 +130,7 @@ REGISTRY_XSD_FILEPATH = os.path.join("xsd", REGISTRY_XSD_FILENAME)
 """
 
 # If you want to use your own configuration file, set your configuration file here
-CUSTOM_REGISTRY_FILE_PATH = os.path.join("json", "custom_registry.json")
+CUSTOM_REGISTRY_FILE_PATH = os.path.join("json", "cerr-config.json")
 """ str: Custom registry configuration file path used for the initialisation.
 """
 
@@ -160,7 +160,8 @@ OAI_ENABLE_HARVESTING = True
 """ boolean: Enable OAI-PMH harvesting by default.
 """
 
-ENABLE_SAML2_SSO_AUTH = os.getenv("ENABLE_SAML2_SSO_AUTH", "False").lower() == "true"
+ENABLE_SAML2_SSO_AUTH = os.getenv(
+    "ENABLE_SAML2_SSO_AUTH", "False").lower() == "true"
 """ boolean: enable SAML2 SSO authentication.
 """
 

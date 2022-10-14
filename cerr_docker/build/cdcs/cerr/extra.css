@@ -141,3 +141,8 @@ body {
 }
 
 /* End search page toggle color overide */
+
+
+.search-left-panel{
+margin-top: -4em;
+}
