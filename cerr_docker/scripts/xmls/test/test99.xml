@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><Resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rsm="http://schema.nist.gov/xml/ce-res-md/1.0wd2" xmlns="http://schema.nist.gov/xml/ce-res-md/1.0wd2" status="active">
+  <identity>
+    <title>Combining polyethylene and polypropylene: Enhanced performance with PE/iPP multiblock
+      polymers</title>
+  </identity>
+  <providers>
+    <publisher>Science</publisher>
+    <publicationYear>2017</publicationYear>
+    <creator>
+      <name middle="W." given="Geoffrey" sur="Coates" xsi:type="PersonName">Geoffrey W.
+        Coates</name>
+      <affiliation>Cornell University</affiliation>
+    </creator>
+    <contributor role="Researcher">
+      <name middle="S." given="Frank" sur="Bates" xsi:type="PersonName">Frank S. Bates</name>
+      <affiliation>University of Minnesota</affiliation>
+    </contributor>
+    <contributor role="Researcher">
+      <name middle="M." given="Anne" sur="Lapointe" xsi:type="PersonName">Anne M. Lapointe</name>
+      <affiliation>Cornell University</affiliation>
+    </contributor>
+    <contributor role="Researcher">
+      <name middle="M." given="Christopher" sur="Macosko" xsi:type="PersonName">Christopher M.
+        Macosko</name>
+      <affiliation>University of Minnesota</affiliation>
+    </contributor>
+    <contributor role="DataCollector">
+      <name middle="M." given="James" sur="Eagan" xsi:type="PersonName">James M. Eagan</name>
+      <affiliation>Cornell University</affiliation>
+    </contributor>
+    <contributor role="DataCollector">
+      <name middle="" given="Jun" sur="Xu" xsi:type="PersonName">Jun Xu</name>
+      <affiliation>University of Minnesota</affiliation>
+    </contributor>
+    <contributor role="Researcher">
+      <name middle="M." given="Christopher" sur="Thurber" xsi:type="PersonName">Christopher M.
+        Thurber</name>
+      <affiliation>University of Minnesota</affiliation>
+    </contributor>
+    <contributor role="Researcher">
+      <name middle="" given="Rocco" sur="Di Girolamo" xsi:type="PersonName">Rocco Di Girolamo</name>
+      <affiliation>Cornell University</affiliation>
+    </contributor>
+    <date role="Available" xsi:type="DciteDate">2017</date>
+    <contact>
+      <name>Geoffrey W. Coates</name>
+      <postalAddress>
+        <addressLine>Department of Chemistry and Chemical Biology, Baker Laboratory</addressLine>
+        <addressLine>Cornell University</addressLine>
+        <addressLine>Ithaca, NY 14853, USA</addressLine>
+      </postalAddress>
+      <emailAddress>lapointe@cornell.edu</emailAddress>
+    </contact>
+  </providers>
+  <content>
+    <description>Polyethylene (PE) and isotactic polypropylene (iPP) are the two most widely used
+      commodity plastics and thus make up a large fraction of the waste stream. However, the two
+      plastics will not mix together, which limits options for dealing with mixed waste and
+      decreases the value of recycled products. Eagan et al. report the synthesis of multiblock
+      copolymers of iPP and PE by using a selective polymer initiator (see the Perspective by
+      Creton). The high-molecular-weight blocks could be used to reinforce the interface between iPP
+      and PE and allow blending of the two polymers.</description>
+    <subject>polyolefins</subject>
+    <subject>polyethylene</subject>
+    <subject>polypropylene</subject>
+    <subject>compatibilization</subject>
+    <subject>recycling</subject>
+    <subject>polymer blends</subject>
+    <landingPage>https://www.science.org/doi/10.1126/science.aah5744</landingPage>
+    <primaryAudience>researchers</primaryAudience>
+  </content>
+  <role xsi:type="Literature">
+    <type>Literature: Article</type>
+  </role>
+  <access>
+    <policy>
+      <restriction>public</restriction>
+      <rights>Subscription may be necessary for access</rights>
+      <termsURL/>
+      <copyright>
+        <crholder>American Association for the Advancement of Science</crholder>
+      </copyright>
+    </policy>
+  </access>
+</Resource>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><Resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schema.nist.gov/xml/ce-res-md/1.0wd2" xmlns:rsm="http://schema.nist.gov/xml/ce-res-md/1.0wd2" status="active">
+  <identity>
+    <title>Handling &amp; Sorting Specifications - For re-use and recycling of used textiles</title>
+  </identity>
+  <providers>
+    <publisher>European Recycling Industries’ Confederation (EuRIC)</publisher>
+    <publicationYear>2021</publicationYear>
+    <contact>
+      <name/>
+    </contact>
+  </providers>
+  <content>
+    <description>The newly published “EuRIC Textiles Handling &amp; Sorting Specifications for
+      re-use and recycling of used textiles” are recommended as a guideline throughout the
+      collection and sorting process to prepare items for either re-use or recycling in accordance
+      with the waste hierarchy and best practices of the industry. They are intended to be used by
+      industry professionals throughout the textile value chain in their day-to-day operations as
+      the processes described secure the high quality of second-hand textiles for re-use and/or the
+      appropriate infeed for the subsequent recycling process.</description>
+    <subject>Textiles Sorting</subject>
+    <subject>Sorting Specifications</subject>
+    <landingPage>https://www.euric-aisbl.eu/position-papers/item/549-handling-sorting-specifications-for-re-use-and-recycling-of-used-textiles</landingPage>
+    <primaryAudience>practitioners</primaryAudience>
+    <primaryAudience>researchers</primaryAudience>
+  </content>
+  <role xsi:type="Literature">
+    <type>Literature: Report</type>
+  </role>
+  <applicability>
+    <lifecyclePhase>
+      <rsm:use_and_reuse>use and reuse</rsm:use_and_reuse>
+    </lifecyclePhase>
+    <lifecyclePhase>
+      <recycling>recycling</recycling>
+    </lifecyclePhase>
+  </applicability>
+  <access>
+    <policy>
+      <restriction>public</restriction>
+    </policy>
+  </access>
+</Resource>

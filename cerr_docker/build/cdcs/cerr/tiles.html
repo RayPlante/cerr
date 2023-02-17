@@ -5,8 +5,8 @@
 <div style="display: flex">
     {% for tile in tiles %}
     <div class="tile">
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <div class="icon" onclick="submitRefinement({{ tile.categories }}, '{{refinement_form_id}}');">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;" onclick="submitRefinement({{ tile.categories }}, '{{refinement_form_id}}');">
+        <div class="icon">
             <i class="fas {{ tile.logo }}"
                 {% if tile.color %}
                     style="color: {{ tile.color }};"

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><Resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rsm="http://schema.nist.gov/xml/ce-res-md/1.0wd2" xmlns="http://schema.nist.gov/xml/ce-res-md/1.0wd2" status="active">
+  <identity>
+    <title>The Circular Economy Project at NIST</title>
+  </identity>
+  <providers>
+    <publisher>NIST</publisher>
+    <publicationYear>2020</publicationYear>
+    <creator>
+      <name middle="" given="Kathryn" sur="Beers" xsi:type="PersonName">Kathryn Beers</name>
+      <affiliation>NIST</affiliation>
+    </creator>
+    <contributor role="DataCollector">
+      <name middle="" given="Kelsey" sur="Schumacher" xsi:type="PersonName">Kelsey Schumacher</name>
+    </contributor>
+    <date role="Created" xsi:type="DciteDate">2020-10-01</date>
+    <contact>
+      <name>Kelsey Schumacher</name>
+      <emailAddress>kelsey.schumacher@nist.gov</emailAddress>
+    </contact>
+  </providers>
+  <content>
+    <description>The goal of the Circular Economy program is to coordinate NIST resources to support
+      the Nation’s need to transition away from a linear – take, make, use, waste – economic model
+      toward one in which materials repeatedly cycle within the economy. For NIST, this involves
+      inter-agency collaboration, identification of external stakeholder needs and innovations in
+      measurements and standards that enable decreased dependence of economic activity on the
+      consumption of virgin resources. Among the activities supported by this program is the
+      creation of the CE Resource Registry for collecting data and information resource useful for
+      understanding that current state of the Circular Economy.</description>
+    <subject>recycling</subject>
+    <subject>upcycling</subject>
+    <subject>Materials Design</subject>
+    <subject>Data, Economics and Supply Chain</subject>
+    <subject>Maximizing Recovery</subject>
+    <subject>Environmental Impacts</subject>
+    <landingPage>https://inet.nist.gov/mml/circular-economy-nist</landingPage>
+    <primaryAudience>researchers</primaryAudience>
+  </content>
+  <role xsi:type="Organization">
+    <type>Organization: Project</type>
+  </role>
+  <applicability/>
+</Resource>
