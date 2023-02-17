@@ -33,7 +33,7 @@ WORKDIR $DOCKYARD_SRVPROJ
 RUN pip install -r requirements.txt
 
 RUN echo "\ncore-module-blob-host-app==1.21.*" >> requirements.core.txt
-RUN echo "\ngit+https://gitlab.nist.gov/gitlab/circulareconomy/ce-registry.git@pip-package" >> requirements.core.txt
+RUN echo "\ngit+https://gitlab.nist.gov/gitlab/snb24/ce-registry.git@pip-package">> requirements.core.txt
 
 RUN pip install -r requirements.core.txt
 

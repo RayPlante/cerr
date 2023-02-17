@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><Resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rsm="http://schema.nist.gov/xml/ce-res-md/1.0wd2" xmlns="http://schema.nist.gov/xml/ce-res-md/1.0wd2" status="deleted">
+  <identity>
+    <title>Open Apparel Registry</title>
+    <identifier/>
+  </identity>
+  <providers>
+    <publisher>The OAR</publisher>
+    <contact>
+      <name/>
+      <emailAddress>info@openapparel.org</emailAddress>
+    </contact>
+  </providers>
+  <content>
+    <description>The mission of the Open Apparel Registry is to maintain an open-source, neutral and
+      publicly accessible database of every facility in the global apparel and footwear sector, for
+      the purposes of enabling industry collaboration and improved identification of factories. This
+      improved identification will be facilitated by the unique OAR ID allocated to each
+      facility.</description>
+    <subject>Textile supply chains</subject>
+    <subject>Global textile facilities</subject>
+    <landingPage>https://info.openapparel.org/</landingPage>
+    <primaryAudience>practitioners</primaryAudience>
+  </content>
+  <role xsi:type="Tool">
+    <type>Tool: Web App</type>
+  </role>
+  <applicability>
+    <productClass xmlns:nr="http://schema.nist.gov/xml/ce-res-md/1.0wd2">
+      <textiles>textiles</textiles>
+    </productClass>
+    <materialType xmlns:nr="http://schema.nist.gov/xml/ce-res-md/1.0wd2"/>
+  </applicability>
+  <access>
+    <policy>
+      <restriction>public</restriction>
+    </policy>
+    <method xsi:type="PortalMethod"/>
+  </access>
+</Resource>

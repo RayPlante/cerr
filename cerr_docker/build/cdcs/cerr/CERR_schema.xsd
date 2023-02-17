@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xs:schema targetNamespace="http://schema.nist.gov/xml/ce-res-md/1.0wd2"
-    xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://schema.nist.gov/xml/ce-res-md/1.0wd2"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:rsm="http://schema.nist.gov/xml/ce-res-md/1.0wd2"
-    xmlns:am="http://schema.nist.gov/xml/nmrr.schema.annot" elementFormDefault="qualified"
+    xmlns:am="http://schema.nist.gov/xml/nmrr.schema.annot" 
+    elementFormDefault="qualified"
     attributeFormDefault="unqualified" version="0.10-02-2017">
 
     <xs:annotation>
@@ -221,6 +223,13 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            
+            <xs:enumeration value="Organization: General/Other">
+                <xs:annotation>
+                    <xs:documentation> Any other organization that doesn't fit the above choices
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
 
             <xs:enumeration value="Organization">
                 <xs:annotation>
@@ -232,7 +241,7 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:complexType name="LiteratureResource">
+    <xs:complexType name="Literature">
         <xs:annotation>
             <xs:documentation> a published document (e.g. article, journal, book, etc.) relevent to
                 circular economy research </xs:documentation>
@@ -298,6 +307,13 @@
                         purpose </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            
+            <xs:enumeration value="Literature: General/Other">
+                <xs:annotation>
+                    <xs:documentation> Any other literature that doesn't fit the above choices
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
 
             <xs:enumeration value="Literature">
                 <xs:annotation>
@@ -309,7 +325,7 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:complexType name="DataCollection">
+    <xs:complexType name="Collection">
         <xs:annotation>
             <xs:documentation> a resource that aggregates and makes accessible many datasets
                 together as part of a collection. </xs:documentation>
@@ -356,6 +372,13 @@
             <xs:enumeration value="Collection: Project Archive">
                 <xs:annotation>
                     <xs:documentation> An aggregation of data sets </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            
+            <xs:enumeration value="Collection: General/Other">
+                <xs:annotation>
+                    <xs:documentation> Any other collection that doesn't fit the above choices
+                    </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
 
@@ -417,6 +440,13 @@
                         purpose </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            
+            <xs:enumeration value="Dataset: General/Other">
+                <xs:annotation>
+                    <xs:documentation> Any other collection that doesn't fit the above choices
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
 
         </xs:restriction>
     </xs:simpleType>
@@ -456,6 +486,13 @@
                 <xs:annotation>
                     <xs:documentation> A logical set of related data supporting a common scientific
                         purpose </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            
+            <xs:enumeration value="Dataset: General/Other">
+                <xs:annotation>
+                    <xs:documentation> Any other dataset that doesn't fit the above choices
+                    </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
 
@@ -711,6 +748,13 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            
+            <xs:enumeration value="Tool: General/Other">
+                <xs:annotation>
+                    <xs:documentation> Any other tool that doesn't fit the above choices
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
 
             <xs:enumeration value="Tool">
                 <xs:annotation>
@@ -832,7 +876,7 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:complexType name="WebSite">
+    <xs:complexType name="Website">
         <xs:annotation>
             <xs:documentation> a searchable collection of tabular or property-oriented data
             </xs:documentation>
@@ -863,17 +907,24 @@
 
         <xs:restriction base="xs:token">
 
-            <xs:enumeration value="Web Site: InteractiveResource: Portal">
+            <xs:enumeration value="Website: Portal">
                 <xs:annotation>
                     <xs:documentation> A web site that provides a suite of tool for interacting with
                         a variety of data. </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
 
-            <xs:enumeration value="Web Site: Informational">
+            <xs:enumeration value="Website: Informational">
                 <xs:annotation>
                     <xs:documentation> A web site that provides a suite of tool for interacting with
                         a variety of data. </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            
+            <xs:enumeration value="Website: General/Other">
+                <xs:annotation>
+                    <xs:documentation> Any other website that doesn't fit the above choices
+                    </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
 
@@ -1107,7 +1158,7 @@
                 </xs:annotation>
             </xs:element>
 
-            <xs:element name="contact" type="rsm:Contact" maxOccurs="unbounded">
+            <xs:element name="contact" type="rsm:Contact" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                     <xs:appinfo>
                         <label>Contact</label>
@@ -2034,11 +2085,11 @@
             <xs:documentation> a catagory of product to be processed or recycled </xs:documentation>
         </xs:annotation>
 
-        <xs:choice minOccurs="0">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
             <xs:element name="batteries" type="rsm:batteries_Product_class"/>
             <xs:element name="electronics" type="rsm:electronics_Product_class"/>
 
-            <xs:element name="durable_plastics" type="rsm:organics_Product_class"/>
+            <xs:element name="durable_plastics" type="rsm:durable_plastics_Product_class"/>
             <xs:element name="solar_panels" type="rsm:solar_panels_Product_class"/>
             <xs:element name="packaging" type="rsm:packaging_Product_class"/>
             <xs:element name="building_materials" type="rsm:building_materials_Product_class"/>
@@ -2069,14 +2120,14 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="organics_Product_class">
+    <xs:simpleType name="durable_plastics_Product_class">
         <xs:annotation>
-            <xs:documentation> Allowed values for organics vocabulary terms describing product class
+            <xs:documentation> Allowed values for durable plastics vocabulary terms describing product class
             </xs:documentation>
         </xs:annotation>
 
         <xs:restriction base="xs:token">
-            <xs:enumeration value="organics"/>
+            <xs:enumeration value="durable plastics"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -2139,7 +2190,7 @@
             </xs:documentation>
         </xs:annotation>
 
-        <xs:choice minOccurs="0">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
 
             <xs:element name="materials_design" type="rsm:materials_design_Lifecycle_phase"/>
             <xs:element name="processing" type="rsm:processing_Lifecycle_phase"/>
@@ -2151,8 +2202,8 @@
                 type="rsm:collection_and_sortation_Lifecycle_phase"/>
             <xs:element name="recycling" type="rsm:recycling_Lifecycle_phase"/>
             <xs:element name="carbon_capture" type="rsm:carbon_capture_Lifecycle_phase"/>
-            <xs:element name="end_of_life_management"
-                type="rsm:end_of_life_management_Lifecycle_phase"/>
+            <xs:element name="end-of-life_management"
+                type="rsm:end-of-life_management_Lifecycle_phase"/>
             <xs:element name="unwanted_outcomes" type="rsm:unwanted_outcomes_Lifecycle_phase"/>
         </xs:choice>
     </xs:complexType>
@@ -2250,7 +2301,7 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="end_of_life_management_Lifecycle_phase">
+    <xs:simpleType name="end-of-life_management_Lifecycle_phase">
         <xs:annotation>
             <xs:documentation> Allowed values for end-of-life management vocabulary terms describing
                 Lifecycle Phase </xs:documentation>
@@ -2269,7 +2320,7 @@
 
         <xs:restriction base="xs:token">
             <xs:enumeration value="unwanted outcomes"/>
-            <xs:enumeration value="unwanted outcomes: materials losses"/>
+            <xs:enumeration value="unwanted outcomes: material losses"/>
             <xs:enumeration value="unwanted outcomes: carbon emissions"/>
             <xs:enumeration value="unwanted outcomes: public health impacts"/>
             <xs:enumeration value="unwanted outcomes: environmental impacts"/>
@@ -2282,7 +2333,7 @@
             </xs:documentation>
         </xs:annotation>
 
-        <xs:choice minOccurs="0">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
             <xs:element name="biomass" type="rsm:biomass_Material_types"/>
 
             <xs:element name="composites" type="rsm:composites_Material_types"/>
@@ -2292,8 +2343,8 @@
             <xs:element name="chemicals" type="rsm:chemicals_Material_types"/>
 
             <xs:element name="metals_and_alloys" type="rsm:metals_and_alloys_Material_types"/>
-            <xs:element name="polymers_property_based" type="rsm:polymers_property_Material_types"/>
-            <xs:element name="polymers_chemistry_based" type="rsm:polymers_chemistry_Material_types"/>
+            <xs:element name="polymers_property-based" type="rsm:polymers_property_Material_types"/>
+            <xs:element name="polymers_chemistry-based" type="rsm:polymers_chemistry_Material_types"/>
             <xs:element name="small_organic_compounds"
                 type="rsm:small_organic_compounds_Material_types"/>
         </xs:choice>
@@ -2308,9 +2359,9 @@
         <xs:restriction base="xs:token">
             <xs:enumeration value="biomass"/>
 
-            <xs:enumeration value="cellulosic"/>
-            <xs:enumeration value="food"/>
-            <xs:enumeration value="compost"/>
+            <xs:enumeration value="biomass: cellulosic"/>
+            <xs:enumeration value="biomass: food"/>
+            <xs:enumeration value="biomass: compost"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -2411,6 +2462,7 @@
         </xs:annotation>
 
         <xs:restriction base="xs:token">
+            <xs:enumeration value="polymers: property-based"/>
             <xs:enumeration value="polymers: chemistry-based"/>
             <xs:enumeration value="polymers: chemistry-based: polyolefins"/>
             <xs:enumeration value="polymers: chemistry-based: polyesters"/>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><Resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schema.nist.gov/xml/ce-res-md/1.0wd2" xmlns:rsm="http://schema.nist.gov/xml/ce-res-md/1.0wd2" status="active">
+  <identity>
+    <title>Closed-loop recycling of polyethylene-like materials</title>
+  </identity>
+  <providers>
+    <publisher>Nature</publisher>
+    <publicationYear>2021</publicationYear>
+    <creator>
+      <name middle="" given="Stefan" sur="Mecking" xsi:type="PersonName">Stefan Mecking</name>
+      <affiliation>University of Konstanz</affiliation>
+    </creator>
+    <contributor role="Researcher">
+      <name middle="" given="Manuel" sur="Häußler" xsi:type="PersonName">Manuel Häußler</name>
+      <affiliation>University of Konstanz</affiliation>
+    </contributor>
+    <contributor role="Researcher">
+      <name middle="" given="Marcel" sur="Eck" xsi:type="PersonName">Marcel Eck</name>
+      <affiliation>University of Konstanz</affiliation>
+    </contributor>
+    <contributor role="Researcher">
+      <name middle="" given="Dario" sur="Rothauer" xsi:type="PersonName">Dario Rothauer</name>
+      <affiliation>University of Konstanz</affiliation>
+    </contributor>
+    <date role="Available" xsi:type="DciteDate">2021</date>
+    <contact>
+      <name>Stefan Mecking</name>
+      <postalAddress>
+        <addressLine>Chemical Materials Science</addressLine>
+        <addressLine>Department of Chemistry</addressLine>
+        <addressLine>University of Konstanz</addressLine>
+        <addressLine>Konstanz, Germany</addressLine>
+      </postalAddress>
+      <emailAddress>stefan.mecking@uni-konstanz.de</emailAddress>
+    </contact>
+  </providers>
+  <content>
+    <description>Plastics are key components of almost any technology today. Although their
+      production consumes substantial feedstock resources, plastics are largely disposed of after
+      their service life. In terms of a circular economy reuse of post-consumer sorted polymers
+      (‘mechanical recycling’) is hampered by deterioration of materials performance. Chemical
+      recycling via depolymerization to monomer offers an alternative that retains high-performance
+      properties. The linear hydrocarbon chains of polyethylene enable crystalline packing and
+      provide excellent materials properties. Their inert nature hinders chemical recycling,
+      however, necessitating temperatures above 600 degrees Celsius and recovering ethylene with a
+      yield of less than 10 per cent. Here we show that renewable polycarbonates and polyesters with
+      a low density of in-chain functional groups as break points in a polyethylene chain can be
+      recycled chemically by solvolysis with a recovery rate of more than 96 per cent. At the same
+      time, the break points do not disturb the crystalline polyethylene structure, and the
+      desirable materials properties (like those of high-density polyethylene) are fully retained
+      upon recycling. Processing can be performed by common injection moulding and the materials are
+      well-suited for additive manufacturing, such as 3D printing. Selective removal from model
+      polymer waste streams is possible. In our approach, the initial polymers result from
+      polycondensation of long-chain building blocks, derived by state-of-the-art catalytic schemes
+      from common plant oil feedstocks, or microalgae oils. This allows closed-loop recycling of
+      polyethylene-like materials.</description>
+    <subject>polyolefins</subject>
+    <subject>polyethylene</subject>
+    <subject>recycling</subject>
+    <subject>chemical recycling</subject>
+    <subject>depolymerization</subject>
+    <subject>solvolysis</subject>
+    <subject>renewable resources</subject>
+    <subject>crystallization</subject>
+    <landingPage>https://www.nature.com/articles/s41586-020-03149-9</landingPage>
+  </content>
+  <role xsi:type="Literature">
+    <type>Literature: Article</type>
+  </role>
+  <applicability>
+    <productClass>
+      <packaging>packaging</packaging>
+    </productClass>
+    <productClass>
+      <packaging>packaging: plastic</packaging>
+    </productClass>
+    <lifecyclePhase>
+      <rsm:materials_design>materials design</rsm:materials_design>
+    </lifecyclePhase>
+    <lifecyclePhase>
+      <processing>processing</processing>
+    </lifecyclePhase>
+    <lifecyclePhase>
+      <rsm:use_and_reuse>use and reuse</rsm:use_and_reuse>
+    </lifecyclePhase>
+    <lifecyclePhase>
+      <recycling>recycling</recycling>
+    </lifecyclePhase>
+    <lifecyclePhase>
+      <recycling>recycling: solvent processing and extraction</recycling>
+    </lifecyclePhase>
+    <lifecyclePhase>
+      <rsm:end_of_life_management>end-of-life management</rsm:end_of_life_management>
+    </lifecyclePhase>
+    <materialType>
+      <polymers_property_based>polymers</polymers_property_based>
+    </materialType>
+    <materialType>
+      <polymers_chemistry_based>polymers: chemistry-based</polymers_chemistry_based>
+    </materialType>
+    <materialType>
+      <polymers_property_based>polymers: property-based</polymers_property_based>
+    </materialType>
+  </applicability>
+  <access>
+    <policy>
+      <restriction>public</restriction>
+      <rights>May require subscription for access</rights>
+      <copyright>
+        <crholder>Springer Nature Limited</crholder>
+      </copyright>
+    </policy>
+    <method xsi:type="DownloadMethod"/>
+  </access>
+</Resource>

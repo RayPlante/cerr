@@ -2,7 +2,7 @@
     "all_resource": {
         "title": "All Resources",
         "icon": "fa-globe",
-        "icon_color": "#557EB9",
+        "icon_color": "#eaccaa",
         "display_icon": true,
         "type": "all",
         "sort": 0
@@ -10,7 +10,7 @@
     "Organization": {
         "title": "Organizations",
         "icon": "fa-university",
-        "icon_color": "#2CAAE2",
+        "icon_color": "#eaccaa",
         "display_icon": true,
         "description": "a group of people that come together to contribute to or participate in a federated data operation. Organizations can be hierarchical: an organization can contain or sponsor other organizations. Organizations can also aggregate or participate with other organizations in broader collaborations.",
         "role_choice": "Organization",
@@ -25,41 +25,10 @@
             "Consortium"
         ]
     },
-    "DataCollection": {
-        "title": "Collections",
-        "icon": "fa-table",
-        "icon_color": "#A1C057",
-        "display_icon": true,
-        "description": "An aggregation of one or more datasets, possibly spanning many research projects or teams.",
-        "role_choice": "DataCollection",
-        "role_type": "Collection",
-        "type": "resource",
-        "sort": 6,
-        "refinements": [
-            "unspecified Collection",
-            "Repository",
-            "Archive"
-        ]
-    },
-    "Dataset": {
-        "title": "Dataset",
-        "icon": "fa-database",
-        "icon_color": "grey",
-        "display_icon": true,
-        "description": "a set of data (can be one or more separate files or other digital objects) that is unified by a common set of research goals and/or results. This is intended to be a single publishable unit of scientific output that might be described in a single journal article.",
-        "role_choice": "Dataset",
-        "role_type": "Dataset",
-        "type": "resource",
-        "sort": 3,
-        "refinements": [
-            "unspecified Dataset",
-            "Database"
-        ]
-    },
     "Tool": {
         "title": "Tool",
         "icon": "fa-cogs",
-        "icon_color": "#79B320",
+        "icon_color": "#eaccaa",
         "display_icon": true,
         "description": "A software tool, application, or library.",
         "role_choice": "Tool",
@@ -72,10 +41,25 @@
             "Software Library"
         ]
     },
-    "LiteratureResource": {
+    "Dataset": {
+        "title": "Dataset",
+        "icon": "fa-database",
+        "icon_color": "#eaccaa",
+        "display_icon": true,
+        "description": "a set of data (can be one or more separate files or other digital objects) that is unified by a common set of research goals and/or results. This is intended to be a single publishable unit of scientific output that might be described in a single journal article.",
+        "role_choice": "Dataset",
+        "role_type": "Dataset",
+        "type": "resource",
+        "sort": 3,
+        "refinements": [
+            "unspecified Dataset",
+            "Database"
+        ]
+    },
+    "Literature": {
         "title": "Literature",
         "icon": "fa-book",
-        "icon_color": "#c07c16",
+        "icon_color": "#eaccaa",
         "display_icon": true,
         "description": "a set of data (can be one or more separate files or other digital objects) that is unified by a common set of research goals and/or results. This is intended to be a single publishable unit of scientific output that might be described in a single journal article.",
         "role_choice": "Dataset",
@@ -87,19 +71,35 @@
             "Database"
         ]
     },
-    "WebSite": {
-        "title": "Web Sites",
+    "Website": {
+        "title": "Websites",
         "icon": "fa-laptop",
-        "icon_color": "pink",
+        "icon_color": "#eaccaa",
         "display_icon": true,
         "description": "A (web) site that aggregates useful information for research. The information is not generally machine-processable, but rather is intended for consumption by a human (e.g. via a web browser).",
-        "role_choice": "WebSite",
-        "role_type": "Web Site: Informational",
+        "role_choice": "Website",
+        "role_type": "Website: Informational",
         "type": "resource",
         "sort": 5,
         "refinements": [
             "Informational",
             "InteractiveResource: Portal"
+        ]
+    },
+    "Collection": {
+        "title": "Collections",
+        "icon": "fa-table",
+        "icon_color": "#eaccaa",
+        "display_icon": true,
+        "description": "An aggregation of one or more datasets, possibly spanning many research projects or teams.",
+        "role_choice": "Collection",
+        "role_type": "Collection: General/Other",
+        "type": "resource",
+        "sort": 6,
+        "refinements": [
+            "unspecified Collection",
+            "Repository",
+            "Archive"
         ]
     }
 }
