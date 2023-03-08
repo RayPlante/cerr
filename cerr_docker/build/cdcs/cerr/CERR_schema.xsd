@@ -1535,7 +1535,7 @@
                 </xs:annotation>
             </xs:element>
 
-            <xs:element name="primaryAudience" type="rsm:Audience" minOccurs="0" maxOccurs="2">
+            <xs:element name="primaryAudience" type="rsm:Audience" minOccurs="0" maxOccurs="3">
                 <xs:annotation>
                     <xs:appinfo>
                         <label>Primary Audience</label>
