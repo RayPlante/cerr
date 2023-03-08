@@ -1483,7 +1483,7 @@
                 </xs:annotation>
             </xs:element>
 
-            <xs:element name="subject" type="rsm:Subject" maxOccurs="unbounded">
+            <xs:element name="subject" type="rsm:Subject" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                     <xs:appinfo>
                         <label>Subject</label>
