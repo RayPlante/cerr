@@ -102,9 +102,6 @@ RUN sed -i 's|favicon.png|circular.png|g' $DOCKYARD_SRVPROJ/templates/theme.html
 # Change name of project in footer:
 RUN sed -i 's|Materials Resource Registry|Circular Economy Resource Registry|g' $DOCKYARD_SRVPROJ/templates/theme/footer/default.html
 
-#Remove open record on click=
-RUN sed -i 's|$(".view-record-btn").on(|//$(".view-record-btn").on(|g' /usr/local/lib/python3.7/site-packages/core_dashboard_common_app/static/core_dashboard_common_app/common/js/list/view_record.js
-
 
 # override pagination limit to very high value on record list page (useful
 # when a record needs to be edited, since it allows a user to Ctrl-F in the
