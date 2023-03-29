@@ -7,8 +7,8 @@
         "type": "all",
         "sort": 0
     },
-    "Organization": {
-        "title": "Organizations",
+    "rsm:Organization": {
+        "title": "Organization",
         "icon": "fa-university",
         "icon_color": "#eaccaa",
         "display_icon": true,
@@ -16,16 +16,9 @@
         "role_choice": "Organization",
         "role_type": "Organization",
         "type": "resource",
-        "sort": 1,
-        "refinements": [
-            "unspecified Organization",
-            "Institution",
-            "Project",
-            "Trade Association",
-            "Consortium"
-        ]
+        "sort": 1
     },
-    "Tool": {
+    "rsm:Tool": {
         "title": "Tool",
         "icon": "fa-cogs",
         "icon_color": "#eaccaa",
@@ -34,14 +27,9 @@
         "role_choice": "Tool",
         "role_type": "Tool",
         "type": "resource",
-        "sort": 2,
-        "refinements": [
-            "Desktop App",
-            "Web App",
-            "Software Library"
-        ]
+        "sort": 2
     },
-    "Dataset": {
+    "rsm:Dataset": {
         "title": "Dataset",
         "icon": "fa-database",
         "icon_color": "#eaccaa",
@@ -50,56 +38,39 @@
         "role_choice": "Dataset",
         "role_type": "Dataset",
         "type": "resource",
-        "sort": 3,
-        "refinements": [
-            "unspecified Dataset",
-            "Database"
-        ]
+        "sort": 3
     },
-    "Literature": {
+    "rsm:Literature": {
         "title": "Literature",
         "icon": "fa-book",
         "icon_color": "#eaccaa",
         "display_icon": true,
         "description": "a set of data (can be one or more separate files or other digital objects) that is unified by a common set of research goals and/or results. This is intended to be a single publishable unit of scientific output that might be described in a single journal article.",
-        "role_choice": "Dataset",
-        "role_type": "Dataset",
+        "role_choice": "Literature",
+        "role_type": "Literature",
         "type": "resource",
-        "sort": 4,
-        "refinements": [
-            "unspecified Dataset",
-            "Database"
-        ]
+        "sort": 4
     },
-    "Website": {
-        "title": "Websites",
+    "rsm:Website": {
+        "title": "Website",
         "icon": "fa-laptop",
         "icon_color": "#eaccaa",
         "display_icon": true,
         "description": "A (web) site that aggregates useful information for research. The information is not generally machine-processable, but rather is intended for consumption by a human (e.g. via a web browser).",
         "role_choice": "Website",
-        "role_type": "Website: Informational",
+        "role_type": "Website",
         "type": "resource",
-        "sort": 5,
-        "refinements": [
-            "Informational",
-            "InteractiveResource: Portal"
-        ]
+        "sort": 5
     },
-    "Collection": {
-        "title": "Collections",
+    "rsm:Collection": {
+        "title": "Collection",
         "icon": "fa-table",
         "icon_color": "#eaccaa",
         "display_icon": true,
         "description": "An aggregation of one or more datasets, possibly spanning many research projects or teams.",
         "role_choice": "Collection",
-        "role_type": "Collection: General/Other",
+        "role_type": "Collection",
         "type": "resource",
-        "sort": 6,
-        "refinements": [
-            "unspecified Collection",
-            "Repository",
-            "Archive"
-        ]
+        "sort": 6
     }
 }
