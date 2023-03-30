@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet 
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+<xsl:stylesheet version="1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:rsm="http://schema.nist.gov/xml/ce-res-md/1.0wd2"
     xmlns:am="http://schema.nist.gov/xml/nmrr.schema.annot" 
     xmlns:ghgr="https://data.nist.gov/od/dm/ghgr/v1.0exp"
     xmlns:exsl="http://exslt.org/common"
-    version="1.0"
     exclude-result-prefixes="exsl">
     <xsl:output method="html" indent="yes" encoding="UTF-8" />
 
@@ -55,14 +54,16 @@
                             <xsl:text> - </xsl:text>
                         </xsl:if>
                         <xsl:value-of select="$publisher"/>
-                        
                         <xsl:variable name="subject" select="//rsm:Resource/rsm:content/rsm:subject" />
+                        <xsl:variable name="total" select="string-length($subject)-string-length(translate($subject,',',''))"/>
+                      
                         <xsl:if test="$subject!=''">
                             <div class="keywords" style="line-height: 1.1em; margin-top:0.5em; margin-bottom:0.25em;">
                                 <xsl:text>Subject keyword(s): </xsl:text>
-                                <xsl:call-template name="join">
-                                    <xsl:with-param name="list" select="$subject" />
-                                    <xsl:with-param name="separator" select="', '" />
+                                <xsl:call-template name="split">
+                                    <xsl:with-param name="pText" select=
+                                        "$subject"/>
+                                    <xsl:with-param name="total" select="$total"/>
                                 </xsl:call-template>
                             </div>
                         </xsl:if>     
@@ -116,6 +117,27 @@
             <xsl:otherwise><i>No Home Page URL provided</i></xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    
+    
+    <xsl:template name="split">
+        <xsl:param name="pText" select="."/>
+        <xsl:param name="total"/>
+        <xsl:variable name="cText" select=
+            "string-length($pText)-string-length(translate($pText,',',''))"/>
+        <xsl:if test="string-length($pText) >0 and (number($total) - $cText) &lt; 3 ">
+            <xsl:value-of select=
+                "substring-before(concat($pText, ',',' '), ',')"/>
+            <xsl:if test=" $cText >0 and (number($total) - $cText) &lt; 2  ">
+            <xsl:value-of select="', '"/>
+            </xsl:if>
+            <xsl:call-template name="split">
+                <xsl:with-param name="pText" select=
+                    "substring-after($pText, ',')"/>
+                <xsl:with-param name="total" select="$total"></xsl:with-param>
+            </xsl:call-template>
+        </xsl:if>
+    </xsl:template>
+    
     
     
 </xsl:stylesheet>
