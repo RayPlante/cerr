@@ -1,214 +1,188 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet 
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:rsm="http://schema.nist.gov/xml/ce-res-md/1.0wd2"
-	xmlns:am="http://schema.nist.gov/xml/nmrr.schema.annot" 
-	xmlns:ghgr="https://data.nist.gov/od/dm/ghgr/v1.0exp"
-	xmlns:exsl="http://exslt.org/common"
-	version="1.0"
-	exclude-result-prefixes="exsl"
-	>
-	
-	<xsl:output method="html" indent="yes" encoding="UTF-8" />
+	xmlns:am="http://schema.nist.gov/xml/nmrr.schema.annot"
+	xmlns:ghgr="https://data.nist.gov/od/dm/ghgr/v1.0exp" xmlns:exsl="http://exslt.org/common"
+	version="1.0" exclude-result-prefixes="exsl">
+
+	<xsl:output method="html" indent="yes" encoding="UTF-8"/>
 	<xsl:template match="/">
-		
+
 		<style>
-			.top2{
-			margin-top: 2em;
+			
+			.top2 {
+			    margin-top: 2em;
 			}
+			
+			.title {
+			    color: #9eac87;
+			    margin-top: 1em;
+			    margin-bottom: 0em;
+			    font-weight: bolder;
+			}
+			
+			.bigTitle {
+			    color: #474747;
+			    margin-top: 1em;
+			}
+			
 		</style>
-		
-		
-		
-		<xsl:variable name="title"  select="//rsm:Resource/rsm:identity/rsm:title"/>
-		<xsl:variable name="keywords" select="//rsm:Resource/rsm:content/rsm:subject" />
+
+		<xsl:variable name="title" select="//rsm:Resource/rsm:identity/rsm:title"/>
+		<xsl:variable name="keywords" select="//rsm:Resource/rsm:content/rsm:subject"/>
 		<xsl:variable name="description" select="//rsm:Resource/rsm:content/rsm:description"/>
-		<xsl:variable name="creators" select="//rsm:Resource/rsm:providers/rsm:contact/rsm:name" />
+		<xsl:variable name="landingPage" select="//rsm:Resource/rsm:content/rsm:landingPage"/>
+		<xsl:variable name="primaryAudience" select="//rsm:Resource/rsm:content/rsm:primaryAudience"/>
+		<xsl:variable name="creators" select="//rsm:Resource/rsm:providers/rsm:contact/rsm:name"/>
 		<xsl:variable name="publisher" select="//rsm:Resource/rsm:providers/rsm:publisher"/>
-	
+		<xsl:variable name="publicationYear"
+			select="//rsm:Resource/rsm:providers/rsm:publicationYear"/>
+		<xsl:variable name="role" select="//rsm:Resource/rsm:role/rsm:type"/>
+		<xsl:variable name="productClass" select="//rsm:Resource/rsm:applicability/rsm:productClass/*"/>
+		<xsl:variable name="lifecyclePhase"
+			select="//rsm:Resource/rsm:applicability/rsm:lifecyclePhase/*"/>
+		<xsl:variable name="materialType" select="//rsm:Resource/rsm:applicability/rsm:materialType/*"/>
+
 		<xsl:choose>
-			<xsl:when test="$title!=''">
-				<h1><xsl:value-of select="$title"/></h1>
+			<xsl:when test="$title != ''">
+				<h1 class="top1 bigTitle">
+					<xsl:value-of select="$title"/>
+				</h1>
 			</xsl:when>
 			<xsl:otherwise>
-				<strong class="italic">Untitled</strong>
+				<strong class="italic top1 title">Untitled</strong>
 			</xsl:otherwise>
 		</xsl:choose>
-		
-		<p class="top2"><xsl:value-of select="$description"/></p>
-		<xsl:for-each select="$keywords">
-			<p><xsl:value-of select="."/>    </p>
-		</xsl:for-each>
 
-		<xsl:for-each select="//*[(*)]">
-			<xsl:variable name="branchName" select="name(.)" />
-			<xsl:variable name="prefix">
-				<xsl:choose>
-					<xsl:when test="count(ancestor::node())=2"></xsl:when>
-					<xsl:otherwise><xsl:value-of select="$branchName"/></xsl:otherwise>
-				</xsl:choose>
-			</xsl:variable>
 
-			<div>
-				<xsl:choose>
-					<xsl:when test="count(ancestor::node())=2" >
-						<h3 style="letter-spacing: -1px;font-weight: 500;font-size: 1.7em;color: #9eac87; margin: 0.5em 0 0 0">
-							<xsl:call-template name="formatText">
-								<xsl:with-param name="current" select="$branchName" />
-							</xsl:call-template>
-						</h3>
-					</xsl:when>
-				<xsl:otherwise>
-				</xsl:otherwise>
-				</xsl:choose>
 
-				<xsl:for-each select="*[not(*)]">
-				   <xsl:call-template name="leaves">
-					  <xsl:with-param name="prefix" select="$prefix"/>
-				   </xsl:call-template>
-				</xsl:for-each>
-			</div>
-		</xsl:for-each>
-	</xsl:template>
-
-	<xsl:template name="leaves">
-		<xsl:param name="prefix" />
-		<xsl:variable name="name" select="name(.)" />
-		<xsl:variable name="value" select="." />
-		<xsl:if test="$value != ''">
-			<xsl:choose>
-				<xsl:when test="following-sibling::node()[name()=$name] or preceding-sibling::node()[name()=$name]">
-					<xsl:choose>
-						<xsl:when test="preceding-sibling::node()[name()=$name]" >
-						</xsl:when>
-						<xsl:otherwise>
-							<span style="display:block;color: #888;">
-								<strong>
-									<xsl:call-template name="formatText">
-										<xsl:with-param name="prefix" select="$prefix" />
-										<xsl:with-param name="current" select="$name" />
-									</xsl:call-template>
-									<xsl:text>: </xsl:text>
-								</strong>
-								<xsl:call-template name="join">
-									<xsl:with-param name="current" select="$value" />
-									<xsl:with-param name="list" select="following-sibling::node()[name()=$name]" />
-									<xsl:with-param name="separator" select="', '" />
-								</xsl:call-template>
-							</span>
-						</xsl:otherwise>
-					</xsl:choose>
-					<xsl:apply-templates select="@*" />
-				</xsl:when>
-				<xsl:otherwise>
-					<span style="display:block;color: #888;">
-						<strong>
-							<xsl:call-template name="formatText">
-								<xsl:with-param name="prefix" select="$prefix" />
-								<xsl:with-param name="current" select="$name" />
-							</xsl:call-template>
-							<xsl:text>: </xsl:text>
-						</strong>
-						<xsl:choose>
-							<xsl:when test="( (contains($name, 'URL')) or (starts-with($value, 'https://')) or (starts-with($value, 'http://')) )">
-								<a target="_blank" href="{$value}"><xsl:value-of select="$value"/></a>
-							</xsl:when>
-							<xsl:otherwise>
-								<xsl:value-of select="$value"/>
-							</xsl:otherwise>
-						</xsl:choose>
-						<xsl:apply-templates select="@*" />
-					</span>
-				</xsl:otherwise>
-			</xsl:choose>
+		<xsl:if test="$landingPage">
+			<h3 class="top2">
+				<a target="_blank" href="{$landingPage}" style="color: #9eac87; font-style: normal;">
+					<u>View this resource (on external site) </u>
+					<sup>
+						<i style="font-size: small;" class="fas fa-external-link-alt"/>
+					</sup>
+				</a>
+			</h3>
 		</xsl:if>
-	</xsl:template>
 
-	<xsl:template name="join">
-		<xsl:param name="current" />
-		<xsl:param name="list" />
-		<xsl:param name="separator"/>
 
-		<xsl:value-of select="$current" />
-		<xsl:apply-templates select="@*" />
-		<xsl:value-of select="$separator" />
+		<xsl:if test="$description">
+			<p class="top2">
+				<xsl:value-of select="$description"/>
+			</p>
+		</xsl:if>
 
-		<xsl:for-each select="$list">
-			<xsl:value-of select="." />
-			<xsl:apply-templates select="@*" />
-			<xsl:if test="position() != last()">
-				<xsl:value-of select="$separator" />
-			</xsl:if>
-		</xsl:for-each>
-	</xsl:template>
 
-	<xsl:template name="formatText">
-		<xsl:param name="prefix" />
-		<xsl:param name="current" />
-		<xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
-		<xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz'"/>
-
-		<xsl:variable name="upperPrefix" select="concat(translate(substring($prefix, 1, 1), $lowercase, $uppercase), substring($prefix, 2))"/>
-		<xsl:variable name="upperCurrent" select="concat(translate(substring($current, 1, 1), $lowercase, $uppercase), substring($current, 2))"/>
-		<xsl:call-template name="SplitCamelCase">
-			<xsl:with-param name="text" select="concat($upperPrefix,$upperCurrent)" />
-		</xsl:call-template>
-	</xsl:template>
-
-	<xsl:template name="SplitCamelCase">
-		<xsl:param name="text" />
-		<xsl:param name="digitsMode" select="0" />
-		<xsl:variable name="upper" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
-		<xsl:variable name="lower" select="'abcdefghijklmnopqrstuvwxyz'"/>
-		<xsl:variable name="digits">0123456789</xsl:variable>
-
-		<xsl:if test="$text != ''">
-			<xsl:variable name="letter" select="substring($text, 1, 1)" />
-			<xsl:variable name="followingLetter" select="substring($text, 2, 2)" />
-			<xsl:choose>
-				<xsl:when test="(contains($upper, $letter) and not(contains($upper, $followingLetter)))">
-					<xsl:text> </xsl:text>
-					<xsl:value-of select="$letter" />
-				</xsl:when>
-				<xsl:when test="contains($digits, $letter)">
-					<xsl:choose>
-						<xsl:when test="$digitsMode != 1">
-							<xsl:text> </xsl:text>
-						</xsl:when>
-					</xsl:choose>
-					<xsl:value-of select="$letter" />
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="$letter"/>
-				</xsl:otherwise>
-			</xsl:choose>
-			<xsl:call-template name="SplitCamelCase">
-				<xsl:with-param name="text" select="substring-after($text, $letter)" />
-				<xsl:with-param name="digitsMode" select="contains($digits, $letter)" />
+		<xsl:if test="$keywords">
+			<h3 class="title bottom0 bold">Keywords:</h3>
+			<xsl:call-template name="split">
+				<xsl:with-param name="pText" select="$keywords"/>
 			</xsl:call-template>
 		</xsl:if>
+
+
+		<xsl:if test="$creators">
+			<h3 class="title bottom0 bold">Creator:</h3>
+			<p>
+				<xsl:value-of select="$creators"/>
+			</p>
+		</xsl:if>
+
+
+		<xsl:if test="$publisher">
+			<h3 class="title bottom0 bold">Published by: </h3>
+			<xsl:value-of select="$publisher"/>
+			<xsl:if test="$publicationYear">
+				<xsl:text> in </xsl:text>
+				<xsl:value-of select="$publicationYear"/>
+			</xsl:if>
+		</xsl:if>
+		
+
+		<xsl:if test="$primaryAudience">
+			<h3 class="title bottom0 bold">Primary Audience:</h3>
+			<xsl:for-each select="$primaryAudience">
+				<span>
+					<xsl:value-of select="."/>
+					<xsl:if test="position() != last()">
+						<xsl:value-of select="', '"/>
+					</xsl:if>
+				</span>
+			</xsl:for-each>
+		</xsl:if>
+
+
+		<xsl:if test="$role">
+			<h3 class="title bottom0 bold">Role:</h3>
+			<xsl:for-each select="$role">
+				<span>
+					<xsl:value-of select="."/>
+					<xsl:if test="position() != last()">
+						<xsl:value-of select="', '"/>
+					</xsl:if>
+				</span>
+			</xsl:for-each>
+		</xsl:if>
+
+
+		<xsl:if test="$materialType">
+			<h3 class="title bottom0 bold">Material Type:</h3>
+			<xsl:for-each select="$materialType">
+				<span>
+					<xsl:copy-of select="."/>
+					<xsl:if test="position() != last()">
+						<xsl:value-of select="', '"/>
+					</xsl:if>
+				</span>
+			</xsl:for-each>
+		</xsl:if>
+
+
+		<xsl:if test="$lifecyclePhase">
+			<h3 class="title bottom0 bold">Lifecycle Phase:</h3>
+			<xsl:for-each select="$lifecyclePhase">
+				<span>
+					<xsl:value-of select="."/>
+					<xsl:if test="position() != last()">
+						<xsl:value-of select="', '"/>
+					</xsl:if>
+				</span>
+			</xsl:for-each>
+		</xsl:if>
+
+
+		<xsl:if test="$productClass">
+			<h3 class="title bottom0 bold">Product Class:</h3>
+			<xsl:for-each select="$productClass">
+				<span>
+					<xsl:value-of select="."/>
+					<xsl:if test="position() != last()">
+						<xsl:value-of select="', '"/>
+					</xsl:if>
+				</span>
+			</xsl:for-each>
+		</xsl:if>
+
+
 	</xsl:template>
 
-	<xsl:template match="@*">
-		<xsl:variable name="name" select="name(.)" />
-		<xsl:variable name="value" select="." />
-		<xsl:if test="$value != ''">
-			<xsl:if test="not(starts-with($name, 'xsi:type'))">
-				<span class='value'>
-					<xsl:text> (</xsl:text>
-					<xsl:value-of select="$name" /> <xsl:text>: </xsl:text>
-					<xsl:choose>
-						<xsl:when test="( (contains($name, 'URL')) or (starts-with($value, 'https://')) or (starts-with($value, 'http://')) )">
-							<a target="_blank" href="{$value}"><xsl:value-of select="$value"/></a>
-						</xsl:when>
-						<xsl:otherwise>
-							<xsl:value-of select="$value"/>
-						</xsl:otherwise>
-					</xsl:choose>
-					<xsl:text>)</xsl:text>
-				</span>
+
+	<xsl:template name="split">
+		<xsl:param name="pText" select="."/>
+		<xsl:variable name="cText"
+			select="string-length($pText) - string-length(translate($pText, ',', ''))"/>
+
+		<xsl:if test="string-length($pText) > 0">
+			<xsl:value-of select="substring-before(concat($pText, ',', ' '), ',')"/>
+			<xsl:if test="$cText > 0">
+				<xsl:value-of select="', '"/>
 			</xsl:if>
+			<xsl:call-template name="split">
+				<xsl:with-param name="pText" select="substring-after($pText, ',')"/>
+			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
 </xsl:stylesheet>
