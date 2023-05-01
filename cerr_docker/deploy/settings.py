@@ -7,8 +7,11 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-from core_main_app.utils.logger.logger_utils import set_generic_handler, set_generic_logger, \
-    update_logger_with_local_app
+from core_main_app.utils.logger.logger_utils import (
+    set_generic_handler,
+    set_generic_logger,
+    update_logger_with_local_app,
+)
 import os
 from mongoengine.connection import connect
 
@@ -19,31 +22,29 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
 
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ["*"]
 MENU_SELECT_PARENTS = False
 
 # Application definition
 INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.sites',
-    'django.contrib.staticfiles',
-
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.sites",
+    "django.contrib.staticfiles",
     # Extra apps
-    'oauth2_provider',
+    "oauth2_provider",
     "rest_framework",
     "drf_yasg",
     "rest_framework_mongoengine",
     "menu",
     "tz_detect",
     "defender",
-
     # Core apps
     "core_main_app",
     "core_exporters_app",
@@ -67,64 +68,61 @@ INSTALLED_APPS = (
     "core_dashboard_app",
     "core_dashboard_common_app",
     "core_file_preview_app",
-
     # modules
     "core_module_blob_host_app",
     "core_module_excel_uploader_app",
     "core_module_periodic_table_app",
     "core_module_chemical_composition_app",
     "core_module_text_area_app",
-
     # Local apps
-    "mdcs_home"
+    "mdcs_home",
 )
 
 MIDDLEWARE = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'defender.middleware.FailedLoginMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'tz_detect.middleware.TimezoneMiddleware',
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "defender.middleware.FailedLoginMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "tz_detect.middleware.TimezoneMiddleware",
 )
 
-ROOT_URLCONF = 'mdcs.urls'
+ROOT_URLCONF = "mdcs.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            'templates'
-        ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": ["templates"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
                 # Needed by any curator app
-                'django.contrib.messages.context_processors.messages', "core_main_app.utils.custom_context_processors.domain_context_processor",
+                "django.contrib.messages.context_processors.messages",
+                "core_main_app.utils.custom_context_processors.domain_context_processor",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'mdcs.wsgi.application'
+WSGI_APPLICATION = "mdcs.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': "mdcs_cdcs_postgres",
-        'PORT': 5432,
-        'NAME': "cdcs",
-        'USER': "curator",
-        'PASSWORD': "curator",
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "HOST": "mdcs_cdcs_postgres",
+        "PORT": 5432,
+        "NAME": "cdcs",
+        "USER": "curator",
+        "PASSWORD": "curator",
     }
 }
 
@@ -132,16 +130,17 @@ MONGO_HOST = "mdcs_cdcs_mongo"
 MONGO_NAME = "cdcs"
 MONGO_USER = "curator"
 MONGO_PASS = "curator"
-MONGODB_URI = "mongodb://" + MONGO_USER + ":" + \
-    MONGO_PASS + "@" + MONGO_HOST + "/" + MONGO_NAME
+MONGODB_URI = (
+    "mongodb://" + MONGO_USER + ":" + MONGO_PASS + "@" + MONGO_HOST + "/" + MONGO_NAME
+)
 connect(MONGO_NAME, host=MONGODB_URI)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -149,24 +148,20 @@ USE_L10N = True
 
 USE_TZ = True
 
-LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale'),
-)
+LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = 'static.prod'
+STATIC_URL = "/static/"
+STATIC_ROOT = "static.prod"
 
 STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'django.contrib.staticfiles.finders.FileSystemFinder',
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "django.contrib.staticfiles.finders.FileSystemFinder",
 )
 
-STATICFILES_DIRS = (
-    'static',
-)
+STATICFILES_DIRS = ("static",)
 
 # Logging
 LOGGING_SERVER = True
@@ -179,100 +174,135 @@ LOGGER_FILE_DB = os.path.join(BASE_DIR, "logfile_db.txt")
 LOGGER_FILE_SECURITY = os.path.join(BASE_DIR, "logfile_security.txt")
 LOGGER_FILE_APP = os.path.join(BASE_DIR, "logfile_app.txt")
 
-LOGGER_LEVEL = os.getenv('DJANGO_LOG_LEVEL', 'DEBUG')
-LOGGER_CLIENT_LEVEL = os.getenv('DJANGO_LOG_LEVEL', 'DEBUG')
-LOGGER_SERVER_LEVEL = os.getenv('DJANGO_LOG_LEVEL', 'DEBUG')
-LOGGER_DB_LEVEL = os.getenv('DJANGO_LOG_LEVEL', 'DEBUG')
-LOGGER_APP_LEVEL = os.getenv('DJANGO_LOG_LEVEL', 'DEBUG')
+LOGGER_LEVEL = os.getenv("DJANGO_LOG_LEVEL", "DEBUG")
+LOGGER_CLIENT_LEVEL = os.getenv("DJANGO_LOG_LEVEL", "DEBUG")
+LOGGER_SERVER_LEVEL = os.getenv("DJANGO_LOG_LEVEL", "DEBUG")
+LOGGER_DB_LEVEL = os.getenv("DJANGO_LOG_LEVEL", "DEBUG")
+LOGGER_APP_LEVEL = os.getenv("DJANGO_LOG_LEVEL", "DEBUG")
 
 LOGGER_MAX_BYTES = 500000
 LOGGER_BACKUP_COUNT = 2
 
 local_logger_conf = {
-    'handlers': ['app_handler', 'console'],
-    'level': LOGGER_APP_LEVEL,
+    "handlers": ["app_handler", "console"],
+    "level": LOGGER_APP_LEVEL,
 }
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'fmt-default': {
-            'format': "%(levelname)s: %(asctime)s\t%(name)s\t%(pathname)s\tl.%(lineno)s\t%(message)s",
-            'datefmt': "%Y-%m-%d %H:%M:%S"
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "fmt-default": {
+            "format": "%(levelname)s: %(asctime)s\t%(name)s\t%(pathname)s\tl.%(lineno)s\t%(message)s",
+            "datefmt": "%Y-%m-%d %H:%M:%S",
         },
     },
-    'handlers': {
-        'logfile-security': {
-            'level': 'DEBUG',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': LOGGER_FILE_SECURITY,
-            'maxBytes': LOGGER_MAX_BYTES,
-            'backupCount': LOGGER_BACKUP_COUNT,
-            'formatter': 'fmt-default',
+    "handlers": {
+        "logfile-security": {
+            "level": "DEBUG",
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": LOGGER_FILE_SECURITY,
+            "maxBytes": LOGGER_MAX_BYTES,
+            "backupCount": LOGGER_BACKUP_COUNT,
+            "formatter": "fmt-default",
         },
-        'console': {
-            'level': 'INFO',
-            'class': 'logging.StreamHandler',
-            'formatter': 'fmt-default'
+        "console": {
+            "level": "INFO",
+            "class": "logging.StreamHandler",
+            "formatter": "fmt-default",
         },
-        'app_handler': {
-            'level': LOGGER_APP_LEVEL,
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': LOGGER_FILE_APP,
-            'maxBytes': LOGGER_MAX_BYTES,
-            'backupCount': LOGGER_BACKUP_COUNT,
-            'formatter': 'fmt-default',
-        }
+        "app_handler": {
+            "level": LOGGER_APP_LEVEL,
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": LOGGER_FILE_APP,
+            "maxBytes": LOGGER_MAX_BYTES,
+            "backupCount": LOGGER_BACKUP_COUNT,
+            "formatter": "fmt-default",
+        },
     },
-    'loggers': {
-        'django.security': {
-            'handlers': ['console', 'logfile-security'],
-            'level': LOGGER_LEVEL,
-            'propagate': True,
+    "loggers": {
+        "django.security": {
+            "handlers": ["console", "logfile-security"],
+            "level": LOGGER_LEVEL,
+            "propagate": True,
         },
     },
 }
 
 update_logger_with_local_app(LOGGING, local_logger_conf, INSTALLED_APPS)
 if LOGGING_CLIENT:
-    set_generic_handler(LOGGING, 'logfile-template', LOGGER_CLIENT_LEVEL, LOGGER_FILE_CLIENT, LOGGER_MAX_BYTES,
-                        LOGGER_BACKUP_COUNT, 'logging.handlers.RotatingFileHandler')
-    set_generic_logger(LOGGING, 'django.template', LOGGER_CLIENT_LEVEL, [
-                       'console', 'logfile-template'])
-    set_generic_handler(LOGGING, 'logfile-request', LOGGER_CLIENT_LEVEL, LOGGER_FILE_CLIENT, LOGGER_MAX_BYTES,
-                        LOGGER_BACKUP_COUNT, 'logging.handlers.RotatingFileHandler')
-    set_generic_logger(LOGGING, 'django.request', LOGGER_CLIENT_LEVEL, [
-                       'console', 'logfile-request'])
+    set_generic_handler(
+        LOGGING,
+        "logfile-template",
+        LOGGER_CLIENT_LEVEL,
+        LOGGER_FILE_CLIENT,
+        LOGGER_MAX_BYTES,
+        LOGGER_BACKUP_COUNT,
+        "logging.handlers.RotatingFileHandler",
+    )
+    set_generic_logger(
+        LOGGING, "django.template", LOGGER_CLIENT_LEVEL, ["console", "logfile-template"]
+    )
+    set_generic_handler(
+        LOGGING,
+        "logfile-request",
+        LOGGER_CLIENT_LEVEL,
+        LOGGER_FILE_CLIENT,
+        LOGGER_MAX_BYTES,
+        LOGGER_BACKUP_COUNT,
+        "logging.handlers.RotatingFileHandler",
+    )
+    set_generic_logger(
+        LOGGING, "django.request", LOGGER_CLIENT_LEVEL, ["console", "logfile-request"]
+    )
 
 if LOGGING_SERVER:
-    set_generic_handler(LOGGING, 'logfile-server', LOGGER_SERVER_LEVEL, LOGGER_FILE_SERVER, LOGGER_MAX_BYTES,
-                        LOGGER_BACKUP_COUNT, 'logging.handlers.RotatingFileHandler')
-    set_generic_logger(LOGGING, 'django.server', LOGGER_SERVER_LEVEL, [
-                       'console', 'logfile-server'])
+    set_generic_handler(
+        LOGGING,
+        "logfile-server",
+        LOGGER_SERVER_LEVEL,
+        LOGGER_FILE_SERVER,
+        LOGGER_MAX_BYTES,
+        LOGGER_BACKUP_COUNT,
+        "logging.handlers.RotatingFileHandler",
+    )
+    set_generic_logger(
+        LOGGING, "django.server", LOGGER_SERVER_LEVEL, ["console", "logfile-server"]
+    )
 
 if LOGGING_DB:
-    set_generic_handler(LOGGING, 'logfile-django-db-backend', LOGGER_DB_LEVEL, LOGGER_FILE_DB, LOGGER_MAX_BYTES,
-                        LOGGER_BACKUP_COUNT, 'logging.handlers.RotatingFileHandler')
-    set_generic_logger(LOGGING, 'django.db.backends', LOGGER_DB_LEVEL, [
-                       'console', 'logfile-django-db-backend'])
+    set_generic_handler(
+        LOGGING,
+        "logfile-django-db-backend",
+        LOGGER_DB_LEVEL,
+        LOGGER_FILE_DB,
+        LOGGER_MAX_BYTES,
+        LOGGER_BACKUP_COUNT,
+        "logging.handlers.RotatingFileHandler",
+    )
+    set_generic_logger(
+        LOGGING,
+        "django.db.backends",
+        LOGGER_DB_LEVEL,
+        ["console", "logfile-django-db-backend"],
+    )
 
 # core_main_app settings
 SERVER_EMAIL = ""
 EMAIL_SUBJECT_PREFIX = ""
 USE_EMAIL = False
-ADMINS = [('admin', 'admin@curator.org')]
-MANAGERS = [('manager', 'moderator@curator.org')]
+ADMINS = [("admin", "admin@curator.org")]
+MANAGERS = [("manager", "moderator@curator.org")]
 
 USE_BACKGROUND_TASK = False
 REDIS_URL = "redis://:redispass@mdcs_cdcs_redis:6379"
 BROKER_URL = "redis://:redispass@mdcs_cdcs_redis:6379"  # 'redis://localhost:6379/0'
 BROKER_TRANSPORT_OPTIONS = {
-    'visibility_timeout': 3600,
-    'fanout_prefix': True,
-    'fanout_patterns': True
+    "visibility_timeout": 3600,
+    "fanout_prefix": True,
+    "fanout_patterns": True,
 }
-CELERY_RESULT_BACKEND = 'redis://:redispass@mdcs_cdcs_redis:6379'
+CELERY_RESULT_BACKEND = "redis://:redispass@mdcs_cdcs_redis:6379"
 
 # core_website_app settings
 SERVER_URI = "http://127.0.0.1"
@@ -326,14 +356,14 @@ WEBSITE_SHORT_TITLE = "MDCS"
 DATA_AUTO_PUBLISH = True
 
 # Customization Label
-CUSTOM_CURATE = 'Data Curation'
+CUSTOM_CURATE = "Data Curation"
 CUSTOM_DATA = "Materials Data"
 CUSTOM_NAME = "Test"
 CUSTOM_TITLE = "Materials Data Curation System"
 CUSTOM_SUBTITLE = "Part of the Materials Genome Initiative"
 
 DATA_SOURCES_EXPLORE_APPS = [
-    'core_explore_federated_search_app',
+    "core_explore_federated_search_app",
     # 'core_explore_oaipmh_app'
 ]
 
@@ -343,28 +373,28 @@ SEARCHABLE_DATA_OCCURRENCES_LIMIT = None
 
 SWAGGER_SETTINGS = {
     "exclude_namespaces": [],  # List URL namespaces to ignore
-    "api_version": '1.1',  # Specify your API's version
+    "api_version": "1.1",  # Specify your API's version
     "api_path": "/",  # Specify the path to your API not a root level
     "enabled_methods": [  # Specify which methods to enable in Swagger UI
-        'get',
-        'post',
-        'put',
-        'patch',
-        'delete'
+        "get",
+        "post",
+        "put",
+        "patch",
+        "delete",
     ],
-    "api_key": '',  # An API key
+    "api_key": "",  # An API key
     "is_authenticated": False,  # Set to True to enforce user authentication,
     "is_superuser": False,  # Set to True to enforce admin only access
-    'LOGIN_URL': 'core_main_app_login',
-    'LOGOUT_URL': 'core_main_app_logout',
+    "LOGIN_URL": "core_main_app_login",
+    "LOGOUT_URL": "core_main_app_logout",
 }
 
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
     ),
     # 'DEFAULT_PERMISSION_CLASSES': (
     #     'rest_framework.permissions.IsAuthenticated',
@@ -380,9 +410,9 @@ EXPLORE_ADD_DEFAULT_LOCAL_DATA_SOURCE_TO_QUERY = True
 
 SSL_CERTIFICATES_DIR = False
 
-XSD_URI_RESOLVER = 'REQUESTS_RESOLVER'
+XSD_URI_RESOLVER = "REQUESTS_RESOLVER"
 
-CURATE_MENU_NAME = 'Data Curation'
+CURATE_MENU_NAME = "Data Curation"
 
 VERIFY_DATA_ACCESS = False
 
@@ -406,9 +436,9 @@ DEFENDER_LOCKOUT_URL = "/locked"
 """ string: url to the defender error page (defined in core_main_app)
 """
 
-if SERVER_URI.lower().startswith('https'):
+if SERVER_URI.lower().startswith("https"):
     # Activate HTTPS
-    os.environ['HTTPS'] = 'on'
+    os.environ["HTTPS"] = "on"
 
     # Secure cookies
     CSRF_COOKIE_SECURE = True
@@ -418,28 +448,32 @@ if SERVER_URI.lower().startswith('https'):
     SESSION_COOKIE_AGE = 604800
 
     # Set x-frame options
-    X_FRAME_OPTIONS = 'SAMEORIGIN'
+    X_FRAME_OPTIONS = "SAMEORIGIN"
 
 
 MONITORING_SERVER_URI = ""
 if MONITORING_SERVER_URI:
     ELASTIC_APM = {
-        'SERVICE_NAME': "Local",
-        'SERVER_URL': MONITORING_SERVER_URI,
-
+        "SERVICE_NAME": "Local",
+        "SERVER_URL": MONITORING_SERVER_URI,
         # Use if APM Server requires a token
         # 'SECRET_TOKEN': '',
     }
     if "elasticapm.contrib.django" not in INSTALLED_APPS:
-        INSTALLED_APPS = INSTALLED_APPS + ("elasticapm.contrib.django", )
-    if 'elasticapm.contrib.django.middleware.TracingMiddleware' not in MIDDLEWARE:
+        INSTALLED_APPS = INSTALLED_APPS + ("elasticapm.contrib.django",)
+    if "elasticapm.contrib.django.middleware.TracingMiddleware" not in MIDDLEWARE:
         # Make sure that it is the first middleware in the list.
         MIDDLEWARE = (
-            'elasticapm.contrib.django.middleware.TracingMiddleware', ) + MIDDLEWARE
-    if 'elasticapm.errors' not in LOGGING['loggers']:
+            "elasticapm.contrib.django.middleware.TracingMiddleware",
+        ) + MIDDLEWARE
+    if "elasticapm.errors" not in LOGGING["loggers"]:
         # https://www.elastic.co/guide/en/apm/agent/python/current/django-support.html#django-logging
         # Log errors from the Elastic APM module to the console (recommended)
-        set_generic_logger(LOGGING, 'elasticapm.errors', 'ERROR', ['console'])
-    if 'elasticapm.contrib.django.context_processors.rum_tracing' not in TEMPLATES[0]['OPTIONS']['context_processors']:
-        TEMPLATES[0]['OPTIONS']['context_processors'].append(
-            'elasticapm.contrib.django.context_processors.rum_tracing')
+        set_generic_logger(LOGGING, "elasticapm.errors", "ERROR", ["console"])
+    if (
+        "elasticapm.contrib.django.context_processors.rum_tracing"
+        not in TEMPLATES[0]["OPTIONS"]["context_processors"]
+    ):
+        TEMPLATES[0]["OPTIONS"]["context_processors"].append(
+            "elasticapm.contrib.django.context_processors.rum_tracing"
+        )

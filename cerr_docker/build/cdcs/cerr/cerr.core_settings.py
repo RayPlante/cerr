@@ -168,3 +168,43 @@ ENABLE_SAML2_SSO_AUTH = os.getenv(
 ENABLE_HANDLE_PID = os.getenv("ENABLE_HANDLE_PID", "False").lower() == "true"
 """ boolean: enable handle server PID support.
 """
+
+MONGODB_INDEXING = True
+""" :py:class:`bool`: Use MongoDB for data indexing.
+    If True:
+        - a copy of the data will be stored in MongoDB,
+        - queries will be executed against MongoDB.
+"""
+
+MONGODB_ASYNC_SAVE = True
+""" :py:class:`bool`: Save data in MongoDB asynchronously.
+    If True, data are saved in MongoDB asynchronously.
+"""
+
+GRIDFS_STORAGE = True
+""" :py:class:`bool`: Use GridFS for file storage.
+"""
+
+MONGO_HOST = os.getenv("MONGO_HOST", "localhost")
+""" :py:class:`str`: MongoDB host.
+"""
+
+MONGO_PORT = os.getenv("MONGO_PORT", "27017")
+""" :py:class:`str`: MongoDB port.
+"""
+
+MONGO_DB = os.getenv("MONGO_DB", "")
+""" :py:class:`str`: MongoDB database.
+"""
+
+MONGO_USER = os.getenv("MONGO_USER", "")
+""" :py:class:`str`: MongoDB user.
+"""
+
+MONGO_PASS = os.getenv("MONGO_PASS", "")
+""" :py:class:`str`: MongoDB password.
+"""
+
+GA_TRACKING_ID = os.getenv("GA_TRACKING_ID", None)
+""" :py:class:`str`: Google Analytics tracking ID. Adds gtag to user pages if set.
+"""
