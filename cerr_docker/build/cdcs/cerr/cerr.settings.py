@@ -10,8 +10,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 from .core_settings import *
 import os
 
-from mongoengine.connection import connect
-
 from core_main_app.utils.logger.logger_utils import (
     set_generic_handler,
     set_generic_logger,
@@ -41,18 +39,6 @@ DATABASES = {
         "PASSWORD": os.environ["POSTGRES_PASS"] if "POSTGRES_PASS" in os.environ else None,
     }
 }
-
-DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
-
-MONGO_HOST = os.environ["MONGO_HOST"] if "MONGO_HOST" in os.environ else ""
-MONGO_PORT = os.environ["MONGO_PORT"] if "MONGO_PORT" in os.environ else "27017"
-MONGO_DB = os.environ["MONGO_DB"] if "MONGO_DB" in os.environ else ""
-MONGO_USER = os.environ["MONGO_USER"] if "MONGO_USER" in os.environ else ""
-MONGO_PASS = os.environ["MONGO_PASS"] if "MONGO_PASS" in os.environ else ""
-MONGODB_URI = (
-    f"mongodb://{MONGO_USER}:{MONGO_PASS}@{MONGO_HOST}:{MONGO_PORT}/{MONGO_DB}"
-)
-connect(host=MONGODB_URI, connect=False)
 
 
 BROKER_TRANSPORT_OPTIONS = {
@@ -85,7 +71,6 @@ INSTALLED_APPS = (
     # Extra apps
     "rest_framework",
     "drf_yasg",
-    "rest_framework_mongoengine",
     "menu",
     "tz_detect",
     "defender",
@@ -97,9 +82,9 @@ INSTALLED_APPS = (
     "core_main_registry_app",
     "core_user_registration_app",
     "core_website_app",
-    # "core_oaipmh_common_app",
-    # "core_oaipmh_harvester_app",
-    # "core_oaipmh_provider_app",
+    "core_oaipmh_common_app",
+    "core_oaipmh_harvester_app",
+    "core_oaipmh_provider_app",
     "core_curate_registry_app",
     "core_curate_app",
     "cerr_curate_app",
@@ -110,7 +95,7 @@ INSTALLED_APPS = (
     "core_explore_keyword_registry_app",
     "core_explore_keyword_app",
     "core_explore_common_app",
-    # "core_explore_oaipmh_app",
+    "core_explore_oaipmh_app",
     "core_dashboard_registry_app",
     "core_dashboard_common_app",
     "mptt",
@@ -163,9 +148,11 @@ ROOT_URLCONF = "nmrr.urls"
 
 WSGI_APPLICATION = "nmrr.wsgi.application"
 
+OAI_ADMINS = ["admin1@example.com", "admin2@example.com"]
+
 
 # Internationalization
-# https://docs.djangoproject.com/en/2.2/topics/i18n/
+# https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
 
@@ -180,7 +167,7 @@ USE_TZ = False
 LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = "/static/"
 STATIC_ROOT = "static.prod"
@@ -191,6 +178,14 @@ STATICFILES_FINDERS = (
 )
 
 STATICFILES_DIRS = ("static",)
+
+# https://docs.djangoproject.com/en/3.2/topics/files/
+MEDIA_ROOT = "media"
+
+# https://docs.djangoproject.com/en/3.2/ref/contrib/sites/
+SITE_ID = 1
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Password Validators
 AUTH_PASSWORD_VALIDATORS = [
@@ -475,3 +470,38 @@ if ENABLE_SAML2_SSO_AUTH:
     SAML_CONFIG = load_saml_config_from_env(
         server_uri=SERVER_URI, base_dir=BASE_DIR)
     SAML_ACS_FAILURE_RESPONSE_FUNCTION = "core_main_app.views.user.views.saml2_failure"
+
+# configure handle server PIDs according to environment settings
+if ENABLE_HANDLE_PID:
+    HDL_USER = (
+        f"300%3A{ID_PROVIDER_PREFIX_DEFAULT}/"
+        f'{os.getenv("HANDLE_NET_USER", "ADMIN")}'
+    )
+
+    ID_PROVIDER_SYSTEM_NAME = "handle.net"
+    ID_PROVIDER_SYSTEM_CONFIG = {
+        "class": "core_linked_records_app.utils.providers.handle_net.HandleNetSystem",
+        "args": [
+            os.getenv("HANDLE_NET_LOOKUP_URL", "https://hdl.handle.net"),
+            os.getenv("HANDLE_NET_REGISTRATION_URL",
+                      "https://handle-net.domain"),
+            HDL_USER,
+            os.getenv("HANDLE_NET_SECRET_KEY", "admin"),
+        ],
+    }
+
+    HANDLE_NET_RECORD_INDEX = os.getenv("HANDLE_NET_RECORD_INDEX", 1)
+    HANDLE_NET_ADMIN_DATA = {
+        "index": int(os.getenv("HANDLE_NET_ADMIN_INDEX", 100)),
+        "type": os.getenv("HANDLE_NET_ADMIN_TYPE", "HS_ADMIN"),
+        "data": {
+            "format": os.getenv("HANDLE_NET_ADMIN_DATA_FORMAT", "admin"),
+            "value": {
+                "handle": f"0.NA/{ID_PROVIDER_PREFIX_DEFAULT}",
+                "index": int(os.getenv("HANDLE_NET_ADMIN_DATA_INDEX", 200)),
+                "permissions": os.getenv(
+                    "HANDLE_NET_ADMIN_DATA_PERMISSIONS", "011111110011"
+                ),
+            },
+        },
+    }

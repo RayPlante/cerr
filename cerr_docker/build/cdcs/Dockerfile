@@ -32,8 +32,8 @@ RUN cd $DOCKYARD_SRVPROJ \
 WORKDIR $DOCKYARD_SRVPROJ
 RUN pip install -r requirements.txt
 
-RUN echo "\ncore-module-blob-host-app==1.21.*" >> requirements.core.txt
-RUN echo "\ngit+https://gitlab.nist.gov/gitlab/snb24/ce-registry.git@pip-package">> requirements.core.txt
+RUN echo "\ngit+https://gitlab.nist.gov/gitlab/circulareconomy/ce-registry.git@upgrade-cdcs3" >> requirements.core.txt
+RUN echo "\ncore-module-blob-host-app==2.2.*" >> requirements.core.txt
 
 RUN pip install -r requirements.core.txt
 
@@ -72,29 +72,47 @@ COPY ./cerr/cerr-background.jpg ${DOCKYARD_SRVPROJ}/static/img/cerr-background.j
 COPY ./cerr/circular.png ${DOCKYARD_SRVPROJ}/static/img/circular.png
 COPY ./cerr/context_processor.py $DOCKYARD_SRVPROJ/${PROJECT_NAME}_home/context_processor.py
 
-COPY ./cerr/core_dashboard_registry_app_views.py /usr/local/lib/python3.7/site-packages/core_dashboard_registry_app/core_dashboard_registry_app/views/common/views.py
+#COPY ./cerr/core_dashboard_registry_app_views.py /usr/local/lib/python3.8/site-packages/core_dashboard_registry_app/core_dashboard_registry_app/views/common/views.py
 
 # enable core_module_blob_host_app urls and associated REST endpoints by copying
 # our customized nmrr_urls into the container:
 COPY ./cerr/nmrr_urls.py ${PROJECT_NAME}/urls.py
 
 ## add icons to the menu bar 
-COPY --chown=root:staff ./cerr/curate_menu_add_icon.py /usr/local/lib/python3.7/site-packages/core_curate_app/menus.py
-RUN chmod 644 /usr/local/lib/python3.7/site-packages/core_curate_app/menus.py
+#COPY --chown=root:staff ./cerr/curate_menu_add_icon.py /usr/local/lib/python3.8/site-packages/core_curate_app/menus.py
+#RUN chmod 644 /usr/local/lib/python3.8/site-packages/core_curate_app/menus.py
 
-COPY --chown=root:staff ./cerr/explore_menu_add_icon.py /usr/local/lib/python3.7/site-packages/core_explore_keyword_app/menus.py
-RUN chmod 644 /usr/local/lib/python3.7/site-packages/core_explore_keyword_app/menus.py
+#COPY --chown=root:staff ./cerr/explore_menu_add_icon.py /usr/local/lib/python3.8/site-packages/core_explore_keyword_app/menus.py
+#RUN chmod 644 /usr/local/lib/python3.8/site-packages/core_explore_keyword_app/menus.py
 
-COPY --chown=root:staff ./cerr/dashboard_menu_add_icon.py /usr/local/lib/python3.7/site-packages/core_dashboard_registry_app/menus.py
-RUN chmod 644 /usr/local/lib/python3.7/site-packages/core_dashboard_registry_app/menus.py
+#COPY --chown=root:staff ./cerr/dashboard_menu_add_icon.py /usr/local/lib/python3.8/site-packages/core_dashboard_registry_app/menus.py
+#RUN chmod 644 /usr/local/lib/python3.8/site-packages/core_dashboard_registry_app/menus.py
 
+#### OVERWRITE: ADD ICONS ####
+
+# add icon search
+RUN sed -i 's|reverse("core_explore_keyword_app_search"))|reverse("core_explore_keyword_app_search"),\n icon="search")|g' /usr/local/lib/python3.8/site-packages/core_explore_keyword_app/menus.py
+
+# add icon dashboard
+RUN sed -i 's|check=lambda request: request.user.is_authenticated,|check=lambda request: request.user.is_authenticated, \n icon="tachometer-alt",|g' /usr/local/lib/python3.8/site-packages/core_dashboard_registry_app/menus.py
+
+# add icon curate
+RUN sed -i 's|reverse("core_curate_index")|reverse("core_curate_index"), icon="plus-circle"|g' /usr/local/lib/python3.8/site-packages/core_curate_app/menus.py
+
+#### END OVERWRITE ICONS ####
+
+#### OVERWRITE CALL CURATE APP API IN DASHBOARD ####
+#RUN sed -i 's|import core_curate_app.components.curate_data_structure.api as curate_data_structure_api|import core_curate_app.components.curate_data_structure.api as curate_data_structure_api \n from cerr_curate_app.components.curate_data_structure import api as curate_api|g' /usr/local/lib/python3.8/site-packages/core_dashboard_registry_app/core_dashboard_registry_app/views/common/views.py
+#RUN sed -i ':a;N;$!ba;s|forms = curate_data_structure_api.get_all_by_user_id_with_no_data(\n *request.user.id\n *)|forms = curate_api.get_all()|g' /usr/local/lib/python3.8/site-packages/core_dashboard_registry_app/core_dashboard_registry_app/views/common/views.py
+
+#### END OVERWRITE CALL CURATE APP API IN DASHBOARD ####
 
 
 # disable autocomplete on login page:
-RUN sed -i 's|label="Password", required=True, widget=forms.PasswordInput|label="Password", required=True, widget=forms.PasswordInput(attrs={"autocomplete": "off"})|g' /usr/local/lib/python3.7/site-packages/core_main_app/views/user/forms.py
+RUN sed -i 's|label="Password", required=True, widget=forms.PasswordInput|label="Password", required=True, widget=forms.PasswordInput(attrs={"autocomplete": "off"})|g' /usr/local/lib/python3.8/site-packages/core_main_app/views/user/forms.py
 
 # change link for privacy policy menu
-RUN sed -i 's|reverse("core_website_app_privacy")|"https://www.nist.gov/privacy-policy"|g' /usr/local/lib/python3.7/site-packages/core_website_app/menus.py
+RUN sed -i 's|reverse("core_website_app_privacy")|"https://www.nist.gov/privacy-policy"|g' /usr/local/lib/python3.8/site-packages/core_website_app/menus.py
 
 # Change favicon of project:
 RUN sed -i 's|favicon.png|circular.png|g' $DOCKYARD_SRVPROJ/templates/theme.html
@@ -107,8 +125,8 @@ RUN sed -i 's|Materials Resource Registry|Circular Economy Resource Registry|g' 
 # when a record needs to be edited, since it allows a user to Ctrl-F in the
 # browser in order to find the record that needs to be edited - does not affect
 # the pagination limit on the query page)
-#RUN sed -i 's/RECORD_PER_PAGE_PAGINATION = getattr(settings, "RESULTS_PER_PAGE", 10)/RECORD_PER_PAGE_PAGINATION = 10000/g' /usr/local/lib/python3.7/site-packages/core_dashboard_common_app/settings.py && \
-#    sed -i '/RECORD_PER_PAGE_PAGINATION = 10000/a # inserted for NESTR to make workspace-list-records page show all records (or at least a large number of them) to make it easier to find a record to edit' /usr/local/lib/python3.7/site-packages/core_dashboard_common_app/settings.py
+#RUN sed -i 's/RECORD_PER_PAGE_PAGINATION = getattr(settings, "RESULTS_PER_PAGE", 10)/RECORD_PER_PAGE_PAGINATION = 10000/g' /usr/local/lib/python3.8/site-packages/core_dashboard_common_app/settings.py && \
+#    sed -i '/RECORD_PER_PAGE_PAGINATION = 10000/a # inserted for NESTR to make workspace-list-records page show all records (or at least a large number of them) to make it easier to find a record to edit' /usr/local/lib/python3.8/site-packages/core_dashboard_common_app/settings.py
 
 
 
