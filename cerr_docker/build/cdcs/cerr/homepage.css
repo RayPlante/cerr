@@ -113,7 +113,8 @@ p {
 }
 
 #videoholder iframe{
-    border: 5px solid black
+    border: 2px solid black;
+    border-radius: 20px;
 }
 
 #videoAndText {
