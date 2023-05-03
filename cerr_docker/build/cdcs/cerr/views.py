@@ -24,7 +24,6 @@ def tiles(request):
         from core_explore_keyword_registry_app.views.user.forms import RefinementForm
         from core_explore_common_app.components.query import api as query_api
         from core_explore_common_app.components.query.models import Query
-        from core_explore_common_app.views.user.ajax import add_local_data_source
         from core_main_registry_app.components.refinement import api as refinement_api
         from core_main_registry_app.components.category import api as category_api
         from core_main_registry_app.components.template import (
@@ -40,7 +39,7 @@ def tiles(request):
             query = Query(user_id=str(request.user.id))
 
             # add local data source to the query
-            add_local_data_source(request, query)
+            query_api.add_local_data_source(request, query)
 
             # set visibility
             query_api.set_visibility_to_query(query, request.user)
