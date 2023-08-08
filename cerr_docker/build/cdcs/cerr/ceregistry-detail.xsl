@@ -15,7 +15,7 @@
 			}
 			
 			.title {
-			    color: #474747;
+			    color: black;
 			    margin-top: 1em;
 			    margin-bottom: 0em !important;
 			    font-weight: bolder;
@@ -41,6 +41,7 @@
 			    display: flex;
 			    flex-direction: column;
 			    padding: 0em 2em;
+			    color: black;
 			}
 			
 			#publisherLine p {
@@ -72,7 +73,7 @@
 			    background-color: #f2e4d4;
 			    border-radius: 20px;
 			    border: 3px double #9eac87;
-			    justify-content: left;
+			    justify-content: space-around;
 			}
 			
 			#allContent {
@@ -80,8 +81,19 @@
 			    justify-content: space-around;
 			    flex-flow: row wrap;
 			}
-			#landingPageLink :hover {
-			    color: #50672e;
+			
+			#landingPageBtn {
+			    background-color: #9eac87;
+			    width: 75%;
+			    color: black;
+			    font-size: medium;
+			    margin: 0.5em;
+			    padding: 0.5em;
+			}
+			
+			#landingPageBtn:hover {
+			    background-color: #9eac87 !important;
+			    opacity: 0.7;
 			}
 			
 			#otherDetails {
@@ -90,8 +102,7 @@
 			    border-radius: 30px;
 			    height: fit-content;
 			    margin-top: 1em;
-			}
-		</style>
+			}</style>
 
 		<xsl:variable name="title" select="//rsm:Resource/rsm:identity/rsm:title"/>
 		<xsl:variable name="keywords" select="//rsm:Resource/rsm:content/rsm:subject"/>
@@ -128,7 +139,7 @@
 
 			<xsl:if test="$publisher">
 				<div id="publisherLine"
-					style="display: flex; flex-flow: row wrap; font-size: large; font-style: italic; color: #474747; ">
+					style="display: flex; flex-flow: row wrap; font-size: larger; font-style: italic;">
 					<p class="title bold" style="margin-right: 0.5em; margin-top:0em">Published by: </p>
 					<p>
 						<xsl:value-of select="$publisher"/>
@@ -142,14 +153,19 @@
 
 
 			<xsl:if test="$landingPage">
-				<span style="font-style: italic">
+
+				<span id="" style="font-style: italic">
 					<a target="_blank" href="{$landingPage}" id="landingPageLink"
-						style="color: #4C5F2E; font-style: normal;">
-						<u>View this resource (on external site) </u>
-						<sup>
-							<i style="font-size: small;" class="fas fa-external-link-alt"/>
-						</sup>
-						<span style="font-size: xsmall; margin-left: 1em;"><xsl:value-of select="$landingPage"/></span>
+						style="font-style: normal;">
+						<button type="button" class="btn btn-primary btn-sm" id="landingPageBtn">
+							<u>View this resource (on external site) </u>
+							<sup>
+								<i style="font-size: small" class="fas fa-external-link-alt"/>
+							</sup>
+							<span style="font-size: small; margin-left: 1em;">
+								<xsl:value-of select="$landingPage"/>
+							</span>
+						</button>
 					</a>
 				</span>
 			</xsl:if>
@@ -216,7 +232,7 @@
 							</div>
 						</div>
 					</xsl:if>
-					
+
 					<xsl:if test="$productClass">
 						<div id="productClassDiv">
 
@@ -239,8 +255,8 @@
 				<div id="otherDetails">
 					<div style="display: flex; flex-flow: column wrap">
 						<xsl:if test="$primaryAudience">
-							<h3 class="title bottom0 bold" style="text-shadow: 3px 3px 3px #9eac87;">Primary
-								Audience:</h3>
+							<h3 class="title bottom0 bold" style="text-shadow: 3px 3px 3px #9eac87;"
+								>Primary Audience:</h3>
 							<xsl:for-each select="$primaryAudience">
 								<span>
 									<xsl:value-of select="."/>
@@ -254,7 +270,8 @@
 
 					<div style="display: flex; flex-flow: column wrap">
 						<xsl:if test="$role">
-							<h3 class="title bottom0 bold" style="text-shadow: 3px 3px 3px #9eac87;">Role:</h3>
+							<h3 class="title bottom0 bold" style="text-shadow: 3px 3px 3px #9eac87;"
+								>Role:</h3>
 							<xsl:for-each select="$role">
 								<span>
 									<xsl:value-of select="."/>
@@ -269,12 +286,14 @@
 
 			</div>
 		</div>
-		
+
 		<svg xmlns="//www.w3.org/2000/svg" version="1.1" class="svg-filters" style="display:none;">
 			<defs>
 				<filter id="marker-shape">
-					<feTurbulence type="fractalNoise" baseFrequency="0 0.15" numOctaves="1" result="warp" />
-					<feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="30" in="SourceGraphic" in2="warp" />
+					<feTurbulence type="fractalNoise" baseFrequency="0 0.15" numOctaves="1"
+						result="warp"/>
+					<feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="30"
+						in="SourceGraphic" in2="warp"/>
 				</filter>
 			</defs>
 		</svg>
