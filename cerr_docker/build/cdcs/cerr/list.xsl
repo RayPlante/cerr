@@ -16,9 +16,9 @@
                 color: #4C5F2E;
             }
             
-            div[name = "result"]:hover a,
-            div[name = "result"]:hover a:link {
-                opacity: 0.5;
+            div[class = "xml-representation-container"]:hover a,
+            div[class = "xml-representation-container"]:hover a:link {
+                opacity: 0.7;
             }</style>
 
         <div class="container-fluid" style="background-color: #f2e4d4;

@@ -77,9 +77,8 @@ INSTALLED_APPS = (
     "django.contrib.staticfiles",
     # Extra apps
     "rest_framework",
-    "drf_yasg",
+    "drf_spectacular",
     "menu",
-    "tz_detect",
     "defender",
     "captcha",
     "django_celery_beat",
@@ -129,8 +128,9 @@ MIDDLEWARE = (
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
-    "tz_detect.middleware.TimezoneMiddleware",
     "simple_history.middleware.HistoryRequestMiddleware",
+    "core_main_app.middleware.timezone.TimezoneMiddleware",
+
 )
 
 TEMPLATES = [
@@ -166,7 +166,7 @@ OAI_ADMINS = ["admin1@example.com", "admin2@example.com"]
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = os.getenv("TZ", "UTC")
 
 USE_I18N = True
 
@@ -254,24 +254,19 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.BasicAuthentication",
         "rest_framework.authentication.SessionAuthentication",
     ),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
-# drf-yasg
-SWAGGER_SETTINGS = {
-    "exclude_namespaces": [],  # List URL namespaces to ignore
-    "api_version": "1.1",  # Specify your API's version
-    "api_path": "/",  # Specify the path to your API not a root level
-    "enabled_methods": [  # Specify which methods to enable in Swagger UI
-        "get",
-        "post",
-        "put",
-        "patch",
-        "delete",
-    ],
-    "api_key": "",  # An API key
-    "is_authenticated": False,  # Set to True to enforce user authentication,
-    "is_superuser": False,  # Set to True to enforce admin only access
-    "LOGOUT_URL": "core_main_app_logout",
+# drf-spectacular
+SPECTACULAR_SETTINGS = {
+    "TITLE": WEBSITE_SHORT_TITLE,  # noqa: F405 (core setting)
+    "DESCRIPTION": os.getenv(
+        "PROJECT_DESCRIPTION", "Your project description"
+    ),
+    "VERSION": PROJECT_VERSION,  # noqa: F405 (core setting)
+    "SERVE_INCLUDE_SCHEMA": False,
+    "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAuthenticated"],
+
 }
 
 # Django Defender

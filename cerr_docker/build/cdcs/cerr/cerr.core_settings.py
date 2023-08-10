@@ -4,6 +4,10 @@ import os
 
 SERVER_URI = os.environ["SERVER_URI"] if "SERVER_URI" in os.environ else None
 
+PROJECT_VERSION = os.getenv("PROJECT_VERSION", "3.4.0")
+""" :py:class:`str`: Project version number.
+"""
+
 # Website customization
 WEBSITE_SHORT_TITLE = "CERR"
 CUSTOM_DATA = "Circular Economy Data"
@@ -38,6 +42,10 @@ or a string, in which case it must be a path to a CA bundle to use.
 
 XSD_URI_RESOLVER = None
 """ :py:class:`str`: XSD URI Resolver for lxml validation. Choose from:  None, 'REQUESTS_RESOLVER'.
+"""
+
+AUTO_ESCAPE_XML_ENTITIES = True
+""" boolean: Automatically escape XML entities.
 """
 
 DISPLAY_EDIT_BUTTON = False
@@ -207,4 +215,12 @@ MONGO_PASS = os.getenv("MONGO_PASS", "")
 
 GA_TRACKING_ID = os.getenv("GA_TRACKING_ID", None)
 """ :py:class:`str`: Google Analytics tracking ID. Adds gtag to user pages if set.
+"""
+
+ENABLE_XML_ENTITIES_TOOLTIPS = False
+""" :py:class:`bool`: Enable XML entities tooltips during curation.
+"""
+
+BOOTSTRAP_VERSION = os.getenv("BOOTSTRAP_VERSION", "5.1.3")
+""" :py:class:`str`: Version of the boostrap library.
 """

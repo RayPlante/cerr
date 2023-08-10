@@ -13,6 +13,6 @@
 }
 
 .btn-custom:hover {
-    color: black;
+    color: white;
     transition: color 0.2s ease-in-out
 }
