@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
 
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ["*"]
 MENU_SELECT_PARENTS = False
 
@@ -50,9 +50,9 @@ INSTALLED_APPS = (
     "core_exporters_app",
     "core_exporters_app.exporters.xsl",
     "core_website_app",
-    # "core_oaipmh_common_app",
-    # "core_oaipmh_harvester_app",
-    # "core_oaipmh_provider_app",
+    "core_oaipmh_common_app",
+    "core_oaipmh_harvester_app",
+    "core_oaipmh_provider_app",
     "core_curate_app",
     "cerr_curate_app.apps.InitApp",
     "core_parser_app",
@@ -62,7 +62,7 @@ INSTALLED_APPS = (
     "core_explore_federated_search_app",
     "core_federated_search_app",
     "core_explore_common_app",
-    # "core_explore_oaipmh_app",
+    "core_explore_oaipmh_app",
     "core_explore_example_app",
     "core_explore_keyword_app",
     "core_dashboard_app",
@@ -362,10 +362,7 @@ CUSTOM_NAME = "Test"
 CUSTOM_TITLE = "Materials Data Curation System"
 CUSTOM_SUBTITLE = "Part of the Materials Genome Initiative"
 
-DATA_SOURCES_EXPLORE_APPS = [
-    "core_explore_federated_search_app",
-    # 'core_explore_oaipmh_app'
-]
+DATA_SOURCES_EXPLORE_APPS = []
 
 # FIXME: set desired value before release
 # Lists in data not stored if number of elements is over the limit (e.g. 100)

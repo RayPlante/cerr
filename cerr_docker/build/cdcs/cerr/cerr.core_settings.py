@@ -116,9 +116,7 @@ ID_PROVIDER_PREFIX_DEFAULT = os.getenv(
     "ID_PROVIDER_PREFIX_DEFAULT", ID_PROVIDER_PREFIXES[0]
 )
 
-ID_PROVIDER_PREFIX_BLOB = os.getenv(
-    "ID_PROVIDER_PREFIX_BLOB", ID_PROVIDER_PREFIXES[0]
-)
+ID_PROVIDER_PREFIX_BLOB = os.getenv("ID_PROVIDER_PREFIX_BLOB", ID_PROVIDER_PREFIXES[0])
 
 PID_XPATH = "Resource.@localid"
 """ string: location of the PID in the document, specified as dot notation
@@ -164,12 +162,11 @@ CAN_ANONYMOUS_ACCESS_PUBLIC_DOCUMENT = True
 ENABLE_XML_ENTITIES_TOOLTIPS = False
 """ boolean: enable the xml entities warning tooltip on the GUI.
 """
-OAI_ENABLE_HARVESTING = True
+OAI_ENABLE_HARVESTING = False
 """ boolean: Enable OAI-PMH harvesting by default.
 """
 
-ENABLE_SAML2_SSO_AUTH = os.getenv(
-    "ENABLE_SAML2_SSO_AUTH", "False").lower() == "true"
+ENABLE_SAML2_SSO_AUTH = os.getenv("ENABLE_SAML2_SSO_AUTH", "False").lower() == "true"
 """ boolean: enable SAML2 SSO authentication.
 """
 

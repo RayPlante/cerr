@@ -130,7 +130,6 @@ MIDDLEWARE = (
     "django.middleware.security.SecurityMiddleware",
     "simple_history.middleware.HistoryRequestMiddleware",
     "core_main_app.middleware.timezone.TimezoneMiddleware",
-
 )
 
 TEMPLATES = [
@@ -158,7 +157,7 @@ ROOT_URLCONF = "nmrr.urls"
 
 WSGI_APPLICATION = "nmrr.wsgi.application"
 
-OAI_ADMINS = ["admin1@example.com", "admin2@example.com"]
+# OAI_ADMINS = ["admin1@example.com", "admin2@example.com"]
 
 
 # Internationalization
@@ -260,13 +259,10 @@ REST_FRAMEWORK = {
 # drf-spectacular
 SPECTACULAR_SETTINGS = {
     "TITLE": WEBSITE_SHORT_TITLE,  # noqa: F405 (core setting)
-    "DESCRIPTION": os.getenv(
-        "PROJECT_DESCRIPTION", "Your project description"
-    ),
+    "DESCRIPTION": os.getenv("PROJECT_DESCRIPTION", "Your project description"),
     "VERSION": PROJECT_VERSION,  # noqa: F405 (core setting)
     "SERVE_INCLUDE_SCHEMA": False,
     "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAuthenticated"],
-
 }
 
 # Django Defender
