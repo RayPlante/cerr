@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xs:schema targetNamespace="http://schema.nist.gov/xml/ce-res-md/1.0wd2"
-    xmlns="http://schema.nist.gov/xml/ce-res-md/1.0wd2"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://schema.nist.gov/xml/ce-res-md/1.0wd2" xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:rsm="http://schema.nist.gov/xml/ce-res-md/1.0wd2"
-    xmlns:am="http://schema.nist.gov/xml/nmrr.schema.annot" 
-    elementFormDefault="qualified"
+    xmlns:am="http://schema.nist.gov/xml/nmrr.schema.annot" elementFormDefault="qualified"
     attributeFormDefault="unqualified" version="0.10-02-2017">
 
     <xs:annotation>
@@ -223,7 +221,7 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            
+
             <xs:enumeration value="Organization: General/Other">
                 <xs:annotation>
                     <xs:documentation> Any other organization that doesn't fit the above choices
@@ -240,7 +238,6 @@
 
         </xs:restriction>
     </xs:simpleType>
-
     <xs:complexType name="Literature">
         <xs:annotation>
             <xs:documentation> a published document (e.g. article, journal, book, etc.) relevent to
@@ -307,7 +304,7 @@
                         purpose </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            
+
             <xs:enumeration value="Literature: General/Other">
                 <xs:annotation>
                     <xs:documentation> Any other literature that doesn't fit the above choices
@@ -324,6 +321,75 @@
 
         </xs:restriction>
     </xs:simpleType>
+
+    <xs:complexType name="Event">
+        <xs:annotation>
+            <xs:documentation> an event related to circular economy research </xs:documentation>
+        </xs:annotation>
+
+        <xs:complexContent>
+            <xs:extension base="rsm:ResourceRole">
+                <xs:sequence>
+                    <xs:element name="type" type="rsm:EventRoleType" minOccurs="1" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <label>Type</label>
+                            </xs:appinfo>
+                            <xs:documentation> It is recommended that the pid attribute be set to
+                                http://purl.org/dc/dcmitype/Dataset. </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:simpleType name="EventRoleType">
+        <xs:annotation>
+            <xs:documentation> Controlled labels that indicate a type of role this resource can play
+                as a dataset. </xs:documentation>
+        </xs:annotation>
+
+        <xs:restriction base="xs:token">
+
+            <xs:enumeration value="Event">
+                <xs:annotation>
+                    <xs:documentation> An event </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+
+            <xs:enumeration value="Event: Conference">
+                <xs:annotation>
+                    <xs:documentation> A long-lived organization that may engage in many projects
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Event: Lecture">
+                <xs:annotation>
+                    <xs:documentation> An organization that focuses on a particular project, often
+                        with a limited lifetime </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+            <xs:enumeration value="Event: Workshop">
+                <xs:annotation>
+                    <xs:documentation> A logical set of related data supporting a common scientific
+                        purpose </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Event: General/Other">
+                <xs:annotation>
+                    <xs:documentation> Any other event that doesn't fit the above choices
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+
+        </xs:restriction>
+    </xs:simpleType>
+
 
     <xs:complexType name="Collection">
         <xs:annotation>
@@ -374,7 +440,7 @@
                     <xs:documentation> An aggregation of data sets </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            
+
             <xs:enumeration value="Collection: General/Other">
                 <xs:annotation>
                     <xs:documentation> Any other collection that doesn't fit the above choices
@@ -440,7 +506,7 @@
                         purpose </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            
+
             <xs:enumeration value="Dataset: General/Other">
                 <xs:annotation>
                     <xs:documentation> Any other collection that doesn't fit the above choices
@@ -488,7 +554,7 @@
                         purpose </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            
+
             <xs:enumeration value="Dataset: General/Other">
                 <xs:annotation>
                     <xs:documentation> Any other dataset that doesn't fit the above choices
@@ -748,7 +814,7 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            
+
             <xs:enumeration value="Tool: General/Other">
                 <xs:annotation>
                     <xs:documentation> Any other tool that doesn't fit the above choices
@@ -920,7 +986,7 @@
                         a variety of data. </xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            
+
             <xs:enumeration value="Website: General/Other">
                 <xs:annotation>
                     <xs:documentation> Any other website that doesn't fit the above choices
@@ -1330,7 +1396,6 @@
             <xs:extension base="rsm:NoTimeDate"> </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
-
     <xs:complexType name="LocalEvent">
         <xs:annotation>
             <xs:documentation> A date for an event in the lifecycle of a resource that is specific
@@ -1551,8 +1616,48 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
+            <xs:element name="startDate" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <label>Starting Date of an event</label>
+                    </xs:appinfo>
+                    <xs:documentation> format: 2002-05-30T09:00:00 The date and time the event is
+                        starting </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+
+            <xs:element name="endDate" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <label>Ending date of an event</label>
+                    </xs:appinfo>
+                    <xs:documentation> format: 2002-05-30T09:00:00 The date and time the event is
+                        ending </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+
+            <xs:element name="venue" type="xs:token">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <label>venue of an event</label>
+                    </xs:appinfo>
+                    <xs:documentation> format: 2002-05-30T09:00:00 The date and time the event is
+                        starting </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+
+            <xs:element name="isOnline" type="xs:token">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <label>is the event online</label>
+                    </xs:appinfo>
+                    <xs:documentation> format: 2002-05-30T09:00:00 The date and time the event is
+                        starting </xs:documentation>
+                </xs:annotation>
+            </xs:element>
 
         </xs:sequence>
+
     </xs:complexType>
 
     <xs:simpleType name="Subject">
@@ -2122,8 +2227,8 @@
 
     <xs:simpleType name="durable_plastics_Product_class">
         <xs:annotation>
-            <xs:documentation> Allowed values for durable plastics vocabulary terms describing product class
-            </xs:documentation>
+            <xs:documentation> Allowed values for durable plastics vocabulary terms describing
+                product class </xs:documentation>
         </xs:annotation>
 
         <xs:restriction base="xs:token">

@@ -13,15 +13,15 @@ ENV DOCKYARD_SRVPROJ="/srv/curator"
 # Install necessary packages
 RUN apt-get update && apt-get install -y \
     netcat vim python curl git dnsutils gettext \
-    libxml2-dev libxslt-dev python-dev lib32z1-dev libssl-dev \
+    libxml2-dev libxslt-dev python-dev zlib1g libssl-dev \
     python3-pip libpq-dev postgresql-client xmlsec1
 
 # Setup pip
 RUN mkdir -p /root/.config/pip
 COPY pip/$PIP_CONF/pip.conf /root/.config/pip
 
-# Install uwsgi
-RUN pip install uwsgi psycopg2==2.8.6
+# Install additional python packages
+RUN pip install psycopg2 uwsgi gunicorn[gthread]
 
 # Clone git repo
 RUN git clone $CDCS_REPO $DOCKYARD_SRVPROJ
@@ -32,7 +32,7 @@ RUN cd $DOCKYARD_SRVPROJ \
 WORKDIR $DOCKYARD_SRVPROJ
 RUN pip install -r requirements.txt
 
-RUN echo "\ngit+https://gitlab.nist.gov/gitlab/ce-registry/ce-registry.git@pip-package" >> requirements.core.txt
+RUN echo "\ngit+https://gitlab.nist.gov/gitlab/snb24/ce-registry.git@eventType" >> requirements.core.txt
 RUN echo "\ncore-module-blob-host-app==2.4.*" >> requirements.core.txt
 RUN echo "\ndjango-simple-history" >> requirements.core.txt
 
@@ -134,8 +134,9 @@ RUN sed -i 's|Materials Resource Registry|Circular Economy Resource Registry|g' 
 ########################################
 
 # Get entrypoint ready for the image
-COPY ./docker-entrypoint.sh /
-RUN chmod +x /docker-entrypoint.sh
+COPY ./gunicorn.conf.py /etc
+COPY ./docker-entrypoint*.sh /
+RUN chmod +x /docker-entrypoint*.sh
 
 # Create folder for uwsgi socket
 RUN mkdir /tmp/curator
@@ -151,4 +152,4 @@ USER cdcs
 
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["curator"]
+CMD ["curator", "uwsgi"]

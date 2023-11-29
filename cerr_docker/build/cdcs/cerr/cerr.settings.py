@@ -23,6 +23,7 @@ SECRET_KEY = (
     os.environ["DJANGO_SECRET_KEY"] if "DJANGO_SECRET_KEY" in os.environ else None
 )
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
@@ -157,7 +158,7 @@ ROOT_URLCONF = "nmrr.urls"
 
 WSGI_APPLICATION = "nmrr.wsgi.application"
 
-# OAI_ADMINS = ["admin1@example.com", "admin2@example.com"]
+OAI_ADMINS = ["admin1@example.com", "admin2@example.com"]
 
 
 # Internationalization

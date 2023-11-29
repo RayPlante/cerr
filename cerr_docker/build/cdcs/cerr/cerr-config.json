@@ -40,6 +40,17 @@
         "type": "resource",
         "sort": 3
     },
+    "rsm:Event": {
+        "title": "Event",
+        "icon": "fa-calendar",
+        "icon_color": "#eaccaa",
+        "display_icon": true,
+        "description": "an event.",
+        "role_choice": "Event",
+        "role_type": "Event",
+        "type": "resource",
+        "sort": 4
+    },
     "rsm:Literature": {
         "title": "Literature",
         "icon": "fa-book",
@@ -49,7 +60,7 @@
         "role_choice": "Literature",
         "role_type": "Literature",
         "type": "resource",
-        "sort": 4
+        "sort": 5
     },
     "rsm:Website": {
         "title": "Website",
@@ -60,7 +71,7 @@
         "role_choice": "Website",
         "role_type": "Website",
         "type": "resource",
-        "sort": 5
+        "sort": 6
     },
     "rsm:Collection": {
         "title": "Collection",
@@ -71,6 +82,6 @@
         "role_choice": "Collection",
         "role_type": "Collection",
         "type": "resource",
-        "sort": 6
+        "sort": 7
     }
 }

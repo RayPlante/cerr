@@ -12,9 +12,13 @@ PROJECT_VERSION = os.getenv("PROJECT_VERSION", "3.4.0")
 WEBSITE_SHORT_TITLE = "CERR"
 CUSTOM_DATA = "Circular Economy Data"
 CUSTOM_NAME = os.environ["SERVER_NAME"] if "SERVER_NAME" in os.environ else "CERR"
+GITHUB_KEY = (
+    os.environ["GITHUB_SECRET_KEY"] if "GITHUB_SECRET_KEY" in os.environ else None
+)
 CUSTOM_TITLE = "Circular Economy Resource Registry"
 CUSTOM_SUBTITLE = "a NIST Initiative"
 CURATE_MENU_NAME = "Publish resource"
+CALENDAR_MENU_NAME = "Calendar"
 EXPLORE_MENU_NAME = "Search for resources"
 WORKSPACE_DISPLAY_NAME = "workspace"
 WEBSITE_ADMIN_COLOR = "blue"
