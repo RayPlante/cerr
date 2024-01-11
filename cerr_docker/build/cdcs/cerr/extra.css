@@ -144,5 +144,14 @@ body {
 
 
 .search-left-panel{
-margin-top: -4em;
+    margin-top: -4em;
+}
+
+/* Remove edit button in dashboard */
+.open-record-btn{
+    display: none;
+}
+
+a:has(> i.fa-code) {
+    display: none
 }
