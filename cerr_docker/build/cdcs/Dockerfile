@@ -67,6 +67,10 @@ COPY ./cerr/homepage.html $DOCKYARD_SRVPROJ/templates/core_main_app/user/homepag
 COPY ./cerr/menu.html $DOCKYARD_SRVPROJ/templates/theme/menu.html
 COPY ./cerr/tiles.html $DOCKYARD_SRVPROJ/templates/${PROJECT_NAME}_home/tiles.html
 
+## Replace dashboard view -- remove workspace if not reviewer or staff
+COPY ./cerr/core_dashboard_registry_app.home.html /usr/local/lib/python3.8/site-packages/core_dashboard_registry_app/templates/core_dashboard_registry_app/home.html
+
+
 COPY ./cerr/views.py $DOCKYARD_SRVPROJ/${PROJECT_NAME}_home/views.py
 
 COPY ./cerr/cerr-background.jpg ${DOCKYARD_SRVPROJ}/static/img/cerr-background.jpg
@@ -107,6 +111,14 @@ RUN sed -i 's|reverse("core_curate_index")|reverse("core_curate_index"), icon="p
 #RUN sed -i ':a;N;$!ba;s|forms = curate_data_structure_api.get_all_by_user_id_with_no_data(\n *request.user.id\n *)|forms = curate_api.get_all()|g' /usr/local/lib/python3.8/site-packages/core_dashboard_registry_app/core_dashboard_registry_app/views/common/views.py
 
 #### END OVERWRITE CALL CURATE APP API IN DASHBOARD ####
+
+#### OVERWRITE CREATE NEW VERSION AND EDIT TITLE ON DAHBOARD / WORKSPACE ####
+
+RUN sed -i "s|{% include 'core_main_app/common/buttons/edit.html' with label=\"Edit Title\" %}|{% if data_loaded.can_read %}\n\t\t\t\t\t{% include 'core_main_app/common/buttons/edit.html' with label=\"Edit Title\" %}\n\t\t\t\t{% endif %}|g" /usr/local/lib/python3.8/site-packages/core_dashboard_registry_app/templates/core_dashboard_registry_app/list/my_dashboard_my_records_table.html
+# Chnage line on top of edit-record-btn to modify can_write --> can_read (used for Review workspace so that defualt user can't edit)
+RUN ex -s +'/edit-record-btn/-1 s/write/read/ | x' /usr/local/lib/python3.8/site-packages/core_dashboard_registry_app/templates/core_dashboard_registry_app/list/my_dashboard_my_records_table.html
+
+#### END OVERWRITE CREATE NEW VERSION AND EDIT TITLE ON DAHBOARD / WORKSPACE ####
 
 
 # disable autocomplete on login page:
