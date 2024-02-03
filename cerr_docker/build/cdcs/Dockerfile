@@ -120,6 +120,12 @@ RUN ex -s +'/edit-record-btn/-1 s/write/read/ | x' /usr/local/lib/python3.8/site
 
 #### END OVERWRITE CREATE NEW VERSION AND EDIT TITLE ON DAHBOARD / WORKSPACE ####
 
+### OVERWRITE: ADD PLACEHOLDER ON CREATE ACCOUNT PAGE ###
+RUN sed -i 's|id="id_username"|id="id_username" placeholder="ex: abc15@nist.gov (NIST ID)"|g' /usr/local/lib/python3.8/site-packages/rest_framework/templates/rest_framework/login_base.html
+### END OVERWRITE CREATE ACCOUNT ###
+
+### OVERWRITE: dont ask more info at create new account" ### 
+RUN sed -i 's|return redirect(url),|return redirect(reverse("core_main_app_homepage"))|g' /usr/local/lib/python3.8/site-packages/core_user_registration_app/views/user/views.py
 
 # disable autocomplete on login page:
 RUN sed -i 's|label="Password", required=True, widget=forms.PasswordInput|label="Password", required=True, widget=forms.PasswordInput(attrs={"autocomplete": "off"})|g' /usr/local/lib/python3.8/site-packages/core_main_app/views/user/forms.py
