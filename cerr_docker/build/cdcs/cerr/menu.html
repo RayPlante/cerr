@@ -16,11 +16,20 @@
         {% block navigation_menu %}
             {% generate_menu %}
 
-            {% for item in menus.main %}
+{% for item in menus.main %}
+            {% if item.url == "/curate/" %}
+                {% if user.is_authenticated %}
+                    <!-- only show "curate" link if a user is logged in -->
+                    <li {% if item == selected_menu %}class="current"{% endif %}>
+                        <a href="{{ item.url }}" style="color: black;">{% if item|get_attribute:'icon' %} <i class="fa fa-{{ item.icon }}"></i>{%endif%}{{ item.title }}</a>
+                    </li>
+                {% endif %}
+            {% else %}
                 <li {% if item == selected_menu %}class="current"{% endif %}>
-                    <a href="{{ item.url }}">{% if item|get_attribute:'icon' %}<i class="fas fa-{{ item.icon }}"></i>{%endif%}{{ item.title }}</a>
-                </li>
-            {% endfor %}
+                    <a href="{{ item.url }}" style="color: black;">{% if item|get_attribute:'icon' %} <i class="fa fa-{{ item.icon }}"></i>{%endif%}{{ item.title }}</a>
+                </li>                
+            {% endif %}
+        {% endfor %}
         {% endblock %}
 
         <li class="nested">
