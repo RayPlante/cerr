@@ -125,7 +125,7 @@ RUN sed -i 's|id="id_username"|id="id_username" placeholder="ex: abc15@nist.gov 
 ### END OVERWRITE CREATE ACCOUNT ###
 
 ### OVERWRITE: dont ask more info at create new account" ### 
-RUN sed -i 's|return redirect(url),|return redirect(reverse("core_main_app_homepage"))|g' /usr/local/lib/python3.8/site-packages/core_user_registration_app/views/user/views.py
+RUN sed -i 's|return redirect(url)|return redirect(reverse("core_main_app_homepage"))|g' /usr/local/lib/python3.8/site-packages/core_user_registration_app/views/user/views.py
 
 # disable autocomplete on login page:
 RUN sed -i 's|label="Password", required=True, widget=forms.PasswordInput|label="Password", required=True, widget=forms.PasswordInput(attrs={"autocomplete": "off"})|g' /usr/local/lib/python3.8/site-packages/core_main_app/views/user/forms.py

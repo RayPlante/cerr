@@ -2181,6 +2181,14 @@
 			margin-left: 0;
 			padding-left: 0;
 		}
+.nav-link {
+color:inherit!important;}
+
+.form-check-input:checked {
+background-color: #9eac87;
+border-color: #9eac87;
+}
+
 
 /* Tables */
 
