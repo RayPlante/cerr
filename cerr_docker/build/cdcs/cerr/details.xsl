@@ -51,7 +51,7 @@
             }
             #infosDetails > div {
                 margin-top: 1em;
-                padding: 2em 1em;
+                padding: 1em;
                 align-items: flex-start;
                 display: flex;
                 flex-flow: column wrap;
