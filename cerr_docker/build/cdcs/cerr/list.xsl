@@ -77,7 +77,7 @@
 
                         <div class="black" style="line-height: 1.1em;">
                             <p class="description">
-                                <xsl:value-of select="//rsm:Resource/rsm:content/rsm:description"/>
+                                <xsl:value-of select="concat(normalize-space(//rsm:Resource/rsm:content/rsm:description), '&#xA;')" disable-output-escaping="yes"/>
                             </p>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
             <xsl:if test="$value != ''">
                 <xsl:value-of select="$name"/>
                 <xsl:text>: </xsl:text>
-                <a target="_blank" href="{$value}">
+                <a target="_blank" rel="noopener noreferrer"  href="{$value}">
                     <xsl:value-of select="$value"/>
                 </a>
                 <br/>
@@ -120,10 +120,10 @@
             <xsl:when test="ghgr:doi">
                 <xsl:variable name="url">https://doi.org/<xsl:value-of select="ghgr:doi"
                     /></xsl:variable>
-                <a target="_blank" href="{$url}">doi:<xsl:value-of select="ghgr:doi"/></a>
+                <a target="_blank" rel="noopener noreferrer"  href="{$url}">doi:<xsl:value-of select="ghgr:doi"/></a>
             </xsl:when>
             <xsl:when test="ghgr:url">
-                <a target="_blank" href="{ghgr:url}">URL: <xsl:value-of select="ghgr:url"/></a>
+                <a target="_blank" rel="noopener noreferrer"  href="{ghgr:url}">URL: <xsl:value-of select="ghgr:url"/></a>
             </xsl:when>
             <xsl:otherwise>
                 <i>No Home Page URL provided</i>
