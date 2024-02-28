@@ -117,8 +117,10 @@ RUN sed -i 's|reverse("core_curate_index")|reverse("core_curate_index"), icon="p
 RUN sed -i "s|{% include 'core_main_app/common/buttons/edit.html' with label=\"Edit Title\" %}|{% if data_loaded.can_read %}\n\t\t\t\t\t{% include 'core_main_app/common/buttons/edit.html' with label=\"Edit Title\" %}\n\t\t\t\t{% endif %}|g" /usr/local/lib/python3.8/site-packages/core_dashboard_registry_app/templates/core_dashboard_registry_app/list/my_dashboard_my_records_table.html
 # Chnage line on top of edit-record-btn to modify can_write --> can_read (used for Review workspace so that defualt user can't edit)
 RUN ex -s +'/edit-record-btn/-1 s/write/read/ | x' /usr/local/lib/python3.8/site-packages/core_dashboard_registry_app/templates/core_dashboard_registry_app/list/my_dashboard_my_records_table.html
+# remove dashboard menu item is user is not staff
+RUN sed -i 's|reverse("core_dashboard_workspaces"),|reverse("core_dashboard_workspaces"), check=lambda request: request.user.is_staff, |g' /usr/local/lib/python3.8/site-packages/core_dashboard_registry_app/menus.py
 
-#### END OVERWRITE CREATE NEW VERSION AND EDIT TITLE ON DAHBOARD / WORKSPACE ####
+#### END OVERWRITE CREATE NEW VERSION AND EDIT TITLE ON DASHBOARD / WORKSPACE ####
 
 ### OVERWRITE: ADD PLACEHOLDER ON CREATE ACCOUNT PAGE ###
 RUN sed -i 's|id="id_username"|id="id_username" placeholder="ex: abc15@nist.gov (NIST ID)"|g' /usr/local/lib/python3.8/site-packages/rest_framework/templates/rest_framework/login_base.html
