@@ -85,7 +85,7 @@ INSTALLED_APPS = (
     "django_celery_beat",
     "crispy_forms",
     "fontawesomefree",
-    "simple_history",
+    # "simple_history",
     # Core apps
     "core_main_app",
     "core_main_registry_app",
@@ -129,7 +129,7 @@ MIDDLEWARE = (
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
-    "simple_history.middleware.HistoryRequestMiddleware",
+    # "simple_history.middleware.HistoryRequestMiddleware",
     "core_main_app.middleware.timezone.TimezoneMiddleware",
 )
 
@@ -197,7 +197,7 @@ SITE_ID = 1
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-DJANGO_SIMPLE_HISTORY_MODELS = ["Data"]
+# DJANGO_SIMPLE_HISTORY_MODELS = ["Data"]
 
 # Password Validators
 AUTH_PASSWORD_VALIDATORS = [

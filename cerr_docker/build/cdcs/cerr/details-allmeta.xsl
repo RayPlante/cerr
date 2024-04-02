@@ -45,19 +45,19 @@
             #productClassDiv {
             }
             #infosDetails {
-                width: 60%;
                 margin-bottom: 2em;
-                margin-top: 1em
+                margin-top: 2em;
+                display: flex;
+                justify-content: space-evenly;
+                
+                border-radius: 20px;
+                border: 3px double #9eac87;
             }
             #infosDetails > div {
-                margin-top: 1em;
                 padding: 1em;
                 align-items: flex-start;
                 display: flex;
                 flex-flow: column wrap;
-                border-radius: 20px;
-                border: 3px double #9eac87;
-                justify-content: space-evenly;
                 max-width: 80%;
                 font-size: 1em;
             }<!--background-color: #f2e4d4;-->
@@ -179,7 +179,7 @@
                 </div>
             </xsl:if>
             <xsl:if test="$landingPage">
-                <div style="display:flex; flex-wrap: nowrap; align-items: center;" id="exploreLink" >
+                <div style="display:flex; flex-wrap: nowrap; align-items: center;" id="exploreLink">
 
                     <span style="font-style: italic">
                         <a target="_blank" rel="noopener noreferrer" href="{$landingPage}"
@@ -349,8 +349,7 @@
             </xsl:when>
 
             <xsl:when test="string-length($domain) > 0">
-                <span style="font-size: medium; margin-left: 1em;font-style: italic;"
-                    id="shortLink">
+                <span style="font-size: medium; margin-left: 1em;font-style: italic;" id="shortLink">
                     <xsl:value-of
                         select="concat(substring-before($link, '//'), '//', $domain, '/...')"/>
                 </span>
@@ -359,7 +358,7 @@
                     <xsl:value-of select="$link"/>
                 </span>
             </xsl:when>
-            
+
             <xsl:otherwise>
                 <span style="font-size: medium; margin-left: 1em;font-style: italic;">
                     <xsl:value-of select="$link"/>

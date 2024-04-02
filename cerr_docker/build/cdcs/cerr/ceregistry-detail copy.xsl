@@ -163,7 +163,7 @@
 			<xsl:if test="$landingPage">
 
 				<span id="" style="font-style: italic">
-					<a target="_blank" href="{$landingPage}" id="landingPageLink"
+					<a target="_blank" rel="noopener noreferrer" href="{$landingPage}" id="landingPageLink"
 						style="font-style: normal;">
 						<button type="button" class="btn btn-primary btn-sm" id="landingPageBtn">
 							<u>View this resource (on external site) </u>

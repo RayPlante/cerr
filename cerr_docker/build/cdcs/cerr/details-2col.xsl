@@ -11,6 +11,9 @@
             .top2 {
                 margin-top: 2em;
             }
+            .bold {
+                font-weight: bold;
+            }
             .title {
                 color: black;
                 margin-bottom: 0em !important;
@@ -21,14 +24,12 @@
                 margin-bottom: 0em !important;
             }
             .keywordTag {
-                border: 3px double #9eac87;
-                background-color: #f2e4d4;
-                border-radius: 10%;
                 margin-right: 1em;
                 padding: 0 0.8em;
                 margin-bottom: 0;
                 margin-top: 10px;
             }
+            k
             #resourceContent {
                 display: flex;
                 flex-direction: column;
@@ -46,7 +47,6 @@
             }
             #infosDetails {
                 width: 60%;
-                margin-bottom: 2em;
                 margin-top: 1em
             }
             #infosDetails > div {
@@ -65,6 +65,8 @@
                 display: flex;
                 flex-flow: column wrap;
                 margin-top: 1em;
+                width: fit-content;
+                
             }
             #landingPageBtn {
                 background-color: #9eac87;
@@ -89,6 +91,25 @@
             
             #exploreLink:hover #longLink {
                 display: block !important
+            }
+            
+            #pannels {
+                display: flex;
+                flex-direction: row;
+                gap: 5em;
+                justify-content: space-around;
+            }
+            
+            #rightPannel {
+                align-items: start;
+                display: flex;
+                flex-direction: column;
+            }
+            #leftPannel {
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+                flex-shrink: 0;
             }</style>
 
 
@@ -115,7 +136,9 @@
         <xsl:variable name="eventVenue" select="//rsm:Resource/rsm:content/rsm:venue"/>
         <xsl:variable name="eventRecurring" select="//rsm:Resource/rsm:content/rsm:eventRecurring"/>
 
-        <div id="resourceContent">
+        <div id="resourceContent" style="display: flex;
+            flex-flow: column wrap;
+            align-items: center;">
             <div style="display: flex; flex-flow: column wrap">
                 <xsl:if test="$role">
                     <xsl:for-each select="$role">
@@ -155,7 +178,8 @@
             </div>
             <xsl:choose>
                 <xsl:when test="$title != ''">
-                    <div id="resourceTitle">
+                    <div id="resourceTitle" style="justify-content: center;
+                        display: flex; margin-bottom:1em; margin-bottom:2em;">
                         <h1 class="top1 bigTitle" style="color: #4C5F2E">
                             <xsl:value-of select="$title"/>
                         </h1>
@@ -165,74 +189,82 @@
                     <strong class="italic top1 title">Untitled</strong>
                 </xsl:otherwise>
             </xsl:choose>
-            <xsl:if test="$publisher">
-                <div id="publisherLine"
-                    style="display: flex; flex-flow: row wrap;; font-style: italic; margin-top:1em">
-                    <p class="title bold" style="margin-right: 0.5em; margin-top:0em">Published by: </p>
-                    <p>
-                        <xsl:value-of select="$publisher"/>
-                        <xsl:if test="$publicationYear">
-                            <xsl:text> in </xsl:text>
-                            <xsl:value-of select="$publicationYear"/>
-                        </xsl:if>
-                    </p>
-                </div>
-            </xsl:if>
-            <xsl:if test="$landingPage">
-                <div style="display:flex; flex-wrap: nowrap; align-items: center;" id="exploreLink" >
 
-                    <span style="font-style: italic">
-                        <a target="_blank" rel="noopener noreferrer" href="{$landingPage}"
-                            id="landingPageLink" style="font-style: large; font-weight: bold;">
-                            <button type="button" class="btn btn-primary btn-lg" id="landingPageBtn">
-                                <u>Explore resource</u>
-                                <sup>
-                                    <i style="font-size: small; margin-left:0.5em;"
-                                        class="fas fa-external-link-alt"/>
-                                </sup>
-                            </button>
-                        </a>
-                    </span>
-                    <xsl:call-template name="cutLink">
-                        <xsl:with-param name="link" select="$landingPage"/>
-                    </xsl:call-template>
+            <div id="pannels">
+                <div id="leftPannel">
+                    <xsl:if test="$publisher">
+                        <div id="publisherLine"
+                            style="display: flex; flex-flow: row wrap;; font-style: italic; margin-top:1em">
+                            <p class="title bold" style="margin-right: 0.5em; margin-top:0em"
+                                >Published by: </p>
+                            <p>
+                                <xsl:value-of select="$publisher"/>
+                                <xsl:if test="$publicationYear">
+                                    <xsl:text> in </xsl:text>
+                                    <xsl:value-of select="$publicationYear"/>
+                                </xsl:if>
+                            </p>
+                        </div>
+                    </xsl:if>
+                    <xsl:if test="$landingPage">
+                        <div style="display:flex; flex-wrap: nowrap; align-items: center;"
+                            id="exploreLink">
 
-                    <!--    
+                            <span style="font-style: italic">
+                                <a target="_blank" rel="noopener noreferrer" href="{$landingPage}"
+                                    id="landingPageLink"
+                                    style="font-style: large; font-weight: bold;">
+                                    <button type="button" class="btn btn-primary btn-lg"
+                                        id="landingPageBtn">
+                                        <u>Explore resource</u>
+                                        <sup>
+                                            <i style="font-size: small; margin-left:0.5em;"
+                                                class="fas fa-external-link-alt"/>
+                                        </sup>
+                                    </button>
+                                </a>
+                            </span>
+                            <xsl:call-template name="cutLink">
+                                <xsl:with-param name="link" select="$landingPage"/>
+                            </xsl:call-template>
+
+                            <!--    
                  
                     <span style="font-size: medium; margin-left: 1em;font-style: italic;">
                         <xsl:value-of select="$landingPage"/>
                     </span>
                -->
+                        </div>
+                    </xsl:if>
+                    <xsl:if test="$description">
+                        <p class="top2">
+                            <xsl:value-of select="$description" disable-output-escaping="yes"/>
+                        </p>
+                    </xsl:if>
                 </div>
-            </xsl:if>
-            <xsl:if test="$description">
-                <p class="top2">
-                    <xsl:value-of select="$description" disable-output-escaping="yes"/>
-                </p>
-            </xsl:if>
-            <xsl:if test="$keywords">
-                <h5 class="title bottom0 bold ">Keywords:</h5>
-                <div style="display: flex; flex-flow: row wrap;">
-                    <xsl:call-template name="split">
-                        <xsl:with-param name="pText" select="$keywords"/>
-                    </xsl:call-template>
-                </div>
-            </xsl:if>
+                <div id="rightPannel">
 
-            <div id="allContent">
-                <div id="otherDetails">
+                    <xsl:if test="$keywords">
+
+                        <h5 class="title bottom0 bold ">Keywords:</h5>
+                        <ul style="display: flex; flex-flow: column wrap;">
+                            <xsl:call-template name="split">
+                                <xsl:with-param name="pText" select="$keywords"/>
+                            </xsl:call-template>
+                        </ul>
+                    </xsl:if>
 
                     <xsl:if test="$primaryAudience">
-                        <h5 class="title bottom0 bold">
+                        <h5 class="title bottom0 bold" style="margin-top:2em">
                             <!--style="text-shadow: 3px 3px 3px #9eac87;"--> Primary Audience:</h5>
-                        <div style="display: flex; flex-flow: row wrap">
+                        <uk style="display: flex; flex-flow: column wrap">
                             <xsl:for-each select="$primaryAudience">
-                                <span class="keywordTag">
+                                <li class="keywordTag">
                                     <xsl:value-of select="."/>
                                     <!--<xsl:if test="position() != last()"><xsl:value-of select="', '"/></xsl:if>-->
-                                </span>
+                                </li>
                             </xsl:for-each>
-                        </div>
+                        </uk>
                     </xsl:if>
                     <xsl:if test="starts-with($role, 'Event')">
                         <xsl:if test="$eventStartDate">
@@ -264,12 +296,9 @@
                             <xsl:value-of select="$creators"/>
                         </p>
                     </xsl:if>
-                </div>
-                <div id="infosDetails">
                     <xsl:if test="$materialType">
-                        <div id="materialTypeDiv">
-                            <span class="title bottom0 bold" style="margin-top:0;">Material Types
-                                involved:</span>
+                        <div id="materialTypeDiv" style="margin-top:2em">
+                            <span class="title bottom0 bold">Material Types involved:</span>
                             <div style="display: flex; flex-flow: column wrap;  margin-top:1em">
                                 <xsl:for-each select="$materialType">
                                     <li>
@@ -281,9 +310,8 @@
                         </div>
                     </xsl:if>
                     <xsl:if test="$lifecyclePhase">
-                        <div id="lifecyclePhaseDiv">
-                            <span class="title bottom0 bold" style="margin-top:0;"> Lifecycle phase
-                                involved:</span>
+                        <div id="lifecyclePhaseDiv" style="margin-top:2em">
+                            <span class="title bottom0 bold"> Lifecycle phase involved:</span>
                             <div style="display: flex; flex-flow: column wrap; margin-top:1em">
                                 <xsl:for-each select="$lifecyclePhase">
                                     <li>
@@ -295,9 +323,9 @@
                         </div>
                     </xsl:if>
                     <xsl:if test="$productClass">
-                        <div id="productClassDiv">
-                            <span class="title bottom0 bold" style="margin-top:0;">Relates to these
-                                product classes:</span>
+                        <div id="productClassDiv" style="margin-top:2em">
+                            <span class="title bottom0 bold">Relates to these product
+                                classes:</span>
                             <div style="display: flex; flex-flow: column wrap; margin-top:1em">
                                 <xsl:for-each select="$productClass">
                                     <li style="font-size;medium">
@@ -309,7 +337,6 @@
                         </div>
                     </xsl:if>
                 </div>
-
             </div>
         </div>
         <svg xmlns="//www.w3.org/2000/svg" version="1.1" class="svg-filters" style="display:none;">
@@ -328,10 +355,10 @@
         <xsl:variable name="cText"
             select="string-length($pText) - string-length(translate($pText, ',', ''))"/>
         <xsl:if test="string-length($pText) > 0">
-            <span class="keywordTag">
+            <li class="keywordTag">
                 <xsl:value-of select="substring-before(concat($pText, ',', ' '), ',')"/>
                 <!--<xsl:if test="$cText > 0"><xsl:value-of select="', '"/></xsl:if>-->
-            </span>
+            </li>
             <xsl:call-template name="split">
                 <xsl:with-param name="pText" select="substring-after($pText, ',')"/>
             </xsl:call-template>
@@ -349,8 +376,7 @@
             </xsl:when>
 
             <xsl:when test="string-length($domain) > 0">
-                <span style="font-size: medium; margin-left: 1em;font-style: italic;"
-                    id="shortLink">
+                <span style="font-size: medium; margin-left: 1em;font-style: italic;" id="shortLink">
                     <xsl:value-of
                         select="concat(substring-before($link, '//'), '//', $domain, '/...')"/>
                 </span>
@@ -359,7 +385,7 @@
                     <xsl:value-of select="$link"/>
                 </span>
             </xsl:when>
-            
+
             <xsl:otherwise>
                 <span style="font-size: medium; margin-left: 1em;font-style: italic;">
                     <xsl:value-of select="$link"/>
