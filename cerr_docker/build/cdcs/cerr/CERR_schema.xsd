@@ -1616,7 +1616,7 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="startDate" type="xs:dateTime">
+            <xs:element name="startDate" type="xs:date"  minOccurs="0">
                 <xs:annotation>
                     <xs:appinfo>
                         <label>Starting Date of an event</label>
@@ -1626,7 +1626,7 @@
                 </xs:annotation>
             </xs:element>
 
-            <xs:element name="endDate" type="xs:dateTime">
+            <xs:element name="endDate" type="xs:date"  minOccurs="0">
                 <xs:annotation>
                     <xs:appinfo>
                         <label>Ending date of an event</label>
@@ -1635,24 +1635,28 @@
                         ending </xs:documentation>
                 </xs:annotation>
             </xs:element>
-
-            <xs:element name="venue" type="xs:token">
+            
+            <xs:element name="event_online" type="rsm:EventOnline" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:appinfo>
-                        <label>venue of an event</label>
+                        <label>event online</label>
                     </xs:appinfo>
-                    <xs:documentation> format: 2002-05-30T09:00:00 The date and time the event is
-                        starting </xs:documentation>
+                    <xs:documentation> Is the event online / in person</xs:documentation>
                 </xs:annotation>
             </xs:element>
-
-            <xs:element name="isOnline" type="xs:token">
+            <xs:element name="venue" type="xs:token" minOccurs="0">
                 <xs:annotation>
                     <xs:appinfo>
-                        <label>is the event online</label>
+                        <label>The venue of the event</label>
                     </xs:appinfo>
-                    <xs:documentation> format: 2002-05-30T09:00:00 The date and time the event is
-                        starting </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="eventRecurring" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <label>Event repeat</label>
+                    </xs:appinfo>
+                    <xs:documentation> Is this a single or recurring event</xs:documentation>
                 </xs:annotation>
             </xs:element>
 
@@ -1669,8 +1673,22 @@
         </xs:annotation>
         <xs:restriction base="xs:token"> </xs:restriction>
     </xs:simpleType>
-
-
+    
+    <xs:simpleType name="EventOnline">
+        <xs:annotation>
+            <xs:appinfo>
+                <label>nature of the event</label>
+            </xs:appinfo>
+            <xs:documentation> How to attend the event </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="online"/>
+            <xs:enumeration value="in-person"/>
+            <xs:enumeration value="hybrid"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    
     <xs:complexType name="ResourceRole">
         <xs:annotation>
             <xs:documentation> metadata describing the resource's role as a resource of a particular
