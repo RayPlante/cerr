@@ -37,12 +37,10 @@ if len(missing_modules) > 0:
     sys.exit(1)
 
 
-username = "admin"
-# nmrr_user = "admin"
-password = "qusIx0u6S@@7"
-# nmrr_pass = 'admin'
-nmrr_url = "https://ce-i.nist.gov/"
-# nmrr_url = "http://192.168.40.111/"
+username = "changeme"
+password = "CHANGEME"
+# nmrr_url = "https://ce-i.nist.gov"
+nmrr_url = "https://circular.nist.gov/"
 
 
 def get_public_workspace_id():
@@ -76,7 +74,7 @@ review_id = get_review_workspace_id()
 # GET sur http://ce-i.nist.gov/rest/admin/data/
 
 # Opening JSON file
-f = open("records.json")
+f = open("0305records.json")
 
 # returns JSON object as
 # a dictionary
@@ -89,14 +87,15 @@ for record in data:
     print(record["template"])
     record["template"] = template_id
     ## change PID
-    # record["xml_content"] = record["xml_content"].replace(
-    #     "https://ce-i.nist.gov/", "http://192.168.40.111/"
+    record["xml_content"] = record["xml_content"].replace(
+        "https://ce-i.nist.gov/", "https://circular.nist.gov/"
+    )
     # )
-    ## chnage global workspace id
-    if record["workspace"]:
-        record["workspace"] = workspace_id
-    else:
-        record["workspace"] = review_id
+    ## change global workspace id
+    # if record["workspace"]:
+    #     record["workspace"] = workspace_id
+    # else:
+    #     record["workspace"] = review_id
 
     print(record)
 
@@ -106,12 +105,12 @@ for record in data:
     # Upload resource
     print(f'**** Uploading new resource: {record["title"]}:')
     response = requests.post(
-        f"{nmrr_url}rest/data/",
+        f"{nmrr_url}/rest/admin/data/",
         data=record,
-        verify=False,
+        verify=True,
         auth=(username, password),
     )
-    # print(response.json())
+    print(response.json())
     record_id = response.json()["id"]
     # print(record_id)
     user_id = record["user_id"]
@@ -121,11 +120,11 @@ for record in data:
     print(f'##### patching owner id of record: {record["title"]}: #####')
     # f'**** Uploading new resource: {record["title"]}:'
     response2 = requests.patch(
-        f"{nmrr_url}rest/data/{record_id}/change-owner/{user_id}",
+        f"{nmrr_url}/rest/data/{record_id}/change-owner/{user_id}",
         verify=False,
         auth=(username, password),
     )
-    # print(response2.json())
+    print(response2.json())
 
     # response = requests.post( "http://192.168.40.111/curate/rest/admin/draft/", data=draft, verify=False, auth=(username, password))
     # res = cdcs.upload_data(nmrr_user, nmrr_pass, cert='',

@@ -38,16 +38,22 @@ if len(missing_modules) > 0:
 
 
 username = "changeme"
+# nmrr_user = "changeme"
+# password = "changeme@@7"
 password = "changeme"
-nmrr_url = "https://circular.nist.gov/"
+# nmrr_url = "https://ce-i.nist.gov/"
 
 
 template_id = cdcs.get_template(
     username, password, cert="", url=nmrr_url, title="res-md.xsd"
 )["id"]
 
+#### GET USERS:
+# GET sur http://ce-i.nist.gov/curate/rest/admin/users/
+# SAVE AS DRAfTS.JSON
+
 # Opening JSON file
-f = open("0305drafts.json")
+f = open("Users.json")
 
 # returns JSON object as
 # a dictionary
@@ -55,22 +61,26 @@ data = json.load(f)
 
 # Iterating through the json
 # list
-for draft in data:
-    draft["template"] = template_id
-    print(draft["user"])
+for user in data:
+    print(user["template"])
+    user["template"] = template_id
     # set to new template !!!
     # post draft
 
     # print(draft)
     # Upload resource
-    print(f'**** Uploading new resource: {draft["name"]}:')
+    print(f'**** Uploading new user: {user["username"]}:')
     response = requests.post(
-        f"{nmrr_url}curate/rest/admin/draft/",
-        data=draft,
+        f"{nmrr_url}rest/user/",
+        data=user,
         verify=False,
         auth=(username, password),
     )
     print(response.json())
+    # response = requests.post( "http://192.168.40.111/curate/rest/admin/draft/", data=draft, verify=False, auth=(username, password))
+    # res = cdcs.upload_data(nmrr_user, nmrr_pass, cert='',
+    #                 url=nmrr_url, filen=xml_fname,
+    #                 template_id=template_id)
 
 
 # Closing file
