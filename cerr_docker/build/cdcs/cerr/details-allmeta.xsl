@@ -268,27 +268,13 @@
                 <div id="infosDetails">
                     <xsl:if test="$materialType">
                         <div id="materialTypeDiv">
-                            <span class="title bottom0 bold" style="margin-top:0;">Material Types
+                            <span class="title bottom0 bold" style="margin-top:0;">Material types
                                 involved:</span>
                             <div style="display: flex; flex-flow: column wrap;  margin-top:1em">
                                 <xsl:for-each select="$materialType">
                                     <li>
                                         <xsl:copy-of select="."/>
                                         <!--<xsl:if test="position() != last()"><xsl:value-of select="', '"/></xsl:i-->
-                                    </li>
-                                </xsl:for-each>
-                            </div>
-                        </div>
-                    </xsl:if>
-                    <xsl:if test="$lifecyclePhase">
-                        <div id="lifecyclePhaseDiv">
-                            <span class="title bottom0 bold" style="margin-top:0;"> Lifecycle phase
-                                involved:</span>
-                            <div style="display: flex; flex-flow: column wrap; margin-top:1em">
-                                <xsl:for-each select="$lifecyclePhase">
-                                    <li>
-                                        <xsl:value-of select="."/>
-                                        <!--<xsl:if test="position() != last()"><xsl:value-of select="', '"/></xsl:if>-->
                                     </li>
                                 </xsl:for-each>
                             </div>
@@ -303,6 +289,20 @@
                                     <li style="font-size;medium">
                                         <xsl:value-of select="."/>
                                         <!--<xsl:if test="position() != last()"><xsl:value-of select="', '"/></xsl-->
+                                    </li>
+                                </xsl:for-each>
+                            </div>
+                        </div>
+                    </xsl:if>
+                    <xsl:if test="$lifecyclePhase">
+                        <div id="lifecyclePhaseDiv">
+                            <span class="title bottom0 bold" style="margin-top:0;"> Lifecycle phase
+                                involved:</span>
+                            <div style="display: flex; flex-flow: column wrap; margin-top:1em">
+                                <xsl:for-each select="$lifecyclePhase">
+                                    <li>
+                                        <xsl:value-of select="."/>
+                                        <!--<xsl:if test="position() != last()"><xsl:value-of select="', '"/></xsl:if>-->
                                     </li>
                                 </xsl:for-each>
                             </div>
