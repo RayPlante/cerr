@@ -70,6 +70,11 @@ COPY ./cerr/tiles.html $DOCKYARD_SRVPROJ/templates/${PROJECT_NAME}_home/tiles.ht
 ## Replace dashboard view -- remove workspace if not reviewer or staff
 COPY ./cerr/core_dashboard_registry_app.home.html /usr/local/lib/python3.8/site-packages/core_dashboard_registry_app/templates/core_dashboard_registry_app/home.html
 
+##replace files for publish in review
+COPY ./cerr/core_main_app.detail.js /usr/local/lib/python3.8/site-packages/core_main_app/static/core_main_app/user/js/data/detail.js
+COPY ./cerr/core_main_app.tools_data.html /usr/local/lib/python3.8/site-packages/core_main_app/templates/core_main_app/common/data/tools_data.html
+# COPY ./cerr/core_main_app.detail_raw.js /usr/local/lib/python3.8/site-packages/core_main_app/static/core_main_app/user/js/data/detail.raw.js
+# COPY ./cerr/core_main_app.urls.py /usr/local/lib/python3.8/site-packages/core_main_app/urls.py
 
 COPY ./cerr/views.py $DOCKYARD_SRVPROJ/${PROJECT_NAME}_home/views.py
 
@@ -128,6 +133,20 @@ RUN sed -i 's|id="id_username"|id="id_username" placeholder="ex: abc15@nist.gov 
 
 ### OVERWRITE: dont ask more info at create new account" ### 
 RUN sed -i 's|return redirect(url)|return redirect(reverse("core_main_app_homepage"))|g' /usr/local/lib/python3.8/site-packages/core_user_registration_app/views/user/views.py
+
+### OVERWRITE: add publish url to core_main_app
+RUN sed -i 's|), \n]|re_path(r"^publish-resource",registry_common_ajax.publish,name="core_dashboard_publish_resource_registry",),]|g'  /usr/local/lib/python3.8/site-packages/core_main_app/urls.py
+RUN sed -i 's|from core_main_app.views.user import views as user_views, ajax as user_ajax|from core_main_app.views.user import views as user_views, ajax as user_ajax \n from core_dashboard_registry_app.views.common import ajax as registry_common_ajax,|g' /usr/local/lib/python3.8/site-packages/core_main_app/urls.py
+
+RUN sed -i 's|location.reload(true);|window.location.replace(window.location.origin + "/dashboard/workspaces");|g' /usr/local/lib/python3.8/site-packages/core_dashboard_registry_app/static/core_dashboard_registry_app/user/js/list/publish.js
+
+
+# ##line1068
+# RUN sed -i 's|"path": "core_main_app/user/js/data/detail.js",|"path": "core_main_app/user/js/data/detail.raw.js","is_raw": True,},{"path": "core_main_app/user/js/data/detail.js",|' /usr/local/lib/python3.8/site-packages/core_main_app/utils/view_builders/data.py
+# RUN sed -i 's|"path": "core_main_app/user/js/data/detail.js",|"path": "core_main_app/user/js/data/detail.raw.js","is_raw": True,},{"path": "core_main_app/user/js/data/detail.js",|' /usr/local/lib/python3.8/site-packages/core_curate_app/views/common/views.py
+# RUN sed -i 's|"path": "core_main_app/user/js/data/detail.js",|"path": "core_main_app/user/js/data/detail.raw.js","is_raw": True,},{"path": "core_main_app/user/js/data/detail.js",|' /usr/local/lib/python3.8/site-packages/core_main_app/views/common/views.py
+# RUN sed -i 's|"path": "core_main_app/user/js/data/detail.js",|"path": "core_main_app/user/js/data/detail.raw.js","is_raw": True,},{"path": "core_main_app/user/js/data/detail.js",|' /usr/local/lib/python3.8/site-packages/core_user_registration_app/views/admin/views.py
+
 
 # disable autocomplete on login page:
 RUN sed -i 's|label="Password", required=True, widget=forms.PasswordInput|label="Password", required=True, widget=forms.PasswordInput(attrs={"autocomplete": "off"})|g' /usr/local/lib/python3.8/site-packages/core_main_app/views/user/forms.py
