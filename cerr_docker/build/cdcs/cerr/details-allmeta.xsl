@@ -48,8 +48,9 @@
                 margin-bottom: 2em;
                 margin-top: 2em;
                 display: flex;
+                padding: 1em;
                 justify-content: space-evenly;
-                
+                width: fit-content;
                 border-radius: 20px;
                 border: 3px double #9eac87;
             }
@@ -225,7 +226,7 @@
                     <xsl:if test="$primaryAudience">
                         <h5 class="title bottom0 bold">
                             <!--style="text-shadow: 3px 3px 3px #9eac87;"--> Primary Audience:</h5>
-                        <div style="display: flex; flex-flow: row wrap">
+                        <div style="display: flex; flex-flow: row wrap; margin-bottom:1em">
                             <xsl:for-each select="$primaryAudience">
                                 <span class="keywordTag">
                                     <xsl:value-of select="."/>
