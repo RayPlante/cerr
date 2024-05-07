@@ -1,10 +1,11 @@
 """ Django settings for core applications.
 """
+
 import os
 
 SERVER_URI = os.environ["SERVER_URI"] if "SERVER_URI" in os.environ else None
 
-PROJECT_VERSION = os.getenv("PROJECT_VERSION", "3.4.0")
+PROJECT_VERSION = os.getenv("PROJECT_VERSION", "3.5.0")
 """ :py:class:`str`: Project version number.
 """
 
@@ -120,8 +121,7 @@ ID_PROVIDER_PREFIX_DEFAULT = os.getenv(
     "ID_PROVIDER_PREFIX_DEFAULT", ID_PROVIDER_PREFIXES[0]
 )
 
-ID_PROVIDER_PREFIX_BLOB = os.getenv(
-    "ID_PROVIDER_PREFIX_BLOB", ID_PROVIDER_PREFIXES[0])
+ID_PROVIDER_PREFIX_BLOB = os.getenv("ID_PROVIDER_PREFIX_BLOB", ID_PROVIDER_PREFIXES[0])
 
 PID_XPATH = "Resource.@localid"
 """ string: location of the PID in the document, specified as dot notation

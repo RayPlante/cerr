@@ -7,6 +7,7 @@ https://docs.djangoproject.com/en/1.8/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
+
 from .core_settings import *
 import os
 
@@ -37,14 +38,14 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "HOST": os.environ["POSTGRES_HOST"] if "POSTGRES_HOST" in os.environ else None,
-        "PORT": int(os.environ["POSTGRES_PORT"])
-        if "POSTGRES_PORT" in os.environ
-        else 5432,
+        "PORT": (
+            int(os.environ["POSTGRES_PORT"]) if "POSTGRES_PORT" in os.environ else 5432
+        ),
         "NAME": os.environ["POSTGRES_DB"] if "POSTGRES_DB" in os.environ else None,
         "USER": os.environ["POSTGRES_USER"] if "POSTGRES_USER" in os.environ else None,
-        "PASSWORD": os.environ["POSTGRES_PASS"]
-        if "POSTGRES_PASS" in os.environ
-        else None,
+        "PASSWORD": (
+            os.environ["POSTGRES_PASS"] if "POSTGRES_PASS" in os.environ else None
+        ),
     }
 }
 
@@ -162,7 +163,7 @@ OAI_ADMINS = ["admin1@example.com", "admin2@example.com"]
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/3.2/topics/i18n/
+# https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
 
@@ -177,7 +178,7 @@ USE_TZ = False
 LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
+# https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "/static/"
 STATIC_ROOT = "static.prod"
@@ -189,10 +190,10 @@ STATICFILES_FINDERS = (
 
 STATICFILES_DIRS = ("static",)
 
-# https://docs.djangoproject.com/en/3.2/topics/files/
+# https://docs.djangoproject.com/en/4.2/topics/files/
 MEDIA_ROOT = "media"
 
-# https://docs.djangoproject.com/en/3.2/ref/contrib/sites/
+# https://docs.djangoproject.com/en/4.2/ref/contrib/sites/
 SITE_ID = 1
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -504,3 +505,8 @@ if ENABLE_HANDLE_PID:
     }
 
 LOGIN_URL = "core_main_app_login"
+
+# Default view for Django Exception Reports
+DEFAULT_EXCEPTION_REPORTER_FILTER = (
+    "core_main_app.views.admin.views.CustomExceptionReporter"
+)
