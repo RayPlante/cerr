@@ -1,289 +1,361 @@
 [
     {
-        "id": "63ed2be6d02db034108c1d50",
-        "user": "32",
-        "name": "ellenmacfound.xml",
-        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>The Ellen MacArthur Foundation</title></identity><providers><publisher>The Ellen MacArthur Foundation</publisher></providers><content><description>The Ellen MacArthur Foundation is a charitable organization focused on the\r\n      development and promotion of the circular economy. They support and collaborate with business,\r\n      academia, policymakers, and institutions around the world. They create resources,\r\n      publications, and tools that assist policymakers establish effective policies for enabling a\r\n      circular economy. They focus on work areas that can make the biggest impact, including\r\n      plastics, food, fashion, finance, and cities.</description><subject>charity,plastics,food,fashion,finance,cities</subject><landingPage>https://ellenmacarthurfoundation.org/</landingPage><primaryAudience>policy makers</primaryAudience></content><role xsi:type=\"rsm:Organization\"><type>Organization: General/Other</type></role><applicability><productClass><textiles>textiles</textiles></productClass></applicability></Resource>",
-        "template": "63ec32f5e4b23eae536e8ffa",
-        "data_structure_element_root": null,
-        "data": "63ed2b47588e7b930c2e0399"
-    },
-    {
-        "id": "63ee685aaeb1d03ff9a87533",
-        "user": "41",
-        "name": "Waste Atlas",
-        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Waste Atlas</title></identity><providers><publisher>D-Waste</publisher></providers><content><description>Waste Atlas is a crowdsourcing free access map that visualizes municipal solid waste management data across the world for comparison and benchmarking purposes.\r\nWaste Atlas is made with the contribution of scientists from different countries and the utilization of published data. Any contribution is more than welcomed but the figures published are firstly checked for mistakes or inconsistencies.\r\nWaste Atlas already includes data for:\r\n    164 Countries ( total 1,825,463,704 tn/yr or 97% of the Global Waste Generation )\r\n    1799 Cities\r\n    1626 Sanitary Landfills\r\n    93 Dumpsites\r\n    130 MBT units\r\n    78 Biological Treatment\r\n    716 WtE plants</description><landingPage>http://www.atlas.d-waste.com/</landingPage></content><role xsi:type=\"rsm:Website\"><type>Website: Portal</type></role></Resource>",
-        "template": "63ec32f5e4b23eae536e8ffa",
-        "data_structure_element_root": null,
-        "data": null
-    },
-    {
-        "id": "640a31b202fd8eaeea47913b",
+        "id": 2,
         "user": "49",
         "name": "GOTS",
+        "creation_date": "2024-03-07T12:23:15.793903",
         "form_string": "<Resource status=\"active\" xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><content><landingPage>https://global-standard.org/</landingPage></content><role xsi:type=\"rsm:Organization\"><type>Organization</type></role></Resource>",
-        "template": "6409e249c272fcbb7af8b22a",
+        "template": 3,
         "data_structure_element_root": null,
         "data": null
     },
     {
-        "id": "640a3ae674ad36c1c4aa7748",
+        "id": 3,
         "user": "47",
         "name": "Energy-critical elements for sustainable development",
+        "creation_date": "2024-03-07T12:23:16.180429",
         "form_string": "<Resource status=\"active\" xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><content><landingPage>https://ce-i.nist.gov/curate/</landingPage></content><role xsi:type=\"rsm:Literature\"><type>Literature: Article</type></role></Resource>",
-        "template": "6409e249c272fcbb7af8b22a",
+        "template": 3,
         "data_structure_element_root": null,
         "data": null
     },
     {
-        "id": "640a3af9706d6bcda402982a",
+        "id": 4,
         "user": "48",
         "name": "Chain Shuttling Polymerization",
+        "creation_date": "2024-03-07T12:23:16.577372",
         "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Catalytic Production of Olefin Block Copolymers via Chain Shuttling Polymerization</title></identity><providers><publisher>Science</publisher></providers><content><description>Abstract: We report a catalytic system that produces olefin block copolymers with alternating semicrystalline and amorphous segments, achieved by varying the ratio of &#945;-olefin to ethylene in the two types of blocks. The system uses a chain shuttling agent to transfer growing chains between two distinct catalysts with different monomer selectivities in a single polymerization reactor. The block copolymers simultaneously have high melting temperatures and low glass transition temperatures, and therefore they maintain excellent elastomeric properties at high temperatures. Furthermore, the materials are effectively produced in economically favorable, continuous polymerization processes.</description><landingPage>https://www.science.org/doi/full/10.1126/science.1125268</landingPage><primaryAudience>researchers</primaryAudience></content><role xsi:type=\"rsm:Literature\"><type>Literature: Article</type></role><applicability><productClass><durable_plastics>durable plastics</durable_plastics><packaging>packaging</packaging><packaging>packaging: plastic</packaging></productClass><lifecyclePhase><materials_design>materials design</materials_design></lifecyclePhase><materialType><polymers_chemistry-based>polymers: chemistry-based</polymers_chemistry-based><polymers_property-based>polymers: property-based</polymers_property-based></materialType></applicability></Resource>",
-        "template": "6409e249c272fcbb7af8b22a",
+        "template": 3,
         "data_structure_element_root": null,
         "data": null
     },
     {
-        "id": "640a3f48e40177f4354a5528",
+        "id": 5,
         "user": "49",
         "name": "Preferred Fiber & Materials Market Report",
+        "creation_date": "2024-03-07T12:23:16.967292",
         "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Preferred Fiber &amp; Materials Market Report</title></identity><providers><publisher>Textile Exchange</publisher></providers><content><description>2022: Key takeaways from the report\r\nThe report shows that it's unlikely for the textile industry&#8217;s\r\nfiber and materials market to stay within 1.5&#176;C pathway\r\nwithout reducing growth, a major acceleration of transition\r\nto preferred fiber and materials, and innovation.\r\nThe industry must: (1.) Rethink growth&#8212;the elephant in the room.\r\nGlobal fiber production reached an all-time high again in\r\n2021 after a slight decline due to COVID-19 the previous\r\nyear. Given this growth of the overall fiber and materials market and its impacts, it's increasingly important to rethink growth and decouple value creation from resource use. (2.) Speed up the shift from conventional&#8212;particularly fossil-based&#8212;to preferred fiber and materials. More than half of global growing fiber production is fossilbased. A transition to preferred sources is a must. (3.) Innovate and collaborate. Use the solutions that already exist&#8212;but also innovate and collaborate in order to accelerate progress and take the bold actions needed to scale new emerging materials and regenerative agriculture. (4.) The best way to predict the future is to create it. The forecast data shared in the report is one of multiple scenarios. While these scenarios may help the industry think about potential future pathways and impacts, the future can&#8212;and must be&#8212;influenced. We need to be part of the solution to create a planet that is habitable well into\r\nthe future. (5.) Everybody needs to be a leader. Significant acceleration in terms of climate action is needed in order to stay within the 1.5&#176; pathway. Everybody needs to be&#8212;and can be&#8212;part of the solution.</description><landingPage>https://textileexchange.org/app/uploads/2022/10/Textile-Exchange_PFMR_2022.pdf</landingPage></content><role xsi:type=\"rsm:Literature\"><type>Literature: Report</type></role></Resource>",
-        "template": "6409e249c272fcbb7af8b22a",
+        "template": 3,
         "data_structure_element_root": null,
         "data": null
     },
     {
-        "id": "640a46bf02fd8eaeea479168",
+        "id": 6,
         "user": "48",
         "name": "APR Plastics Research Libary",
+        "creation_date": "2024-03-07T12:23:17.354198",
         "form_string": "<Resource status=\"active\" xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><content><landingPage>https://plasticsrecycling.org/library</landingPage></content><role xsi:type=\"rsm:Website\"><type>Website: Informational</type></role></Resource>",
-        "template": "6409e249c272fcbb7af8b22a",
+        "template": 3,
         "data_structure_element_root": null,
         "data": null
     },
     {
-        "id": "640f2b9ce1e23345a2a064ca",
+        "id": 7,
         "user": "49",
         "name": "Fashion on Climate: How the fashion industry can urgently act to reduce its greenhouse gas emissions",
+        "creation_date": "2024-03-07T12:23:17.721777",
         "form_string": "<Resource status=\"active\" xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><content><landingPage>https://www.mckinsey.com/~/media/mckinsey/industries/retail/our%20insights/fashion%20on%20climate/fashion-on-climate-full-report.pdf</landingPage></content><role xsi:type=\"rsm:Literature\"><type>Literature: Report</type></role></Resource>",
-        "template": "6409e249c272fcbb7af8b22a",
+        "template": 3,
         "data_structure_element_root": null,
         "data": null
     },
     {
-        "id": "6411deef2ef90bec214d4992",
-        "user": "32",
-        "name": "ellenmacfound.xml",
-        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" status=\"active\" localid=\"https://ce-i.nist.gov/pid/rest/local/cdcs/X8IZVOK9OMNC1LBP\"><identity><title>The Ellen MacArthur Foundation</title></identity><providers><publisher>The Ellen MacArthur Foundation</publisher></providers><content><description>The Ellen MacArthur Foundation is a charitable organization focused on the\n      development and promotion of the circular economy. They support and collaborate with business,\n      academia, policymakers, and institutions around the world. They create resources,\n      publications, and tools that assist policymakers establish effective policies for enabling a\n      circular economy. They focus on work areas that can make the biggest impact, including\n      plastics, food, fashion, finance, and cities.</description><subject>charity,plastics,food,fashion,finance,cities</subject><landingPage>https://ellenmacarthurfoundation.org/</landingPage><primaryAudience>policy makers</primaryAudience></content><role xsi:type=\"rsm:Organization\"><type>Organization: General/Other</type></role><applicability><productClass><textiles>textiles</textiles></productClass></applicability></Resource>",
-        "template": "6409e249c272fcbb7af8b22a",
-        "data_structure_element_root": null,
-        "data": "6407f8b3d6d601da4bdbdc75"
-    },
-    {
-        "id": "6424bbe76b7d93dc7568d806",
-        "user": "32",
-        "name": "test",
-        "form_string": "<Resource status=\"active\" xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><content><landingPage>http://test.com</landingPage></content><role xsi:type=\"rsm:Organization\"><type>Organization: Institution</type></role></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
-        "data_structure_element_root": null,
-        "data": null
-    },
-    {
-        "id": "6424bc7b459cbaa0cf117f72",
-        "user": "32",
-        "name": "estest",
-        "form_string": "<Resource status=\"active\" xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><content><landingPage>http://test.com</landingPage></content><role xsi:type=\"rsm:Organization\"><type>Organization: Institution</type></role></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
-        "data_structure_element_root": null,
-        "data": null
-    },
-    {
-        "id": "6442df897d190fbb1aeb33bc",
-        "user": "32",
-        "name": "ttst",
-        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>ttst</title></identity><providers><publisher>ttst</publisher></providers><content><description>ttst</description><landingPage>http://ttst.com</landingPage></content><role xsi:type=\"rsm:Collection\"><type>Collection: Repository</type></role></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
-        "data_structure_element_root": null,
-        "data": null
-    },
-    {
-        "id": "64482fe3cf5a5c2e173df7eb",
+        "id": 8,
         "user": "41",
         "name": "NEU ACI Center of Excellence for Carbon Neutral Concrete",
+        "creation_date": "2024-03-07T12:23:18.108466",
         "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>NEU ACI Center of Excellence for Carbon Neutral Concrete</title></identity><providers><publisher>American Concrete Institute</publisher></providers><content><description>NEU&#8217;s mission is to drive education, awareness, and adoption of carbon neutral concrete materials and technologies. At NEU: An ACI Center of Excellence for Carbon Neutral Concrete, we realize that it is important that as new technologies come forward, they are vetted and assessed for their efficacy. To accomplish this, NEU has taken on several core functions:\r\n- Creating a process to assess and validate the claims of innovative and new materials/technologies associated with low carbon concrete production\r\n- Creating educational resources and programs pertaining to carbon neutral concrete production and placement.\r\n- Representing the supply side and demand side\r\n- Being collaborative; supporting regional and global efforts, roadmaps, etc.\r\n- Assisting government agencies in decision making surrounding carbon neutral concrete\r\n- Being collaborative; supporting regional and global efforts, roadmaps, etc.\r\n- Assisting government agencies in decision making surrounding carbon neutral concrete\r\nNEU was established by the American Concrete Institute to collaborate globally to drive education, awareness, and adoption of the use of carbon neutral materials and technologies in the built environment.  NEU has seen rapid growth since its founding and we encourage participation in our Center to help the industry meet carbon neutral goals. NEU is being established with the American Concrete Institute, a leading global authority for the development, dissemination, and adoption of its consensus-based standards, technical resources, and educational, training, and certification programs.</description><subject>carbon neutral concrete,low carbon cement and concrete</subject><landingPage>https://www.neuconcrete.org/</landingPage><primaryAudience>researchers</primaryAudience><primaryAudience>practitioners</primaryAudience></content><role xsi:type=\"rsm:Organization\"><type>Organization: Consortium</type></role><applicability><productClass><building_materials>building materials: concrete</building_materials></productClass><lifecyclePhase><carbon_capture>carbon capture</carbon_capture><materials_design>materials design</materials_design><product_design>product design</product_design></lifecyclePhase><materialType><concrete>concrete</concrete></materialType></applicability></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
+        "template": 3,
         "data_structure_element_root": null,
         "data": null
     },
     {
-        "id": "644833237d190fbb1aeb33e8",
-        "user": "None",
-        "name": "Circular Supply Chain Network",
-        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Circular Supply Chain Network</title></identity><providers><publisher>Circular Supply Chain Network</publisher></providers><content><description>The Circular Supply Chain Network is a global community of circular supply chain geeks, passionate about accelerating the transition to circular operations. \r\n \r\nThey educate, connect and innovate for circular supply chains that are good for the environment, society, business and innovation.  The Circular Supply Chain Network is a registered nonprofit as part of the Interweave accelerator at Sustainable Seattle.</description><subject>supply chain</subject><landingPage>https://www.circularsupplychain.network/</landingPage><primaryAudience>practitioners</primaryAudience><primaryAudience>general public</primaryAudience></content><role xsi:type=\"rsm:Organization\"><type>Organization: General/Other</type></role><role xsi:type=\"rsm:Website\"><type>Website: Informational</type></role></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
-        "data_structure_element_root": null,
-        "data": null
-    },
-    {
-        "id": "644833d87d190fbb1aeb33ea",
-        "user": "56",
-        "name": "Science paper",
-        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Evaluating scenarios toward zero plastic pollution</title></identity><providers><publisher>Science</publisher></providers><content><description>Article by Lau et al (2020).  Abstract:  Plastic pollution is a pervasive and growing problem. To estimate the effectiveness of interventions to reduce plastic pollution, we modeled stocks and flows of municipal solid waste and four sources of microplastics through the global plastic system for five scenarios between 2016 and 2040. Implementing all feasible interventions reduced plastic pollution by 40% from 2016 rates and 78% relative to &#8220;business as usual&#8221; in 2040. Even with immediate and concerted action, 710 million metric tons of plastic waste cumulatively entered aquatic and terrestrial ecosystems. To avoid a massive build-up of plastic in the environment, coordinated global action is urgently needed to reduce plastic consumption; increase rates of reuse, waste collection, and recycling; expand safe disposal systems; and accelerate innovation in the plastic value chain.</description><landingPage>https://www.science.org/doi/10.1126/science.aba9475</landingPage><primaryAudience>researchers</primaryAudience><primaryAudience>educators</primaryAudience></content><role xsi:type=\"rsm:Literature\"><type>Literature: Article</type></role></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
-        "data_structure_element_root": null,
-        "data": null
-    },
-    {
-        "id": "644834f07d190fbb1aeb340d",
-        "user": "38",
-        "name": "test44",
-        "form_string": "<Resource status=\"active\" xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><role xsi:type=\"rsm:Website\"><type>Website: Informational</type></role></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
-        "data_structure_element_root": null,
-        "data": null
-    },
-    {
-        "id": "64483514cf5a5c2e173df7f5",
-        "user": "60",
-        "name": "100th Anniversary of Macromolecular Viewpoint - needs for polymer circularity",
-        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>100th Anniversary of Macromolecular Science Viewpoint: Needs for Plastics Packaging Circularity</title></identity><providers><publisher>ACS Macro Letters</publisher></providers><content><description>Viewpoint article to highlight the technical gaps that need to be collaboratively addressed by the entire plastics community to achieve circularity in plastic packaging.</description><subject>circularity, plastics packaging, viewpoint, recycling, consumer use, collection and sorting</subject><landingPage>https://doi.org/10.1021/acsmacrolett.0c00437</landingPage><primaryAudience>researchers</primaryAudience><primaryAudience>practitioners</primaryAudience><primaryAudience>policy makers</primaryAudience></content><role xsi:type=\"rsm:Literature\"><type>Literature: Article</type></role></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
-        "data_structure_element_root": null,
-        "data": null
-    },
-    {
-        "id": "6448368e7d190fbb1aeb3413",
-        "user": "55",
-        "name": "Federal LCA Commons",
-        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Federal LCA Commons</title></identity><providers><publisher>USDA</publisher></providers><content><description>The Federal LCA Commons is an interagency community of practice for Life Cycle Assessment (LCA) research methods. This community of practice collaborates to share expertise and methods to move toward common Federal data modeling conventions and make Federal data sets freely available through a web-based data repository. The Federal LCA Commons has been formalized through a Memorandum of Understanding (MOU) to establish a formal agreement to coordinate LCA data, research, and information systems between the United States Department of Agriculture, Department of Energy, and Environmental Protection Agency. Additionally, the initiative is bolstered by a number of other participating agencies across government mission areas. Participating agencies each support for their mission, programs, and stakeholders. The initiative serves to coordinate and distribute Agency mission products for public benefit. The goals of the Federal LCA Commons and its value to the public and the Federal government are to: (1) Advance Federal LCA data, research, and information systems by leveraging multi-agency resources and expertise, (2) Improve consistency in LCA methods developed by each agency to develop LCA results for decision-making and public disclosure, and (3) Enhance public and agency access to Federal LCA data in a standardized searchable format from a common repository. The Federal LCA Commons data platform uses the openLCA Collaboration Server application. The Federal LCA Commons allows users to access and download data in the JSON-LD or ILCD formats, or fetch data directly into their local openLCA desktop application.</description><subject>life cycle assessment</subject><landingPage>https://www.lcacommons.gov/</landingPage><primaryAudience>researchers</primaryAudience><primaryAudience>practitioners</primaryAudience></content><role xsi:type=\"rsm:Collection\"><type>Collection: Repository</type></role><applicability><lifecyclePhase><end-of-life_management>end-of-life management</end-of-life_management><processing>processing</processing><use_and_reuse>use and reuse</use_and_reuse></lifecyclePhase></applicability></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
-        "data_structure_element_root": null,
-        "data": null
-    },
-    {
-        "id": "644837587d190fbb1aeb3417",
-        "user": "56",
-        "name": "Science",
-        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Evaluating scenarios toward zero plastic pollution</title></identity><providers><publisher>Science</publisher></providers><content><description>Article by Winnie Lau et al.  Abstract:  Plastic pollution is a pervasive and growing problem. To estimate the effectiveness of interventions to reduce plastic pollution, we modeled stocks and flows of municipal solid waste and four sources of microplastics through the global plastic system for five scenarios between 2016 and 2040. Implementing all feasible interventions reduced plastic pollution by 40% from 2016 rates and 78% relative to &#8220;business as usual&#8221; in 2040. Even with immediate and concerted action, 710 million metric tons of plastic waste cumulatively entered aquatic and terrestrial ecosystems. To avoid a massive build-up of plastic in the environment, coordinated global action is urgently needed to reduce plastic consumption; increase rates of reuse, waste collection, and recycling; expand safe disposal systems; and accelerate innovation in the plastic value chain.</description><landingPage>http://science.org/doi/10.1126/science.aba9475</landingPage></content><role xsi:type=\"rsm:Literature\"><type>Literature: Article</type></role></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
-        "data_structure_element_root": null,
-        "data": null
-    },
-    {
-        "id": "644837f28c05d1c86b69f099",
-        "user": "59",
-        "name": "Life cycle",
-        "form_string": "<Resource status=\"active\" xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><role xsi:type=\"rsm:Organization\"><type>Organization: Project</type></role></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
-        "data_structure_element_root": null,
-        "data": null
-    },
-    {
-        "id": "64483803b814dceee614a297",
-        "user": "60",
-        "name": "Review: Why Plastics Recycling is so Challenging",
-        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Why is Recycling of Postconsumer Plastics so Challenging?</title></identity><providers><publisher>ACS Applied Polymer Materials (American Chemical Society (ACS))</publisher><publicationYear>2021</publicationYear></providers><content><description>This review provides insight on technical and economic hurdles associated with the recycling of postconsumer plastics, covering a large breadth of relevant areas such as new polymers, mechanical versus chemical recycling, sorting, separations, additives, and cost/benefit analysis.</description><landingPage>https://doi.org/10.1021/acsapm.1c00648</landingPage><primaryAudience>researchers</primaryAudience><primaryAudience>practitioners</primaryAudience><primaryAudience>policy makers</primaryAudience></content><role xsi:type=\"rsm:Literature\"><type>Literature: Article</type></role><applicability><productClass><durable_plastics>durable plastics</durable_plastics><packaging>packaging</packaging></productClass><lifecyclePhase><recycling>recycling</recycling></lifecyclePhase><materialType><polymers_chemistry-based>polymers: chemistry-based</polymers_chemistry-based><polymers_property-based>polymers: property-based</polymers_property-based></materialType></applicability></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
-        "data_structure_element_root": null,
-        "data": null
-    },
-    {
-        "id": "6448381d7d190fbb1aeb3419",
-        "user": "59",
-        "name": "weathering",
-        "form_string": "<Resource status=\"active\" xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><role xsi:type=\"rsm:Organization\"><type>Organization: Project</type></role></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
-        "data_structure_element_root": null,
-        "data": null
-    },
-    {
-        "id": "644839435d7e619482a0c258",
-        "user": "58",
-        "name": "Fostering a Circular Economy of Manufacturing Materials Workshop Report",
-        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Fostering a Circular Economy of Manufacturing Materials Workshop Report</title></identity><providers><publisher>ASTM</publisher></providers><content><description>This report presents the key outcomes from the Workshop: &#8220;Fostering a Circular Economy of Manufacturing Materials&#8221; jointly organized by ASTM International and NIST, key takeaways from the proceeding Survey: Manufacturing in a Circular Economy, and next steps for addressing the standards needs identified in both.\r\n\r\nIn addition to the standards identified, two key takeaways stemmed from the survey and workshop: first, participants have a transformative, though fragmented, vision for a new way of thinking about how we create and use materials that is regenerative rather than extractive. Second, participants are motivated to make this vision come true, and they are indicative of a larger desire across the manufacturing sector to implement circularity. ASTM Committee E60 on Sustainability is well-suited to play a part in developing and coordinating standards that foster a circular economy for manufacturing materials.                            The report, and the types of standards it proposes will be of particular interest to material and product designers, manufacturing processors, recovery processors, and system planners and policymakers. These stakeholders will also be critical for realizing these CE standards. ASTM Committee E60 is initiating new efforts to address some of the standards needs and welcome other experts in the field to join and expand upon existing development activities and initiate new ones.</description><landingPage>https://marketing.astm.org/acton/fs/blocks/showLandingPage/a/9652/p/p-039d/t/page/fm/0</landingPage><primaryAudience>researchers</primaryAudience><primaryAudience>practitioners</primaryAudience><primaryAudience>policy makers</primaryAudience></content><role xsi:type=\"rsm:Literature\"><type>Literature: Proceedings</type><type>Literature: Report</type></role><role xsi:type=\"rsm:Literature\"><type>Literature: Proceedings</type><type>Literature: Report</type></role></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
-        "data_structure_element_root": null,
-        "data": null
-    },
-    {
-        "id": "64483a3a7d190fbb1aeb341c",
-        "user": "41",
-        "name": "GSA Battery Passport Pilots",
-        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>GSA Battery Passport Pilots</title></identity><providers><publisher>Global Battery Alliance</publisher></providers><content><description>On January 18th, at the Annual Meeting of the World Economic Forum in Davos, the Global Battery Alliance has officially launched the world&#8217;s first battery passport proof-of-concept pilots. First conceptualized by the Global Battery Alliance in 2019, the launch builds on three years of pre-competitive multi-stakeholder collaboration across the battery value chain. This included the development of dedicated rulebooks to establish key sustainability performance indicators related to the battery carbon footprint and child labor and human rights due diligence as set out in the Greenhouse Gas rulebook and the Child Labor and Human Rights indices.</description><subject>Digital product passport,Battery passport,traceability</subject><landingPage>https://www.globalbattery.org/action-platforms-menu/pilot-test/</landingPage><primaryAudience>researchers</primaryAudience><primaryAudience>practitioners</primaryAudience><primaryAudience>policy makers</primaryAudience></content><role xsi:type=\"rsm:Website\"><type>Website: Portal</type></role></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
-        "data_structure_element_root": null,
-        "data": null
-    },
-    {
-        "id": "64483b39ab9b8dcb529477d2",
-        "user": "60",
-        "name": "PureCycle Purification Process Summary",
-        "form_string": "<Resource status=\"active\" xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><content><landingPage>https://www.purecycle.com/our-process</landingPage></content><role xsi:type=\"rsm:Website\"><type>Website: Informational</type></role></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
-        "data_structure_element_root": null,
-        "data": null
-    },
-    {
-        "id": "64483bd2b814dceee614a298",
-        "user": "60",
-        "name": "Pure Cycle - Their process",
-        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>PureCycle - Our Process</title></identity><providers><publisher>PureCycle</publisher></providers><content><description>A description of the multi-step grinding, washing, sorting, and solvent extraction steps to remove additives and purify polypropylene (PP) through their company.  It's one of the few public existing resources that uses solvent extraction for polyolefins, which are difficult to dissolve due to their stable hydrocarbon content.</description><subject>polypropylene, solvent-based recycling, supercritical fluids, extraction, purification, polyolefins</subject><landingPage>https://www.purecycle.com/our-process</landingPage><primaryAudience>practitioners</primaryAudience><primaryAudience>general public</primaryAudience><primaryAudience>communication specialists</primaryAudience></content><role xsi:type=\"rsm:Website\"><type>Website: General/Other</type></role><applicability><lifecyclePhase><recycling>recycling</recycling><recycling>recycling: solvents</recycling></lifecyclePhase><materialType><polymers_chemistry-based>polymers: chemistry-based</polymers_chemistry-based><polymers_chemistry-based>polymers: chemistry-based: polyolefins</polymers_chemistry-based></materialType></applicability></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
-        "data_structure_element_root": null,
-        "data": null
-    },
-    {
-        "id": "64483c957d190fbb1aeb3424",
-        "user": "55",
-        "name": "PV^2",
-        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Present Value of PhotoVoltaics</title></identity><providers><publisher>NIST</publisher></providers><content><description>Present Value of PhotoVoltaics - [PV]^2 - is a web application that allows homeowners to determine a complete cost of ownership for residential rooftop solar photovoltaic (PV) systems including purchase and operation through the system&#8217;s service life. The goal of [PV]^2 is to assist homeowners in making economical decisions related to solar PV. The current version is focused on allowing a homeowner to evaluate the cost-effectiveness of a specific solar PV system from a proposed contract from a solar installer. The homeowner will need information from the solar installer contract and their electricity bill. [PV]^2 uses the Economic Evaluation Engine (E3) API developed under the Metrics and Tools for Sustainable Buildings Project in the Net Zero Energy High Performance Building Program overseen by the Applied Economics Office (AEO) in the Engineering Laboratory (EL) at the National Institute of Standards and Technology (NIST). E3 provides American Society for Testing and Materials (ASTM) standards-based economic evaluation across a range of analysis types, including life cycle cost analysis (LCCA) and benefit-cost analysis (BCA).</description><subject>life cycle analysis,life cycle assessment,solar photovoltaics,life cycle cost analysis</subject><landingPage>https://pv2.nist.gov/</landingPage><primaryAudience>educators</primaryAudience><primaryAudience>policy makers</primaryAudience><primaryAudience>general public</primaryAudience></content><role xsi:type=\"rsm:Tool\"><type>Tool: Web App</type></role><applicability><productClass><solar_panels>solar panels</solar_panels></productClass><lifecyclePhase><use_and_reuse>use and reuse</use_and_reuse></lifecyclePhase></applicability></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
-        "data_structure_element_root": null,
-        "data": null
-    },
-    {
-        "id": "64500005966c6e84d1c3f4e4",
+        "id": 23,
         "user": "7",
         "name": "Test Record",
+        "creation_date": "2024-03-07T12:23:23.968676",
         "form_string": "<Resource status=\"active\" xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><role xsi:type=\"rsm:Collection\"><type>Collection: Repository</type></role></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
+        "template": 3,
         "data_structure_element_root": null,
         "data": null
     },
     {
-        "id": "6450054427bbbdc3ebf545dc",
+        "id": 9,
+        "user": "None",
+        "name": "Circular Supply Chain Network",
+        "creation_date": "2024-03-07T12:23:18.486536",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Circular Supply Chain Network</title></identity><providers><publisher>Circular Supply Chain Network</publisher></providers><content><description>The Circular Supply Chain Network is a global community of circular supply chain geeks, passionate about accelerating the transition to circular operations. \r\n \r\nThey educate, connect and innovate for circular supply chains that are good for the environment, society, business and innovation.  The Circular Supply Chain Network is a registered nonprofit as part of the Interweave accelerator at Sustainable Seattle.</description><subject>supply chain</subject><landingPage>https://www.circularsupplychain.network/</landingPage><primaryAudience>practitioners</primaryAudience><primaryAudience>general public</primaryAudience></content><role xsi:type=\"rsm:Organization\"><type>Organization: General/Other</type></role><role xsi:type=\"rsm:Website\"><type>Website: Informational</type></role></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 10,
+        "user": "56",
+        "name": "Science paper",
+        "creation_date": "2024-03-07T12:23:18.867628",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Evaluating scenarios toward zero plastic pollution</title></identity><providers><publisher>Science</publisher></providers><content><description>Article by Lau et al (2020).  Abstract:  Plastic pollution is a pervasive and growing problem. To estimate the effectiveness of interventions to reduce plastic pollution, we modeled stocks and flows of municipal solid waste and four sources of microplastics through the global plastic system for five scenarios between 2016 and 2040. Implementing all feasible interventions reduced plastic pollution by 40% from 2016 rates and 78% relative to &#8220;business as usual&#8221; in 2040. Even with immediate and concerted action, 710 million metric tons of plastic waste cumulatively entered aquatic and terrestrial ecosystems. To avoid a massive build-up of plastic in the environment, coordinated global action is urgently needed to reduce plastic consumption; increase rates of reuse, waste collection, and recycling; expand safe disposal systems; and accelerate innovation in the plastic value chain.</description><landingPage>https://www.science.org/doi/10.1126/science.aba9475</landingPage><primaryAudience>researchers</primaryAudience><primaryAudience>educators</primaryAudience></content><role xsi:type=\"rsm:Literature\"><type>Literature: Article</type></role></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 11,
+        "user": "38",
+        "name": "test44",
+        "creation_date": "2024-03-07T12:23:19.269126",
+        "form_string": "<Resource status=\"active\" xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><role xsi:type=\"rsm:Website\"><type>Website: Informational</type></role></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 12,
+        "user": "60",
+        "name": "100th Anniversary of Macromolecular Viewpoint - needs for polymer circularity",
+        "creation_date": "2024-03-07T12:23:19.671448",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>100th Anniversary of Macromolecular Science Viewpoint: Needs for Plastics Packaging Circularity</title></identity><providers><publisher>ACS Macro Letters</publisher></providers><content><description>Viewpoint article to highlight the technical gaps that need to be collaboratively addressed by the entire plastics community to achieve circularity in plastic packaging.</description><subject>circularity, plastics packaging, viewpoint, recycling, consumer use, collection and sorting</subject><landingPage>https://doi.org/10.1021/acsmacrolett.0c00437</landingPage><primaryAudience>researchers</primaryAudience><primaryAudience>practitioners</primaryAudience><primaryAudience>policy makers</primaryAudience></content><role xsi:type=\"rsm:Literature\"><type>Literature: Article</type></role></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 13,
+        "user": "55",
+        "name": "Federal LCA Commons",
+        "creation_date": "2024-03-07T12:23:20.043288",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Federal LCA Commons</title></identity><providers><publisher>USDA</publisher></providers><content><description>The Federal LCA Commons is an interagency community of practice for Life Cycle Assessment (LCA) research methods. This community of practice collaborates to share expertise and methods to move toward common Federal data modeling conventions and make Federal data sets freely available through a web-based data repository. The Federal LCA Commons has been formalized through a Memorandum of Understanding (MOU) to establish a formal agreement to coordinate LCA data, research, and information systems between the United States Department of Agriculture, Department of Energy, and Environmental Protection Agency. Additionally, the initiative is bolstered by a number of other participating agencies across government mission areas. Participating agencies each support for their mission, programs, and stakeholders. The initiative serves to coordinate and distribute Agency mission products for public benefit. The goals of the Federal LCA Commons and its value to the public and the Federal government are to: (1) Advance Federal LCA data, research, and information systems by leveraging multi-agency resources and expertise, (2) Improve consistency in LCA methods developed by each agency to develop LCA results for decision-making and public disclosure, and (3) Enhance public and agency access to Federal LCA data in a standardized searchable format from a common repository. The Federal LCA Commons data platform uses the openLCA Collaboration Server application. The Federal LCA Commons allows users to access and download data in the JSON-LD or ILCD formats, or fetch data directly into their local openLCA desktop application.</description><subject>life cycle assessment</subject><landingPage>https://www.lcacommons.gov/</landingPage><primaryAudience>researchers</primaryAudience><primaryAudience>practitioners</primaryAudience></content><role xsi:type=\"rsm:Collection\"><type>Collection: Repository</type></role><applicability><lifecyclePhase><end-of-life_management>end-of-life management</end-of-life_management><processing>processing</processing><use_and_reuse>use and reuse</use_and_reuse></lifecyclePhase></applicability></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 14,
+        "user": "56",
+        "name": "Science",
+        "creation_date": "2024-03-07T12:23:20.439175",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Evaluating scenarios toward zero plastic pollution</title></identity><providers><publisher>Science</publisher></providers><content><description>Article by Winnie Lau et al.  Abstract:  Plastic pollution is a pervasive and growing problem. To estimate the effectiveness of interventions to reduce plastic pollution, we modeled stocks and flows of municipal solid waste and four sources of microplastics through the global plastic system for five scenarios between 2016 and 2040. Implementing all feasible interventions reduced plastic pollution by 40% from 2016 rates and 78% relative to &#8220;business as usual&#8221; in 2040. Even with immediate and concerted action, 710 million metric tons of plastic waste cumulatively entered aquatic and terrestrial ecosystems. To avoid a massive build-up of plastic in the environment, coordinated global action is urgently needed to reduce plastic consumption; increase rates of reuse, waste collection, and recycling; expand safe disposal systems; and accelerate innovation in the plastic value chain.</description><landingPage>http://science.org/doi/10.1126/science.aba9475</landingPage></content><role xsi:type=\"rsm:Literature\"><type>Literature: Article</type></role></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 15,
+        "user": "59",
+        "name": "Life cycle",
+        "creation_date": "2024-03-07T12:23:20.824046",
+        "form_string": "<Resource status=\"active\" xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><role xsi:type=\"rsm:Organization\"><type>Organization: Project</type></role></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 24,
         "user": "7",
         "name": "test record",
+        "creation_date": "2024-03-07T12:23:24.357833",
         "form_string": "<Resource status=\"active\" xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><role xsi:type=\"rsm:Collection\"><type>Collection: Repository</type></role></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
+        "template": 3,
         "data_structure_element_root": null,
         "data": null
     },
     {
-        "id": "6450058027bbbdc3ebf545df",
+        "id": 25,
         "user": "7",
         "name": "New record for testing",
+        "creation_date": "2024-03-07T12:23:24.811521",
         "form_string": "<Resource status=\"active\" xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><role xsi:type=\"rsm:Collection\"><type>Collection: Repository</type></role></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
+        "template": 3,
         "data_structure_element_root": null,
         "data": null
     },
     {
-        "id": "645005a8590e22162f549151",
+        "id": 16,
+        "user": "60",
+        "name": "Review: Why Plastics Recycling is so Challenging",
+        "creation_date": "2024-03-07T12:23:21.201695",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Why is Recycling of Postconsumer Plastics so Challenging?</title></identity><providers><publisher>ACS Applied Polymer Materials (American Chemical Society (ACS))</publisher><publicationYear>2021</publicationYear></providers><content><description>This review provides insight on technical and economic hurdles associated with the recycling of postconsumer plastics, covering a large breadth of relevant areas such as new polymers, mechanical versus chemical recycling, sorting, separations, additives, and cost/benefit analysis.</description><landingPage>https://doi.org/10.1021/acsapm.1c00648</landingPage><primaryAudience>researchers</primaryAudience><primaryAudience>practitioners</primaryAudience><primaryAudience>policy makers</primaryAudience></content><role xsi:type=\"rsm:Literature\"><type>Literature: Article</type></role><applicability><productClass><durable_plastics>durable plastics</durable_plastics><packaging>packaging</packaging></productClass><lifecyclePhase><recycling>recycling</recycling></lifecyclePhase><materialType><polymers_chemistry-based>polymers: chemistry-based</polymers_chemistry-based><polymers_property-based>polymers: property-based</polymers_property-based></materialType></applicability></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 17,
+        "user": "59",
+        "name": "weathering",
+        "creation_date": "2024-03-07T12:23:21.634443",
+        "form_string": "<Resource status=\"active\" xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><role xsi:type=\"rsm:Organization\"><type>Organization: Project</type></role></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 18,
+        "user": "58",
+        "name": "Fostering a Circular Economy of Manufacturing Materials Workshop Report",
+        "creation_date": "2024-03-07T12:23:22.019676",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Fostering a Circular Economy of Manufacturing Materials Workshop Report</title></identity><providers><publisher>ASTM</publisher></providers><content><description>This report presents the key outcomes from the Workshop: &#8220;Fostering a Circular Economy of Manufacturing Materials&#8221; jointly organized by ASTM International and NIST, key takeaways from the proceeding Survey: Manufacturing in a Circular Economy, and next steps for addressing the standards needs identified in both.\r\n\r\nIn addition to the standards identified, two key takeaways stemmed from the survey and workshop: first, participants have a transformative, though fragmented, vision for a new way of thinking about how we create and use materials that is regenerative rather than extractive. Second, participants are motivated to make this vision come true, and they are indicative of a larger desire across the manufacturing sector to implement circularity. ASTM Committee E60 on Sustainability is well-suited to play a part in developing and coordinating standards that foster a circular economy for manufacturing materials.                            The report, and the types of standards it proposes will be of particular interest to material and product designers, manufacturing processors, recovery processors, and system planners and policymakers. These stakeholders will also be critical for realizing these CE standards. ASTM Committee E60 is initiating new efforts to address some of the standards needs and welcome other experts in the field to join and expand upon existing development activities and initiate new ones.</description><landingPage>https://marketing.astm.org/acton/fs/blocks/showLandingPage/a/9652/p/p-039d/t/page/fm/0</landingPage><primaryAudience>researchers</primaryAudience><primaryAudience>practitioners</primaryAudience><primaryAudience>policy makers</primaryAudience></content><role xsi:type=\"rsm:Literature\"><type>Literature: Proceedings</type><type>Literature: Report</type></role><role xsi:type=\"rsm:Literature\"><type>Literature: Proceedings</type><type>Literature: Report</type></role></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 19,
+        "user": "41",
+        "name": "GSA Battery Passport Pilots",
+        "creation_date": "2024-03-07T12:23:22.405712",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>GSA Battery Passport Pilots</title></identity><providers><publisher>Global Battery Alliance</publisher></providers><content><description>On January 18th, at the Annual Meeting of the World Economic Forum in Davos, the Global Battery Alliance has officially launched the world&#8217;s first battery passport proof-of-concept pilots. First conceptualized by the Global Battery Alliance in 2019, the launch builds on three years of pre-competitive multi-stakeholder collaboration across the battery value chain. This included the development of dedicated rulebooks to establish key sustainability performance indicators related to the battery carbon footprint and child labor and human rights due diligence as set out in the Greenhouse Gas rulebook and the Child Labor and Human Rights indices.</description><subject>Digital product passport,Battery passport,traceability</subject><landingPage>https://www.globalbattery.org/action-platforms-menu/pilot-test/</landingPage><primaryAudience>researchers</primaryAudience><primaryAudience>practitioners</primaryAudience><primaryAudience>policy makers</primaryAudience></content><role xsi:type=\"rsm:Website\"><type>Website: Portal</type></role></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 20,
+        "user": "60",
+        "name": "PureCycle Purification Process Summary",
+        "creation_date": "2024-03-07T12:23:22.804314",
+        "form_string": "<Resource status=\"active\" xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><content><landingPage>https://www.purecycle.com/our-process</landingPage></content><role xsi:type=\"rsm:Website\"><type>Website: Informational</type></role></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 21,
+        "user": "60",
+        "name": "Pure Cycle - Their process",
+        "creation_date": "2024-03-07T12:23:23.188334",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>PureCycle - Our Process</title></identity><providers><publisher>PureCycle</publisher></providers><content><description>A description of the multi-step grinding, washing, sorting, and solvent extraction steps to remove additives and purify polypropylene (PP) through their company.  It's one of the few public existing resources that uses solvent extraction for polyolefins, which are difficult to dissolve due to their stable hydrocarbon content.</description><subject>polypropylene, solvent-based recycling, supercritical fluids, extraction, purification, polyolefins</subject><landingPage>https://www.purecycle.com/our-process</landingPage><primaryAudience>practitioners</primaryAudience><primaryAudience>general public</primaryAudience><primaryAudience>communication specialists</primaryAudience></content><role xsi:type=\"rsm:Website\"><type>Website: General/Other</type></role><applicability><lifecyclePhase><recycling>recycling</recycling><recycling>recycling: solvents</recycling></lifecyclePhase><materialType><polymers_chemistry-based>polymers: chemistry-based</polymers_chemistry-based><polymers_chemistry-based>polymers: chemistry-based: polyolefins</polymers_chemistry-based></materialType></applicability></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 22,
+        "user": "55",
+        "name": "PV^2",
+        "creation_date": "2024-03-07T12:23:23.579440",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Present Value of PhotoVoltaics</title></identity><providers><publisher>NIST</publisher></providers><content><description>Present Value of PhotoVoltaics - [PV]^2 - is a web application that allows homeowners to determine a complete cost of ownership for residential rooftop solar photovoltaic (PV) systems including purchase and operation through the system&#8217;s service life. The goal of [PV]^2 is to assist homeowners in making economical decisions related to solar PV. The current version is focused on allowing a homeowner to evaluate the cost-effectiveness of a specific solar PV system from a proposed contract from a solar installer. The homeowner will need information from the solar installer contract and their electricity bill. [PV]^2 uses the Economic Evaluation Engine (E3) API developed under the Metrics and Tools for Sustainable Buildings Project in the Net Zero Energy High Performance Building Program overseen by the Applied Economics Office (AEO) in the Engineering Laboratory (EL) at the National Institute of Standards and Technology (NIST). E3 provides American Society for Testing and Materials (ASTM) standards-based economic evaluation across a range of analysis types, including life cycle cost analysis (LCCA) and benefit-cost analysis (BCA).</description><subject>life cycle analysis,life cycle assessment,solar photovoltaics,life cycle cost analysis</subject><landingPage>https://pv2.nist.gov/</landingPage><primaryAudience>educators</primaryAudience><primaryAudience>policy makers</primaryAudience><primaryAudience>general public</primaryAudience></content><role xsi:type=\"rsm:Tool\"><type>Tool: Web App</type></role><applicability><productClass><solar_panels>solar panels</solar_panels></productClass><lifecyclePhase><use_and_reuse>use and reuse</use_and_reuse></lifecyclePhase></applicability></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 26,
         "user": "7",
         "name": "test",
+        "creation_date": "2024-03-07T12:23:25.198643",
         "form_string": "<Resource status=\"active\" xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><role xsi:type=\"rsm:Collection\"><type>Collection: Repository</type></role></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
+        "template": 3,
         "data_structure_element_root": null,
         "data": null
     },
     {
-        "id": "645005de555eeeaa0651be7c",
+        "id": 27,
         "user": "None",
         "name": "test record",
+        "creation_date": "2024-03-07T12:23:25.577345",
         "form_string": "<Resource status=\"active\" xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><role xsi:type=\"rsm:Collection\"><type>Collection: Repository</type></role></Resource>",
-        "template": "6424b73c1414ce96e34107b5",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 28,
+        "user": "None",
+        "name": "Rheaply",
+        "creation_date": "2024-03-07T12:23:27.125042",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" status=\"active\"><content><landingPage>https://rheaply.com/</landingPage></content><role xsi:type=\"rsm:Website\"><type>Website: Portal</type></role></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 29,
+        "user": "None",
+        "name": "EPA's Creating Messages that Drive Behavior Change",
+        "creation_date": "2024-03-07T12:23:27.494190",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" status=\"active\"><content><landingPage>https://www.epa.gov/circulareconomy/creating-messages-drive-behavior-change</landingPage></content><role xsi:type=\"rsm:Website\"><type>Website: Informational</type></role></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 30,
+        "user": "38",
+        "name": "test",
+        "creation_date": "2024-03-07T12:23:27.880874",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" status=\"active\"><identity><title>A Circular Economy for Lithium-Ion Batteries Used in Mobile and Stationary Energy Storage: Drivers, Barriers, Enablers, and U.S. Policy Considerations</title></identity><providers><publisher>Office of Scientific and Technical Information (OSTI)</publisher><publicationYear>2021</publicationYear></providers><content><landingPage>https://doi.org/10.2172/1768315</landingPage><reference pid=\"https://doi.org/10.2172/1768315\">Curtis, T., Smith, L., Buchanan, H., &amp; Heath, G. (2021). A Circular Economy for Lithium-Ion Batteries Used in Mobile and Stationary Energy Storage: Drivers, Barriers, Enablers, and U.S. Policy Considerations. https://doi.org/10.2172/1768315\n</reference></content><role xsi:type=\"rsm:Literature\"><type>Literature: Article</type></role></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 31,
+        "user": "7",
+        "name": "NIST Polymer Recycling Research",
+        "creation_date": "2024-03-07T12:23:28.258734",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Sample Plastics Polymer research</title></identity><providers><publisher>Jane Smith</publisher></providers><content><description>This is a sample publication</description><landingPage>https://nist.gov</landingPage></content><role xsi:type=\"rsm:Collection\"><type>Collection: Project Archive</type></role><applicability><lifecyclePhase><recycling>recycling</recycling></lifecyclePhase><materialType><polymers_chemistry-based>polymers: chemistry-based</polymers_chemistry-based></materialType></applicability></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 32,
+        "user": "None",
+        "name": "test event",
+        "creation_date": "2024-03-07T12:23:28.644898",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" status=\"active\"><role xsi:type=\"rsm:Event\"><type>Event: Conference</type></role></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 33,
+        "user": "38",
+        "name": "refed",
+        "creation_date": "2024-03-07T12:23:29.025397",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Insights Engine</title></identity><providers><publisher>ReFED</publisher></providers><content><description>An online hub for data and solutions featuring the most comprehensive examination of food loss and waste in the United States &#8211; includes the Food Waste Monitor, Solutions Database, Solution Provider Directory, Impact Calculator, Capital Tracker, and Policy Finder.</description><subject>food waste</subject><landingPage>https://insights.refed.org/?_ga=2.195467753.475084816.1672502479-1009432472.1672502479</landingPage><primaryAudience>researchers</primaryAudience><primaryAudience>practitioners</primaryAudience><primaryAudience>policy makers</primaryAudience><event_online>online</event_online></content><role xsi:type=\"rsm:Dataset\"><type>Dataset: Database</type><dataOrigin>informatics and data science</dataOrigin><dataOrigin>literature</dataOrigin><dataOrigin>simulations</dataOrigin></role><role xsi:type=\"rsm:Website\"><type>Website: Portal</type></role><applicability><lifecyclePhase><collection_and_sortation>collection and sortation</collection_and_sortation><end-of-life_management>end-of-life management</end-of-life_management><processing>processing</processing></lifecyclePhase><materialType><biomass>biomass: compost</biomass><biomass>biomass: food</biomass></materialType></applicability></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 34,
+        "user": "58",
+        "name": "ASTM Sustainability Standards Database",
+        "creation_date": "2024-03-07T12:23:29.428131",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" status=\"active\"><content><landingPage>https://www.astm.org/get-involved/technical-committees/other-programs-services/sustainability-reference.html</landingPage></content><role xsi:type=\"rsm:Dataset\"><type>Dataset: Database</type></role></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 35,
+        "user": "62",
+        "name": "policy roll in CE and wasted food pub",
+        "creation_date": "2024-03-07T12:23:29.828520",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" status=\"active\"><content><landingPage>https://doi.org/10.1016/j.jclepro.2022.133200</landingPage></content><role xsi:type=\"rsm:Literature\"><type>Literature: Article</type></role></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 1,
+        "user": "41",
+        "name": "Waste Atlas",
+        "creation_date": "2024-03-07T12:23:15.392004",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><identity><title>Waste Atlas</title></identity><providers><publisher>D-Waste</publisher></providers><content><description>Waste Atlas is a crowdsourcing free access map that visualizes municipal solid waste management data across the world for comparison and benchmarking purposes.\r\nWaste Atlas is made with the contribution of scientists from different countries and the utilization of published data. Any contribution is more than welcomed but the figures published are firstly checked for mistakes or inconsistencies.\r\nWaste Atlas already includes data for:\r\n    164 Countries ( total 1,825,463,704 tn/yr or 97% of the Global Waste Generation )\r\n    1799 Cities\r\n    1626 Sanitary Landfills\r\n    93 Dumpsites\r\n    130 MBT units\r\n    78 Biological Treatment\r\n    716 WtE plants</description><landingPage>http://www.atlas.d-waste.com/</landingPage><event_online>online</event_online></content><role xsi:type=\"rsm:Website\"><type>Website: Portal</type></role></Resource>",
+        "template": 3,
+        "data_structure_element_root": null,
+        "data": null
+    },
+    {
+        "id": 37,
+        "user": "3",
+        "name": "hello",
+        "creation_date": "2024-03-13T09:59:43.247724",
+        "form_string": "<Resource xmlns=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:rsm=\"http://schema.nist.gov/xml/ce-res-md/1.0wd2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" status=\"active\" ><identity><title>Fostering a Circular Economy of Manufacturing Materials Workshop Report</title></identity><providers><publisher>ASTM International</publisher></providers><content><description>This report presents the key outcomes from the Workshop: “Fostering a Circular Economy of Manufacturing Materials” jointly organized by ASTM International and NIST, key takeaways from the proceeding Survey: Manufacturing in a Circular Economy, and next steps for addressing the standards needs identified in both.\n\nIn addition to the standards identified, two key takeaways stemmed from the survey and workshop: first, participants have a transformative, though fragmented, vision for a new way of thinking about how we create and use materials that is regenerative rather than extractive.\n\nSecond, participants are motivated to make this vision come true, and they are indicative of a larger desire across the manufacturing sector to implement circularity.\n\nASTM Committee E60 on Sustainability is well-suited to play a part in developing and coordinating standards that foster a circular economy for manufacturing materials.</description><subject>Circular manufacturing ,Circular design,Standards,Roadmap</subject><landingPage>https://marketing.astm.org/acton/fs/blocks/showLandingPage/a/9652/p/p-039d/t/page/fm/0?utm_source=Google&amp;utm_medium=Landing+Page&amp;utm_campaign=ABM</landingPage><primaryAudience>researchers</primaryAudience><primaryAudience>practitioners</primaryAudience><primaryAudience>policy makers</primaryAudience></content><role xsi:type=\"rsm:Literature\"><type>Literature: Report</type></role><applicability><lifecyclePhase><end-of-life_management>end-of-life management</end-of-life_management><materials_design>materials design</materials_design><processing>processing</processing><product_design>product design</product_design><recycling>recycling</recycling><repair_and_refurbishment>repair and refurbishment</repair_and_refurbishment></lifecyclePhase></applicability></Resource>",
+        "template": 2,
         "data_structure_element_root": null,
         "data": null
     }
