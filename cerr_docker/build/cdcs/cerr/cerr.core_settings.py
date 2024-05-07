@@ -5,7 +5,7 @@ import os
 
 SERVER_URI = os.environ["SERVER_URI"] if "SERVER_URI" in os.environ else None
 
-PROJECT_VERSION = os.getenv("PROJECT_VERSION", "3.5.0")
+PROJECT_VERSION = os.getenv("PROJECT_VERSION", "3.6.0")
 """ :py:class:`str`: Project version number.
 """
 
@@ -177,6 +177,14 @@ ENABLE_SAML2_SSO_AUTH = os.getenv("ENABLE_SAML2_SSO_AUTH", "False").lower() == "
 
 ENABLE_HANDLE_PID = os.getenv("ENABLE_HANDLE_PID", "False").lower() == "true"
 """ boolean: enable handle server PID support.
+"""
+
+ENABLE_BLOB_ENDPOINTS = os.getenv("ENABLE_BLOB_ENDPOINTS", "False").lower() == "true"
+""" bool: Enable blob api and user views for blob management.
+"""
+
+ALLOW_MULTIPLE_SCHEMAS = os.getenv("ALLOW_MULTIPLE_SCHEMAS", "False").lower() == "true"
+""" bool: Enable the use of multiple schemas in the registry.
 """
 
 MONGODB_INDEXING = True
