@@ -50,7 +50,8 @@
                 display: flex;
                 padding: 1em;
                 justify-content: space-evenly;
-                width: fit-content;
+                width: auto;
+                gap:2em;
                 border-radius: 20px;
                 border: 3px double #9eac87;
             }
@@ -247,7 +248,7 @@
                             </span>
                         </xsl:if>
                         <xsl:if test="$eventOnline">
-
+                            <br/>
                             <span> This is event is <xsl:value-of select="$eventOnline"/>
                             </span>
                         </xsl:if>
@@ -256,7 +257,7 @@
                                     select="$eventVenue"/></span>
                         </xsl:if>
                         <xsl:if test="$eventRecurring">
-                            <span>(This is a recurring event) </span>
+                            <span>  (This is a recurring event) </span>
                         </xsl:if>
                     </xsl:if>
                     <xsl:if test="$creators">
