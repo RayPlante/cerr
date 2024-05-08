@@ -3,7 +3,7 @@
 }
 
 .btn-custom {
-    color: black;
+    color: black!important;
     background-color: var(--main-highlight-color);
     border-radius: 10px;
     background-size: 0em;
@@ -13,6 +13,6 @@
 }
 
 .btn-custom:hover {
-    color: white;
+    color: white !important;
     transition: color 0.2s ease-in-out
 }
