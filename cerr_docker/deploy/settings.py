@@ -7,6 +7,7 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
+
 from core_main_app.utils.logger.logger_utils import (
     set_generic_handler,
     set_generic_logger,
@@ -50,9 +51,6 @@ INSTALLED_APPS = (
     "core_exporters_app",
     "core_exporters_app.exporters.xsl",
     "core_website_app",
-    "core_oaipmh_common_app",
-    "core_oaipmh_harvester_app",
-    "core_oaipmh_provider_app",
     "core_curate_app",
     "cerr_curate_app.apps.InitApp",
     "core_parser_app",
@@ -62,7 +60,6 @@ INSTALLED_APPS = (
     "core_explore_federated_search_app",
     "core_federated_search_app",
     "core_explore_common_app",
-    "core_explore_oaipmh_app",
     "core_explore_example_app",
     "core_explore_keyword_app",
     "core_dashboard_app",
