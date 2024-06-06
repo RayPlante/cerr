@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><Resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rsm="http://schema.nist.gov/xml/ce-res-md/1.0wd2" xmlns="http://schema.nist.gov/xml/ce-res-md/1.0wd2" status="active">
+  <identity>
+    <title>Polyethylene materials with in-chain ketones from nonalternating catalytic
+      copolymerization</title>
+  </identity>
+  <providers>
+    <publisher>Science</publisher>
+    <publicationYear>2021</publicationYear>
+    <creator>
+      <name middle="" given="Stefan" sur="Mecking" xsi:type="PersonName">Stefan Mecking</name>
+      <affiliation>University of Konstanz</affiliation>
+    </creator>
+    <contributor role="Researcher">
+      <name middle="" given="Maximilian" sur="Baur" xsi:type="PersonName">Maximilian Baur</name>
+      <affiliation>University of Konstanz</affiliation>
+    </contributor>
+    <contributor role="Researcher">
+      <name middle="" given="Fei" sur="Lin" xsi:type="PersonName">Fei Lin</name>
+      <affiliation>University of Konstanz</affiliation>
+    </contributor>
+    <contributor role="Researcher">
+      <name middle="O." given="Tobias" sur="Morgen" xsi:type="PersonName">Tobias O. Morgen</name>
+      <affiliation>University of Konstanz</affiliation>
+    </contributor>
+    <contributor role="Researcher">
+      <name middle="" given="Lucas" sur="Odenwald" xsi:type="PersonName">Lucas Odenwald</name>
+      <affiliation>University of Konstanz</affiliation>
+    </contributor>
+    <date role="Available" xsi:type="DciteDate">2021</date>
+    <contact>
+      <name>Stefan Mecking</name>
+      <postalAddress>
+        <addressLine>University of Konstanz, Department of Chemistry</addressLine>
+        <addressLine>Universitätsstraße 10</addressLine>
+        <addressLine>78457 Konstanz, Germany</addressLine>
+      </postalAddress>
+      <emailAddress>stefan.mecking@uni-konstanz.ed</emailAddress>
+    </contact>
+  </providers>
+  <content>
+    <description>The world’s most abundantly manufactured plastic, polyethylene, consists of inert
+      hydrocarbon chains. The introduction of reactive polar groups in these chains could help
+      overcome problematic environmental persistence and enhance compatibility with other materials.
+      We show that phosphinophenolate-coordinated nickel complexes can catalyze non-alternating
+      copolymerization of ethylene with carbon monoxide to incorporate a low density of individual
+      in-chain keto groups in polyethylene chains with high molecular weight while retaining
+      desirable material properties. After processing by conventional injection molding techniques,
+      tensile properties remain on par with those of standard high-density polyethylene while also
+      imparting photodegradability.</description>
+    <subject>polyolefins</subject>
+    <subject>polyethylene</subject>
+    <subject>copolymerization</subject>
+    <subject>photodegradation</subject>
+    <landingPage>https://www.science.org/doi/10.1126/science.abi8183</landingPage>
+    <primaryAudience>researchers</primaryAudience>
+  </content>
+  <role xsi:type="Literature">
+    <type>Literature: Article</type>
+  </role>
+  <applicability>
+    <productClass>
+      <packaging>packaging</packaging>
+    </productClass>
+    <productClass>
+      <packaging>packaging: plastic</packaging>
+    </productClass>
+    <lifecyclePhase>
+      <rsm:materials_design>materials design</rsm:materials_design>
+    </lifecyclePhase>
+    <lifecyclePhase>
+      <processing>processing</processing>
+    </lifecyclePhase>
+    <lifecyclePhase>
+      <rsm:end_of_life_management>end-of-life management</rsm:end_of_life_management>
+    </lifecyclePhase>
+    <materialType>
+      <polymers_property_based>polymers</polymers_property_based>
+    </materialType>
+    <materialType>
+      <polymers_chemistry_based>polymers: chemistry-based</polymers_chemistry_based>
+    </materialType>
+    <materialType>
+      <polymers_property_based>polymers: property-based</polymers_property_based>
+    </materialType>
+  </applicability>
+  <access>
+    <policy>
+      <restriction>public</restriction>
+      <rights>May require subscription to access</rights>
+      <copyright>
+        <crholder>American Association for the Advancement of Science</crholder>
+      </copyright>
+    </policy>
+  </access>
+</Resource>

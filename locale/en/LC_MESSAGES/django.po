@@ -1,5 +1,0 @@
-msgid "form_label"
-msgstr "draft"
-
-msgid "record_label"
-msgstr "resource"

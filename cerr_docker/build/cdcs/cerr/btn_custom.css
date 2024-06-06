@@ -1,0 +1,18 @@
+:root {
+    --main-highlight-color: #9eac87;
+}
+
+.btn-custom {
+    color: black!important;
+    background-color: var(--main-highlight-color);
+    border-radius: 10px;
+    background-size: 0em;
+    font-size: inherit;
+    line-height: 0.5em;
+    margin: 0.2em 0 0.2em 0
+}
+
+.btn-custom:hover {
+    color: white !important;
+    transition: color 0.2s ease-in-out
+}

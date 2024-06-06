@@ -1,1 +1,0 @@
-var saveListUrl = "{% url 'ajax_save_element' %}";
