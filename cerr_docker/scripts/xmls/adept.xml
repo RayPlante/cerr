@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://schema.nist.gov/xml/ce-res-md/1.0wd2"
+  xmlns:rsm="http://schema.nist.gov/xml/ce-res-md/1.0wd2" status="active">
+  <identity>
+    <title>The Alternatives for Disposition of Electronics Planning Tool</title>
+    <altTitle type="Abbreviation">ADEPT</altTitle>
+  </identity>
+  <providers>
+    <publisher>US Environmental Protection Agency</publisher>
+    <contact>
+      <name>Aaron Ferster</name>
+      <postalAddress>
+        <addressLine>US EPA Research</addressLine>
+        <addressLine>Office of Science Information Management</addressLine>
+        <addressLine>Mail Drop: D343-04</addressLine>
+        <addressLine>109 Alexander Drive</addressLine>
+        <addressLine>Durham, NC 27711</addressLine>
+      </postalAddress>
+      <emailAddress>ferster.aaron@epa.gov</emailAddress>
+    </contact>
+  </providers>
+  <content>
+    <description>ADEPT employs a combination of top-down data sources and bottom-up assumptions to
+      track the generation of used electronics by state and estimate the material flows from
+      generation to collection as well as processing and final disposition. Examples of top-down
+      data sources include national statistics on population, GDP, and retail sales. Examples of
+      bottom-up assumptions include average device weight per product based on the year of
+      manufacturing, expected product lifetimes, and market share by consumer segment. ADEPT
+      estimates material flows to three disposition pathways (i.e., reuse, recycling, and disposal).
+      ADEPT produces national- and state-level results for the quantity of electronic products
+      entering EOL management annually (during the years 1980 through 2040) as well as the
+      subsequent volume of waste being landfilled at each stage of the EOL management process.
+      Although the quality and availability of information on the markets and consumer behavior is
+      improving, the rate of change in technology and market behavior is high, which makes these
+      parameters hard to quantify. For this reason, ADEPT was designed to allow end users to easily
+      update key parameters and data elements based on their own assumptions and better information
+      in the future.</description>
+    <subject>electronics</subject>
+    <subject>excel spreadsheets</subject>
+    <landingPage>https://www.epa.gov/land-research/alternatives-disposition-electronics-planning-tool-adept</landingPage>
+    <primaryAudience>researchers</primaryAudience>
+  </content>
+  <role xsi:type="Tool">
+    <type>Tool: Desktop App</type>
+    <codeLanguage/>
+    <documentation>
+      <url>https://cfpub.epa.gov/si/si_public_record_report.cfm?Lab=CESER&amp;dirEntryId=347560</url>
+      <caption>User Guide</caption>
+    </documentation>
+    <useNotes>This tool is implemented as an Excel workbook.</useNotes>
+  </role>
+  <applicability>
+    <productClass xmlns:nr="http://schema.nist.gov/xml/ce-res-md/1.0wd2">
+      <electronics>electronics</electronics>
+    </productClass>
+    <lifecyclePhase/>
+    <materialType/>
+  </applicability>
+  <access>
+    <policy>
+      <restriction>public</restriction>
+    </policy>
+    <method xsi:type="DownloadMethod">
+      <title>The ADEPT Database</title>
+      <description>The ADEPT database is implemented as a downloadable Excel spreadsheet. See the
+        ADEPT User Guide for details on its use.</description>
+      <accessURL returns=""
+        >https://www.epa.gov/sites/default/files/2020-04/adept_model_20190820.xlsm</accessURL>
+      <format>Excel</format>
+      <filesize>15563188</filesize>
+    </method>
+  </access>
+</Resource>

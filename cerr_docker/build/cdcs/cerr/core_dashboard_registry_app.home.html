@@ -1,0 +1,80 @@
+{% load static %}
+
+{% block title %}
+	<h1>Dashboard Home</h1>
+{% endblock %}
+
+{% block content%}
+<div id="menu" class="row center-block good" style="display: flex;    justify-content: space-evenly;">
+	<div class="text-center" style="width:auto">
+		<a href="{% url 'core_dashboard_profile' %}" class="dashboard-item">
+			<i class="fas fa-user fa-5x dashboard-item-icon" aria-hidden="true"></i>
+		<br>
+		My Profile
+		</a>
+	</div>
+	<div class="text-center" style="width:auto">
+		<a href="{% url 'core_dashboard_records' %}" class="dashboard-item">
+			<i class="fas fa-globe fa-5x dashboard-item-icon" aria-hidden="true"></i>
+		<br>
+		My Resources
+		</a>
+	</div>
+
+<!--  OVERWRITE -- only show 'My Workspaces' if user in in the review group or staff member -->
+    {% if user.is_staff %}
+            <div class=" text-center" style="width:auto"  style="color:black; font-size:1.2em;font-weight: 600;">
+	        <a href="{% url 'core_dashboard_workspaces' %}" class="dashboard-item">
+			<i class="fas fa-list-ul fa-5x dashboard-item-icon" aria-hidden="true"></i>
+		    <br>
+            My Workspaces
+            </div>
+    {% else %}
+        {% for group in user.groups.all %}
+
+            {% if group|stringformat:'s' == "reviewer" %}
+            <div class=" text-center" style="width:auto"  style="color:black; font-size:1.2em;font-weight: 600;">
+	        <a href="{% url 'core_dashboard_workspaces' %}" class="dashboard-item">
+			<i class="fas fa-list-ul fa-5x dashboard-item-icon" aria-hidden="true"></i>
+		    <br>
+            My Workspaces
+            </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+<!-- END OVERWRITE -->
+
+	{% if data.show_blob_menu %}
+	<div class="text-center" style="width:auto">
+	  <a href="{% url 'core_dashboard_files' %}" class="dashboard-item">
+			<i class="fas fa-file fa-5x dashboard-item-icon" aria-hidden="true"></i>
+		<br>
+		My Files
+		</a>
+	</div>
+    {% endif %}
+</div>
+{% endblock %}
+
+<style>
+.dashboard-item{
+    color:black;
+    font-size:1.2em;
+    font-weight: 600;
+}
+.dashboard-item:hover{
+    color:black;
+}
+
+.dashboard-item-icon{
+    color: #eaccaa;
+    border-radius: 15px;
+    border: 6px solid #9ead87;
+    padding: 0.5em;
+    font-size: 2em;
+    margin-bottom: 0.5em;}
+
+.dashboard-item-icon:hover {
+    border-color:#6a7953;
+}
+</style>

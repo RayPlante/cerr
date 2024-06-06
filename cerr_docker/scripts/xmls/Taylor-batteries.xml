@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><Resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schema.nist.gov/xml/ce-res-md/1.0wd2" xmlns:rsm="http://schema.nist.gov/xml/ce-res-md/1.0wd2" status="active">
+  <identity>
+    <title>A Circular Economy for Lithium-Ion Batteries Used in Mobile and Stationary Energy
+      Storage: Drivers, Barriers, Enablers, and U.S. Policy Considerations</title>
+  </identity>
+  <providers>
+    <publisher>U.S. Department of Energy, Office of Scientific and Technical Information</publisher>
+    <publicationYear>2021</publicationYear>
+    <creator>
+      <name middle="" given="Taylor" sur="Curtis" xsi:type="PersonName">Curtis, Taylor</name>
+    </creator>
+    <creator>
+      <name middle="" given="Ligia" sur="Smith" xsi:type="PersonName">Smith, Ligia</name>
+    </creator>
+    <creator>
+      <name middle="" given="Heather" sur="Buchanan" xsi:type="PersonName">Buchanan, Heather</name>
+    </creator>
+    <contact>
+      <name>National Renewable Energy Lab. (NREL)</name>
+    </contact>
+  </providers>
+  <content>
+    <description>As large-format battery energy storage (BES) capacity increases in the United
+      States, so will the volume of spent lithium-ion batteries (LiBs) (Bade 2019). Estimates based
+      on a 10-year lifetime assumption found that the volume of LiBs that have reached the end of
+      their utility for electric vehicle (EV) applications could total two million units (four
+      million metric tons) annually by 2040 in the United States (Richa et al. 2014; Ai and Borucki
+      2018). Although there is currently no publicly available decommissioning or end-of-life (EoL)
+      projection for stationary BES systems, the U.S. energy storage market is expected to grow from
+      an annual deployment of 523 megawatts in 2013 to 7.3 gigawatts in 2025 (Wood MacKenzie and ESA
+      2020; Wesoff 2020). Despite potential secondary market opportunities and the potential
+      benefits associated with the reuse/recovery of LiB material, anecdotal evidence suggests that
+      in the United States most decommissioned LiBs from EVs are landfilled or otherwise disposed of
+      (Steward et al. 2019; Salim et al. 2019; CPUC 2019; DTSC 2019d; NREL 2019b; Jacoby 2019; DOE
+      2019). The reuse of large-format LiBs is not at commercial scale and to date consists of only
+      a handful of U.S.-led pilot projects. Similarly, less than 5% of LiBs from EVs are sent to
+      recycling facilities in the United States (Steward et al. 2019; Jacoby 2019; America Made
+      2019; Patel 2017). As awareness of current practices grows, and the demand for critical LiB
+      materials increases, U.S. industry stakeholders, regulators, and policymakers are starting to
+      (1) consider solutions to drive and enable environmentally sustainable materials management
+      decisions and behaviors and (2) identify barriers to a circular economy for LiBs (Figure 1).
+      Circular economy principles (Figure 1) attempt to transition from a
+      “take-make-consume-dispose” linear economic system to a circular system that allows for the
+      long life, high performance, and the reuse/recovery of products and materials (Ellen MacArthur
+      Foundation 2016). AWe begin this report by summarizing drivers, barriers, and enablers to a
+      circular economy for LiBs used in mobile and stationary BES systems in the United States. We
+      then report on our analysis of federal and state regulatory considerations that may impact the
+      reuse/recovery and disposal of LiBs, and potential civil and criminal liabilities associated
+      with noncompliance. We conclude by highlighting state policies and initiatives in the United
+      States that expressly address reuse/recovery and disposal of large-format LiBs. Our results
+      are based on legal and literature-based research and interviews with mobile and stationary BES
+      industry stakeholders, regulators, and policymakers. While this report addresses stationary
+      BES, as well as mobile BES, much of the information and experience with LiB decommissioning
+      and EoL material management is derived from the increasing management of spent EV LiBs in the
+      United States.</description>
+    <subject>energy planning, policy, and economy</subject>
+    <subject>energy storage</subject>
+    <subject>regulation</subject>
+    <subject>RCRA</subject>
+    <subject>lithium-ion batteries</subject>
+    <subject>LiBs</subject>
+    <subject>EVs</subject>
+    <subject>stationary battery energy storage</subject>
+    <subject>ESS</subject>
+    <subject>BES</subject>
+    <subject>battery energy storage</subject>
+    <subject>recycling</subject>
+    <subject>reuse</subject>
+    <subject>secondary application</subject>
+    <subject>decommissioning</subject>
+    <subject>end-of-life</subject>
+    <subject>policy</subject>
+    <landingPage>https://www.osti.gov/biblio/1768315/</landingPage>
+    <primaryAudience>policy makers</primaryAudience>
+  </content>
+  <role xsi:type="Literature">
+    <type>Literature: Article</type>
+  </role>
+  <applicability>
+    <productClass xmlns:nr="http://schema.nist.gov/xml/ce-res-md/1.0wd2">
+      <batteries>batteries</batteries>
+    </productClass>
+    <lifecyclePhase xmlns:nr="http://schema.nist.gov/xml/ce-res-md/1.0wd2">
+      <recycling>recycling: solvent processing and extraction</recycling>
+    </lifecyclePhase>
+  </applicability>
+  <access>
+    <policy>
+      <restriction>public</restriction>
+    </policy>
+    <method xsi:type="DownloadMethod"/>
+  </access>
+</Resource>

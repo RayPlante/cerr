@@ -1,1 +1,0 @@
-var dashboardEditQueryUrl = "{% url 'core_dashboard_edit_query_document' %}";

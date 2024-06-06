@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><Resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schema.nist.gov/xml/ce-res-md/1.0wd2" xmlns:rsm="http://schema.nist.gov/xml/ce-res-md/1.0wd2" status="active">
+  <identity>
+    <title>The Ellen MacArthur Foundationsssseee</title>
+  </identity>
+  <providers>
+    <publisher>The Ellen MacArthur Foundation</publisher>
+    <contact>
+      <name>The Ellen MacArthur Foundation</name>
+    </contact>
+  </providers>
+  <content>
+    <description>The Ellen MacArthur Foundation is a charitable organization focused on the
+      development and promotion of the circular economy. They support and collaborate with business,
+      academia, policymakers, and institutions around the world. They create resources,
+      publications, and tools that assist policymakers establish effective policies for enabling a
+      circular economy. They focus on work areas that can make the biggest impact, including
+      plastics, food, fashion, finance, and cities.</description>
+    <subject>charity</subject>
+    <subject>plastics</subject>
+    <subject>food</subject>
+    <subject>fashion</subject>
+    <subject>finance</subject>
+    <subject>cities</subject>
+    <landingPage>https://ellenmacarthurfoundation.org/</landingPage>
+    <primaryAudience>policy makers</primaryAudience>
+  </content>
+  <role xsi:type="Organization">
+    <type>Organization: General/Other</type>
+  </role>
+  <applicability>
+    <productClass xmlns:nr="http://schema.nist.gov/xml/ce-res-md/1.0wd2">
+      <textiles>textiles</textiles>
+    </productClass>
+    <productClass xmlns:nr="http://schema.nist.gov/xml/ce-res-md/1.0wd2">
+      <rsm:durable_plastics>organics</rsm:durable_plastics>
+    </productClass>
+    <lifecyclePhase/>
+    <materialType xmlns:nr="http://schema.nist.gov/xml/ce-res-md/1.0wd2">
+      <polymers_property_based>polymers</polymers_property_based>
+    </materialType>
+  </applicability>
+  <access>
+    <policy>
+      <restriction>public</restriction>
+    </policy>
+  </access>
+</Resource>

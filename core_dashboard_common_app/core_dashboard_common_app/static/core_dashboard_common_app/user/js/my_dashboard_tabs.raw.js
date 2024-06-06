@@ -1,1 +1,0 @@
-var urlDocuments = "{% url 'core_dashboard_queries' %}";

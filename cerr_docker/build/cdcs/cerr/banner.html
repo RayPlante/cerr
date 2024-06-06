@@ -1,0 +1,11 @@
+<header>
+    <h1 id="logo">{{ CUSTOM_TITLE }}</h1>
+    {% if subtitle %}
+<!--        <p>{{ CUSTOM_SUBTITLE }}</p>-->
+        {% if 'core_explore_keyword_app' in INSTALLED_APPS %}
+            <div id="banner_sub">
+                {% include 'theme/search_bar.html'%}
+            </div>
+        {% endif %}
+    {% endif %}
+</header>

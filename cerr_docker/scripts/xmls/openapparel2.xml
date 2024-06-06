@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><Resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rsm="http://schema.nist.gov/xml/ce-res-md/1.0wd2" xmlns="http://schema.nist.gov/xml/ce-res-md/1.0wd2" status="active">
+  <identity>
+    <title>Open Apparel Registry</title>
+  </identity>
+  <providers>
+    <publisher>The Open Apparel Registry</publisher>
+    <contact>
+      <name/>
+      <emailAddress>info@openapparel.org</emailAddress>
+    </contact>
+  </providers>
+  <content>
+    <description>The Open Apparel Registry exists to improve human rights and environmental
+      conditions in and around factories and facilities by opening up supply chain data as a free,
+      public good. When everyone working in global supply chains enjoys equal access to quality,
+      open-licensed data, it leads to more sustainable and equitable outcomes for the most
+      vulnerable communities affected by the apparel sector.</description>
+    <subject>Textile garment factories</subject>
+    <subject>Supply chain data</subject>
+    <subject>Open Source Mapping Tool</subject>
+    <landingPage>https://openapparel.org/</landingPage>
+    <primaryAudience>researchers</primaryAudience>
+  </content>
+  <role xsi:type="WebSite">
+    <type>Web Site: InteractiveResource: Portal</type>
+  </role>
+  <applicability>
+    <productClass>
+      <textiles>textiles</textiles>
+    </productClass>
+  </applicability>
+  <access>
+    <policy>
+      <restriction>public</restriction>
+    </policy>
+    <method xsi:type="PortalMethod"/>
+  </access>
+</Resource>

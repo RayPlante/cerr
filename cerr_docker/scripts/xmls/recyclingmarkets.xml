@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><Resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rsm="http://schema.nist.gov/xml/ce-res-md/1.0wd2" xmlns="http://schema.nist.gov/xml/ce-res-md/1.0wd2" status="active">
+  <identity>
+    <title>RecyclingMarkets.net</title>
+  </identity>
+  <providers>
+    <publisher>RecyclingMarkets.net</publisher>
+    <publicationYear>2021</publicationYear>
+    <contact>
+      <name>RecyclingMarkets.net</name>
+      <emailAddress>cmb@recyclingmarkets.net</emailAddress>
+      <phoneNumber>1-330-956-8911</phoneNumber>
+    </contact>
+  </providers>
+  <content>
+    <description>RecyclingMarkets.net offers a comprehensive Online Commodity Pricing Index for
+      Post-consumer Recovered Materials.</description>
+    <subject>Secondary Materials Pricing</subject>
+    <subject>Secondary Fiber Pricing</subject>
+    <subject>Materials Marketplace</subject>
+    <landingPage>https://www.recyclingmarkets.net/index.html</landingPage>
+    <primaryAudience>practitioners</primaryAudience>
+  </content>
+  <role xsi:type="Dataset">
+    <type>Dataset: Database</type>
+    <dataOrigin>surveys</dataOrigin>
+  </role>
+  <applicability>
+    <lifecyclePhase/>
+    <materialType xmlns:nr="http://schema.nist.gov/xml/ce-res-md/1.0wd2">
+      <metals_and_alloys>metals and alloys</metals_and_alloys>
+    </materialType>
+    <materialType xmlns:nr="http://schema.nist.gov/xml/ce-res-md/1.0wd2">
+      <polymers_property_based>polymers</polymers_property_based>
+    </materialType>
+  </applicability>
+  <access>
+    <policy>
+      <restriction>fee-required</restriction>
+      <copyright>
+        <crholder>RecyclingMarkets.net</crholder>
+        <cryear>2001-2021</cryear>
+      </copyright>
+    </policy>
+    <method xsi:type="PortalMethod"/>
+  </access>
+</Resource>
