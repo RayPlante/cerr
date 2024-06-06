@@ -32,8 +32,8 @@ RUN cd $DOCKYARD_SRVPROJ \
 WORKDIR $DOCKYARD_SRVPROJ
 RUN pip install -r requirements.txt
 
-RUN echo "\ngit+https://gitlab.nist.gov/gitlab/snb24/ce-registry.git@eventType" >> requirements.core.txt
-RUN echo "\ncore-module-blob-host-app==2.8.*" >> requirements.core.txt
+RUN echo "\ngit+https://gitlab.nist.gov/gitlab/curator/ce-registry.git@main" >> requirements.core.txt
+RUN echo "\ncore-module-blob-host-app==2.9.*" >> requirements.core.txt
 RUN echo "\ndjango-simple-history" >> requirements.core.txt
 
 RUN pip install -r requirements.core.txt
@@ -141,7 +141,7 @@ RUN sed -i 's|from core_main_app.views.user import views as user_views, ajax as 
 RUN sed -i 's|location.reload(true);|window.location.replace(window.location.origin + "/dashboard/workspaces");|g' /usr/local/lib/python3.8/site-packages/core_dashboard_registry_app/static/core_dashboard_registry_app/user/js/list/publish.js
 
 
-# ##line1068
+# ##liddne1068
 # RUN sed -i 's|"path": "core_main_app/user/js/data/detail.js",|"path": "core_main_app/user/js/data/detail.raw.js","is_raw": True,},{"path": "core_main_app/user/js/data/detail.js",|' /usr/local/lib/python3.8/site-packages/core_main_app/utils/view_builders/data.py
 # RUN sed -i 's|"path": "core_main_app/user/js/data/detail.js",|"path": "core_main_app/user/js/data/detail.raw.js","is_raw": True,},{"path": "core_main_app/user/js/data/detail.js",|' /usr/local/lib/python3.8/site-packages/core_curate_app/views/common/views.py
 # RUN sed -i 's|"path": "core_main_app/user/js/data/detail.js",|"path": "core_main_app/user/js/data/detail.raw.js","is_raw": True,},{"path": "core_main_app/user/js/data/detail.js",|' /usr/local/lib/python3.8/site-packages/core_main_app/views/common/views.py

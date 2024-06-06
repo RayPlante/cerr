@@ -248,4 +248,4 @@ celerybeat-schedule.*
 # From cerr_curate_app
 cerr_curate_app/migrations/
 workspace/
-
+cerr_docker/deploy2
