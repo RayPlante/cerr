@@ -170,7 +170,7 @@
 
 	}
 
-	@media screen and (max-width: 840px) {
+	@media screen and (max-width: 944px) {
 
 		.container.\31 25\25 {
 			width: 100%;
@@ -1151,7 +1151,7 @@
 
 	}
 
-	@media screen and (max-width: 840px) {
+	@media screen and (max-width: 944px) {
 
 		.row > * {
 			padding: 30px 0 0 30px;
@@ -1830,7 +1830,7 @@
 		text-decoration: none;
 	}
 
-		a:hover {
+		a:hover:not(.btn-danger) {
 			color: #6a7953 !important;
 			border-bottom-color: transparent;
             text-decoration:unset;
@@ -2461,7 +2461,7 @@ border-color: #9eac87;
 						content: '';
 						display: block;
 						position: absolute;
-						bottom: -0.5em;
+						bottom: -1.2em;
 						left: 50%;
 						margin-left: -0.375em;
 						/*background-color: #37c0fb;*/
@@ -2784,7 +2784,7 @@ font-size: larger;
 		display: none;
 	}
 
-	@media screen and (max-width: 840px) {
+	@media screen and (max-width: 944px) {
 
 		/* Basic */
 
