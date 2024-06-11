@@ -32,7 +32,7 @@ RUN cd $DOCKYARD_SRVPROJ \
 WORKDIR $DOCKYARD_SRVPROJ
 RUN pip install -r requirements.txt
 
-RUN echo "\ngit+https://gitlab.nist.gov/gitlab/curator/ce-registry.git@main" >> requirements.core.txt
+RUN echo "\ngit+https://gitlab.nist.gov/gitlab/circulareconomy/ce-registry.git@main" >> requirements.core.txt
 RUN echo "\ncore-module-blob-host-app==2.9.*" >> requirements.core.txt
 RUN echo "\ndjango-simple-history" >> requirements.core.txt
 
