@@ -1,13 +1,33 @@
 {% load menu %}
 {% load get_attribute %}
 {% load static %}
+
+<body>
+<!-- BEGIN SNIPPIT -->
+<div id="cookie-consent-banner" class="cookie-consent-banner">
+    <h3>Cookie settings</h3>
+    <p>
+        We participate in the US government's analytics program.
+        We only receive statistics on the traffic of the site as a
+        whole and do not receive information related to a particular user
+        See the data at analytics.usa.gov.
+    </p>
+    <button id="btn-accept-all" class="cookie-consent-button btn-success">Accept All</button>
+    <button id="btn-accept-some" class="cookie-consent-button btn-light">Accept Selection</button>
+    <button id="btn-reject-all" class="cookie-consent-button btn-secondary">Reject All</button>
+    <div class="cookie-consent-options">
+      <label><input id="consent-necessary" type="checkbox" value="Necessary" checked disabled>Necessary</label>
+      <label><input id="consent-analytics" type="checkbox" value="Analytics" checked>Analytics</label>
+    <label><input id="consent-preferences" type="checkbox" value="Preferences" checked>Preferences</label>
+    </div>
+</div>
 <nav id="nav">
     <ul>
         <li id="cdcs-main" style="padding:0; display: flex;" >
             <a href="https://www.nist.gov/circular-economy" title="NIST Cicurlar Economy" style="padding:0">
                 <img src="{% static "img/circular.png" %}"  alt="NIST Cicurlar Economy" style="max-width:5em;max-height:5em;margin:0;padding:0;margin-left:1em; margin-top: -0.25em;"/>           
             </a>
-            <a  id="circularEconomyLogoTxt" href="https://www.nist.gov/circular-economy">
+            <a  id="circularEconomyLogoTxt"  href="https://www.nist.gov/circular-economy">
                 <p>Circular Economy
                 Initiative</p>
             </a>
@@ -115,3 +135,135 @@
         </li>
     </ul>
 </nav>
+</body>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+ 
+    if(localStorage.getItem('consentMode') === null){
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'personalization_storage': 'denied',
+            'functionality_storage': 'denied',
+            'security_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+        });
+    } else {
+        gtag('consent', 'default', JSON.parse(localStorage.getItem('consentMode')));
+    }
+ 
+ 
+</script>
+<script>
+function hideBanner() {
+document.getElementById('cookie-consent-banner').style.display = 'none';
+}
+ 
+if(localStorage.getItem('consentMode') === null) {
+ 
+document.getElementById('btn-accept-all').addEventListener('click', function() {
+  setConsent({
+    necessary: true,
+    analytics: true,
+    preferences: true,
+    marketing: false
+  });
+  hideBanner();
+});
+document.getElementById('btn-accept-some').addEventListener('click', function() {
+  setConsent({
+    necessary: true,
+    analytics: document.getElementById('consent-analytics').checked,
+    preferences: document.getElementById('consent-preferences').checked,
+  });
+  hideBanner();
+});
+document.getElementById('btn-reject-all').addEventListener('click', function() {
+  setConsent({
+    necessary: false,
+    analytics: false,
+    preferences: false,
+    marketing: false
+  });
+  hideBanner();
+});
+document.getElementById('cookie-consent-banner').style.display = 'block';
+}
+ 
+function setConsent(consent) {
+const consentMode = {
+  'functionality_storage': consent.necessary ? 'granted' : 'denied',
+  'security_storage': consent.necessary ? 'granted' : 'denied',
+  'ad_storage': consent.marketing ? 'granted' : 'denied',
+  'ad_user_data': consent.marketing ? 'granted' : 'denied',
+  'ad_personalization': consent.marketing ? 'granted' : 'denied',
+  'analytics_storage': consent.analytics ? 'granted' : 'denied',
+  'personalization': consent.preferences ? 'granted' : 'denied',
+};
+gtag('consent', 'update', consentMode);
+localStorage.setItem('consentMode', JSON.stringify(consentMode));
+ 
+}
+</script>
+ 
+<!-- We participate in the US government's analytics program. See the data at analytics.usa.gov. -->
+<script async type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=DOC&subagency=NIST&pga4=G-7BJSGR3DQS"></script>
+<!-- END SNIPPIT -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bilbo&family=Bilbo+Swash+Caps&family=Carattere&family=Dancing+Script:wght@400..700&family=Italianno&family=MonteCarlo&family=Rouge+Script&display=swap');
+
+.italianno-regular {
+    font-family: "Italianno", cursive;
+    font-style: normal;
+    font-size: x-large;
+}
+.cookie-consent-banner {
+display: none;
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
+background-color: #f8f9fa;
+box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+color: black;
+padding: 15px;
+font-size: 14px;
+text-align: center;
+z-index: 1000;
+}
+ 
+.cookie-consent-button {
+border: 1;
+padding: 8px 16px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 14px;
+margin: 4px 2px;
+cursor: pointer;
+border-radius: 4px;
+}
+ 
+.cookie-consent-button:hover {
+box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+ 
+.cookie-consent-button:active {
+opacity: .5;
+}
+ 
+.cookie-consent-options {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+margin-bottom: 10px;
+}
+ 
+.cookie-consent-options label {
+margin: 0 10px;
+font-size: 14px;
+}
+</style>

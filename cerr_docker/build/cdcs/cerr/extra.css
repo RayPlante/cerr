@@ -49,9 +49,13 @@
 }
 
 .page-item.active .page-link {
-    background-color: #007ac1 !important;
+    background-color: #9eac87 !important;
+    color:white;
     border-color: #565656;
 }
+
+.page-link {
+ color: #9eac87;}
 
 .errorlist {
     color: red;
