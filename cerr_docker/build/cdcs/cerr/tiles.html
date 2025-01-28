@@ -4,7 +4,7 @@
 {% if tiles|length > 0 %}
 <div style="display: flex">
     {% for tile in tiles %}
-    <div class="tile">
+    <div class="tile growOnHover">
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;" onclick="submitRefinement({{ tile.categories }}, '{{refinement_form_id}}');">
         <div class="icon">
             <i class="fas {{ tile.logo }}"
