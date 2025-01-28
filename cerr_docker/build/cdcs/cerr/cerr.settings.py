@@ -85,6 +85,7 @@ INSTALLED_APPS = (
     "captcha",
     "django_celery_beat",
     "crispy_forms",
+    "crispy_bootstrap4",
     "fontawesomefree",
     # "simple_history",
     # Core apps
@@ -115,7 +116,7 @@ INSTALLED_APPS = (
     # Local apps
     "nmrr_home",
 )
-
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 MIDDLEWARE = (
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
@@ -270,7 +271,7 @@ DEFENDER_REDIS_URL = REDIS_URL
 DEFENDER_COOLOFF_TIME = 60
 """ integer: Period of inactivity after which old failed login attempts will be forgotten
 """
-DEFENDER_LOGIN_FAILURE_LIMIT = 3
+DEFENDER_LOGIN_FAILURE_LIMIT = 10
 """ integer: The number of login attempts allowed before a record is created for the failed login.
 """
 DEFENDER_STORE_ACCESS_ATTEMPTS = True
