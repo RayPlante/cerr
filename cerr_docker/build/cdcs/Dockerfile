@@ -42,7 +42,7 @@ WORKDIR $DOCKYARD_SRVPROJ
 RUN pip install -r requirements.txt
 
 RUN echo "\ngit+https://gitlab.nist.gov/gitlab/snb24/ce-registry.git@cdcs-3.11" >> requirements.core.txt
-RUN echo "\ncore-module-blob-host-app==2.12.*" >> requirements.core.txt
+RUN echo "\ncore-module-blob-host-app==2.13.*" >> requirements.core.txt
 RUN echo "\ndjango-simple-history" >> requirements.core.txt
 
 # Install git
