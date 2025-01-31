@@ -42,10 +42,17 @@ WORKDIR $DOCKYARD_SRVPROJ
 RUN pip install -r requirements.txt
 
 RUN echo "\ngit+https://gitlab.nist.gov/gitlab/snb24/ce-registry.git@cdcs-3.11" >> requirements.core.txt
-RUN echo "\ncore-module-blob-host-app==2.11.*" >> requirements.core.txt
+RUN echo "\ncore-module-blob-host-app==2.12.*" >> requirements.core.txt
 RUN echo "\ndjango-simple-history" >> requirements.core.txt
 
+# Install git
+RUN apt-get update && apt-get install -y git
+# RUN git+https://gitlab.nist.gov/gitlab/snb24/ce-registry.git@cdcs-3.11
+
 RUN pip install -r requirements.core.txt
+
+# ARG GIT_TOKEN
+# RUN git+https://$GIT_TOKEN@gitlab.nist.gov/gitlab/snb24/ce-registry.git@cdcs-3.11
 
 
 ########################################
@@ -135,7 +142,7 @@ RUN sed -i 's|reverse("core_curate_index")|reverse("core_curate_index"), icon="p
 
 RUN sed -i "s|{% include 'core_main_app/common/buttons/edit.html' with label=\"Edit Title\" %}|{% if data_loaded.can_read %}\n\t\t\t\t\t{% include 'core_main_app/common/buttons/edit.html' with label=\"Edit Title\" %}\n\t\t\t\t{% endif %}|g" /usr/local/lib/python3.10/site-packages/core_dashboard_registry_app/templates/core_dashboard_registry_app/list/my_dashboard_my_records_table.html
 # Change line on top of edit-record-btn to modify can_write --> can_read (used for Review workspace so that defualt user can't edit)
-RUN ex -s +'/edit-record-btn/-1 s/write/read/ | x' /usr/local/lib/python3.10/site-packages/core_dashboard_registry_app/templates/core_dashboard_registry_app/list/my_dashboard_my_records_table.html
+RUN sed -i '/edit-record-btn/{x; p; g; s/write/read/;}' /usr/local/lib/python3.10/site-packages/core_dashboard_registry_app/templates/core_dashboard_registry_app/list/my_dashboard_my_records_table.html
 # remove dashboard menu item is user is not staff
 RUN sed -i 's|reverse("core_dashboard_workspaces"),|reverse("core_dashboard_workspaces"), check=lambda request: request.user.is_staff, |g' /usr/local/lib/python3.10/site-packages/core_dashboard_registry_app/menus.py
 

@@ -20,8 +20,6 @@
 		padding: 0;
 		border: 0;
 		vertical-align: baseline;
-		/* font-size: 100%;
-		font: inherit; */
 	}
 
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -1866,16 +1864,6 @@
 			font-weight: 300;
 		}
 
-	h2 {
-		font-size: 1.75em;
-		letter-spacing: -0.025em;
-	}
-
-	h3 {
-		font-size: 1.2em;
-		letter-spacing: -0.025em;
-	}
-
 	sub {
 		font-size: 0.8em;
 		position: relative;
@@ -3056,18 +3044,6 @@ border-color: #9eac87;
 
 			body, input, select, textarea {
 				font-size: 11pt;
-				line-height: 1.35em;
-			}
-
-			h2 {
-				font-size: 1.25em;
-				letter-spacing: 0;
-				line-height: 1.35em;
-			}
-
-			h3 {
-				font-size: 1em;
-				letter-spacing: 0;
 				line-height: 1.35em;
 			}
 

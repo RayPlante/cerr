@@ -5,7 +5,7 @@ import os
 
 SERVER_URI = os.environ["SERVER_URI"] if "SERVER_URI" in os.environ else None
 
-PROJECT_VERSION = os.getenv("PROJECT_VERSION", "3.11.0")
+PROJECT_VERSION = os.getenv("PROJECT_VERSION", "3.12.0")
 """ :py:class:`str`: Project version number.
 """
 
@@ -170,6 +170,21 @@ ENABLE_XML_ENTITIES_TOOLTIPS = False
 OAI_ENABLE_HARVESTING = False
 """ boolean: Enable OAI-PMH harvesting by default.
 """
+ENABLE_ALLAUTH = os.getenv("ENABLE_ALLAUTH", "False").lower() == "true"
+""" boolean: enable Django-allauth
+"""
+
+ENABLE_ALLAUTH_LOCAL_MFA = (
+    os.getenv("ENABLE_ALLAUTH_LOCAL_MFA", "False").lower() == "true"
+)
+""" boolean: enable local MFA for Django-allauth
+"""
+
+ALLAUTH_ACCOUNT_REQUESTS_FOR_NEW_USERS = (
+    os.getenv("ALLAUTH_ACCOUNT_REQUESTS_FOR_NEW_USERS", "False").lower() == "true"
+)
+""" :py:class:`bool`: Signing up with Django-allauth create a CDCS account requests
+"""
 
 ENABLE_SAML2_SSO_AUTH = os.getenv("ENABLE_SAML2_SSO_AUTH", "False").lower() == "true"
 """ boolean: enable SAML2 SSO authentication.
@@ -238,4 +253,21 @@ BOOTSTRAP_VERSION = os.getenv("BOOTSTRAP_VERSION", "5.1.3")
 TEXT_EDITOR_LIBRARY = os.getenv("TEXT_EDITOR_LIBRARY", "Monaco")
 """ :py:class:`str`: Set to `Monaco` to enable use external text editor Monaco,`None` to use default text editor,
 or specify another external text editor to set it up.
+"""
+
+ENABLE_JSON_SCHEMA_SUPPORT = (
+    os.getenv("ENABLE_JSON_SCHEMA_SUPPORT", "False").lower() == "true"
+)
+""" :py:class:`bool`: Set to `True` to enable JSON Schema support.
+"""
+
+BACKWARD_COMPATIBILITY_DATA_XML_CONTENT = (
+    os.getenv("BACKWARD_COMPATIBILITY_DATA_XML_CONTENT", "True").lower() == "true"
+)
+""" :py:class:`bool`: Set to `True` to continue using Data.xml_content (deprecated)
+    instead of Data.content in the REST API.
+"""
+
+ALLOW_MULTIPLE_SCHEMAS = os.getenv("ALLOW_MULTIPLE_SCHEMAS", "False").lower() == "true"
+""" bool: Enable the use of multiple schemas in the registry.
 """
