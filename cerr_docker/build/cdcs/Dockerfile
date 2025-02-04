@@ -41,19 +41,12 @@ RUN pip install psycopg2 uwsgi gunicorn[gthread]
 WORKDIR $DOCKYARD_SRVPROJ
 RUN pip install -r requirements.txt
 
-RUN echo "\ngit+https://gitlab.nist.gov/gitlab/snb24/ce-registry.git@cdcs-3.11" >> requirements.core.txt
+RUN apt-get update && apt-get install -y git
+RUN echo "\ngit+https://gitlab.nist.gov/gitlab/snb24/ce-registry.git@upgrade-cdcs3.13" >> requirements.core.txt
 RUN echo "\ncore-module-blob-host-app==2.13.*" >> requirements.core.txt
 RUN echo "\ndjango-simple-history" >> requirements.core.txt
 
-# Install git
-RUN apt-get update && apt-get install -y git
-# RUN git+https://gitlab.nist.gov/gitlab/snb24/ce-registry.git@cdcs-3.11
-
 RUN pip install -r requirements.core.txt
-
-# ARG GIT_TOKEN
-# RUN git+https://$GIT_TOKEN@gitlab.nist.gov/gitlab/snb24/ce-registry.git@cdcs-3.11
-
 
 ########################################
 ########################################
@@ -133,8 +126,8 @@ RUN sed -i 's|reverse("core_curate_index")|reverse("core_curate_index"), icon="p
 #### END OVERWRITE ICONS ####
 
 #### OVERWRITE CALL CURATE APP API IN DASHBOARD ####
-#RUN sed -i 's|import core_curate_app.components.curate_data_structure.api as curate_data_structure_api|import core_curate_app.components.curate_data_structure.api as curate_data_structure_api \n from cerr_curate_app.components.curate_data_structure import api as curate_api|g' /usr/local/lib/python3.10/site-packages/core_dashboard_registry_app/core_dashboard_registry_app/views/common/views.py
-#RUN sed -i ':a;N;$!ba;s|forms = curate_data_structure_api.get_all_by_user_id_with_no_data(\n *request.user.id\n *)|forms = curate_api.get_all()|g' /usr/local/lib/python3.10/site-packages/core_dashboard_registry_app/core_dashboard_registry_app/views/common/views.py
+# RUN sed -i 's|import core_curate_app.components.curate_data_structure.api as curate_data_structure_api|import core_curate_app.components.curate_data_structure.api as curate_data_structure_api \n from cerr_curate_app.components.curate_data_structure import api as curate_api|g' /usr/local/lib/python3.10/site-packages/core_dashboard_registry_app/core_dashboard_registry_app/views/common/views.py
+# RUN sed -i ':a;N;$!ba;s|forms = curate_data_structure_api.get_all_by_user_id_with_no_data(\n *request.user.id\n *)|forms = curate_api.get_all()|g' /usr/local/lib/python3.10/site-packages/core_dashboard_registry_app/core_dashboard_registry_app/views/common/views.py
 
 #### END OVERWRITE CALL CURATE APP API IN DASHBOARD ####
 

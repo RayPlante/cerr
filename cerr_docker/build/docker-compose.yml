@@ -1,7 +1,6 @@
-version: "3"
 services:
   cdcs:
-    image: ce:${PROJECT_VERSION}
+    image: ${IMAGE_NAME}:${IMAGE_VERSION}
     build:
       context: ./cdcs
       args:
