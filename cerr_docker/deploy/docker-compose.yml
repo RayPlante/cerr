@@ -1,54 +1,51 @@
 version: "3"
 services:
-  cerr_nginx:
+  curator_nginx:
     image: nginx:${NGINX_VERSION}
-    container_name: ${PROJECT_NAME}_cdcs_nginx
+    container_name: ${COMPOSE_PROJECT_NAME}_cdcs_nginx
     restart: always
     ports:
       - "${NGINX_PORT_80}:80"
       - "${NGINX_PORT_443}:443"
     depends_on:
-      - cerr
+      - cdcs
     environment:
       - HOSTNAME=${HOSTNAME}
     volumes:
-      - cerr_socket:/tmp/curator/
-      - cerr_static:/srv/curator_static
+      - cdcs_socket:/tmp/curator/
+      - cdcs_static:/srv/curator_static
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/${SERVER_CONF}.conf:/etc/nginx/templates/default.conf.template
-  cerr_postgres:
+  curator_postgres:
     image: postgres:${POSTGRES_VERSION}
-    container_name: ${PROJECT_NAME}_cdcs_postgres
+    container_name: ${COMPOSE_PROJECT_NAME}_cdcs_postgres
     restart: always
     volumes:
-      - cerr_postgres_data:/var/lib/postgresql/data/
+      - postgres_data:/var/lib/postgresql/data/
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASS}
       - POSTGRES_DB=${POSTGRES_DB}
-  cerr_redis:
+  curator_redis:
     image: redis:${REDIS_VERSION}
-    container_name: ${PROJECT_NAME}_cdcs_redis
+    container_name: ${COMPOSE_PROJECT_NAME}_cdcs_redis
     command: redis-server --requirepass ${REDIS_PASS}
     restart: always
     volumes:
-      - cerr_redis_data:/data
-  cerr:
+      - redis_data:/data
+  cdcs:
     image: ${IMAGE_NAME}:${IMAGE_VERSION}
-    container_name: ${PROJECT_NAME}_cdcs
+    container_name: ${COMPOSE_PROJECT_NAME}_cdcs
     restart: always
-    logging:
-      driver: "json-file"
-      options:
-          max-size: "10m"
-          max-file: "5"
     depends_on:
-      - cerr_redis
-      - cerr_postgres
+      - curator_redis
+      - curator_postgres
     volumes:
       - cdcs_media:/srv/curator/media
-      - cerr_socket:/tmp/curator/
-      - cerr_static:/srv/curator/static.prod
+      - cdcs_socket:/tmp/curator/
+      - cdcs_static:/srv/curator/static.prod
+      # Uncomment to mount additional settings file
+#      - ./cdcs/${SETTINGS}.py:/srv/curator/${PROJECT_NAME}/${SETTINGS}.py
     environment:
       - DJANGO_SETTINGS_MODULE=${PROJECT_NAME}.${SETTINGS}
       - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
@@ -77,8 +74,8 @@ services:
       - ${WEB_SERVER:-uwsgi}
 
 volumes:
-  cerr_postgres_data:
-  cerr_redis_data:
-  cerr_socket:
-  cerr_static:
+  postgres_data:
+  redis_data:
   cdcs_media:
+  cdcs_socket:
+  cdcs_static:
